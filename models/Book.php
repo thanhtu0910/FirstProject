@@ -49,16 +49,29 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }
-    public function add($product_id, $name, $mota)
+    // Hàm thêm sản phẩm, trả về product_id vừa tạo
+    public function add($name, $mota)
     {
-        $sql = "INSERT INTO `products` VALUES (?,?,?)";
+        $sql = "INSERT INTO `products` (name, mota) VALUES (?, ?)";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$product_id, $name, $mota]);
+        $this->connect->loadData([$name, $mota]);
+
+        // Lấy product_id vừa được thêm
+        return $this->connect->lastInsertId(); // Phương thức này trả về product_id vừa thêm
     }
-    public function addvariants($img, $price)
+
+    // Hàm thêm biến thể với product_id
+    public function addvariants($product_id, $img, $price)
     {
-        $sql = "INSERT INTO `product_variants` VALUES (?,?)";
+        $sql = "INSERT INTO `product_variants` (product_id, img, price) VALUES (?, ?, ?)";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$img, $price]);
+        return $this->connect->loadData([$product_id, $img, $price]);
+    }
+
+    public function xem()
+    {
+        $sql = "SELECT * FROM `product_variants`";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData();
     }
 }

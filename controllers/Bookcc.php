@@ -76,6 +76,15 @@ class Bookcc
             $pass = $_POST['pass'];
             $email = $_POST['email'];
 
+            // echo "<pre>";
+            // print_r($_POST);
+            // // print_r($_FILES);
+            // die;
+
+
+
+
+
 
             $mBook = new Book();
             $addBook = $mBook->register(null, $user, $pass, $email);
@@ -90,7 +99,7 @@ class Bookcc
 
         $mBook = new Book();
         $login = $mBook->login();
-        include_once "views/dangnhap.php";
+        include_once "views/binh.php";
     }
     public function dangxuat()
     {
@@ -98,33 +107,41 @@ class Bookcc
     }
 
 
-    // them co bien the
-
     public function binh()
     {
         if (isset($_POST['btn_submit'])) {
 
             $name = $_POST['name'];
             $mota = $_POST['mota'];
+            // $img = $_FILES['img'];
+            $price = $_POST['price'];
 
-            if (isset($_POST['btn_submit'])) {
-                $img = $_POST['img'];
-                $price = $_POST['price'];
+            $target_dir = "images/";
+            $name_img = time() . $_FILES['img']['name'];
+            $img = $target_dir . $name_img;
+            move_uploaded_file($_FILES['img']['tmp_name'], $img);
 
-                $aBook = new Book();
-                $ccc = $aBook->addvariants(null, $img, $price);
+            // echo "<pre>";
+            // print_r($_POST);
+            // print_r($_FILES);
+            // die;
+
+            // Khởi tạo đối tượng
+            $book = new Book();
+
+            $product_id = $book->add($name, $mota);
+
+            if ($product_id) {
+                $abook = new Book();
+                $ccc = $abook->addvariants($product_id, $img, $price);
             }
-
-
-
-            $mBook = new Book();
-            $addBook = $mBook->add(null, $name, $mota);
-
-
-            // if (!$addBook) {
-            //     header('location:index.php');
-            // }
         }
         include_once "views/dangli.php";
+    }
+    public function xem()
+    {
+        $mBook = new Book();
+        $ccc = $mBook->xem();
+        include_once "views/xem.php";
     }
 }

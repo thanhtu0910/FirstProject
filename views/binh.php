@@ -1,4 +1,4 @@
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" action="http://localhost/php2/New%20folder%20(3)/base_asm/?act=binh" enctype="multipart/form-data">
     <h2>Thêm Sản Phẩm</h2>
 
     <!-- Thông tin sản phẩm chính -->
@@ -17,10 +17,8 @@
     <div id="variants">
         <!-- Mẫu biến thể -->
         <div class="variant">
-
             <input type="text" name="price" placeholder="gia">
-
-            <input type="file" name="img" placeholder="anh">
+            <input type="file" name="img">
         </div>
     </div>
 
@@ -33,7 +31,16 @@
 <script>
     function addVariant() {
         const variants = document.getElementById('variants');
-        const newVariant = document.querySelector('.variant').cloneNode(true);
-        variants.appendChild(newVariant);
+
+        let r = (Math.random() + 1).toString(36).substring(7);
+
+        let html = `
+             <div class="variant">
+                <input type="text" name="variant[${r}][price]" placeholder="gia">
+                <input type="file" name="variant[${r}][img]" placeholder="anh">
+            </div>
+        `;
+
+        variants.innerHTML += html;
     }
 </script>

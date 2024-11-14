@@ -29,6 +29,9 @@ switch ($bb) {
     case 'binh':
         $aa->binh();
         break;
+    case 'xem':
+        $aa->xem();
+        break;
 
     default:
         $aa->listbook();
