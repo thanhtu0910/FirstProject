@@ -68,11 +68,11 @@ class Book
     }
 
 
-    public function delete($id)
+    public function delete($product_id)
     {
-        $sql = "DELETE FROM `books` WHERE id=?";
+        $sql = "DELETE FROM `products` WHERE product_id=?";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$id], false);
+        return $this->connect->loadData([$product_id], false);
     }
     public function register($user_id, $username, $password, $email, $phone, $address, $role)
     {

@@ -36,7 +36,8 @@
                 <td><?php echo $value->stock_quantity; ?></td>
                 <td><img src="<?php echo $value->product_img; ?>" alt="Product Image" width="100px"></td>
                 <td>
-<                    <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>')">Xóa</button>
+                    <a href="?act=edit&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>"><button>Sửa</button></a>
+                    <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>')">Xóa</button>
                 </td>
             </tr>
         <?php } ?>

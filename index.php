@@ -5,7 +5,6 @@ require_once "models/Book.php";
 $aa = new Bookcc();
 $bb = isset($_GET['act']) ? $_GET['act'] : "/";
 switch ($bb) {
-
     case 'list':
         $aa->listbook();
         break;

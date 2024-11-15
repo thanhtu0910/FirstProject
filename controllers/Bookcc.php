@@ -33,9 +33,9 @@ class Bookcc
     public function deletebook()
     {
         if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+            $product_id = $_GET['product_id'];
             $mBook = new Book();
-            $delteBook = $mBook->delete($id);
+            $delteBook = $mBook->delete($product_id);
             if (!$delteBook) {
                 header('location:index.php');
             }
