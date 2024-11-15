@@ -84,4 +84,12 @@ class ConnectDatabase
             // throw $e; // Chuyển ngoại lệ để xử lý ở nơi khác nếu cần
         }
     }
+    public function lastInsertId()
+    {
+        try {
+            return $this->pdo->lastInsertId();
+        } catch (PDOException $e) {
+            echo "Lỗi khi lấy ID vừa chèn vào: " . $e->getMessage();
+        }
+    }
 }

@@ -8,36 +8,42 @@
 </head>
 
 <body>
-    <a href="?act=add"><button>them</button></a>
+    <!-- <a href="?act=add"><button>them</button></a> -->
     <a href="?act=register"><button>dangky</button></a>
-    <a href="?act=binh"><button>sfsdgfdg</button></a>
+    <a href="?act=login"><button>login</button></a>
+    <a href="?act=binh"><button>them</button></a>
+    <a href="?act=xem"><button>xem</button></a>
     <table border="1">
         <tr>
-            <td>id</td>
-            <td>book_name</td>
-            <td>book_cover_image</td>
-            <td>author</td>
-            <td>publication_year</td>
-            <td>book_description</td>
-            <td>hanh dong</td>
-
+            <td>product_id</td>
+            <td>name</td>
+            <td>description</td>
+            <td>category_name</td>
+            <td>variant_id</td>
+            <td>price</td>
+            <td>stock_quantity</td>
+            <td>product_img</td>
+            <td>action</td>
         </tr>
         <?php foreach ($listbook as $value) { ?>
             <tr>
-                <td><?php echo $value->id ?></td>
-                <td><?php echo $value->book_name ?></td>
-                <td><img src="<?php echo $value->book_cover_image ?>" alt="" width="100px"></td>
-                <td><?php echo $value->author ?></td>
-                <td><?php echo $value->publication_year ?></td>
-                <td><?php echo $value->book_description ?></td>
+                <td><?php echo $value->product_id; ?></td>
+                <td><?php echo $value->name; ?></td>
+                <td><?php echo $value->description; ?></td>
+                <td><?php echo $value->category_name; ?></td>
+                <td><?php echo $value->variant_id; ?></td>
+                <td><?php echo $value->price; ?></td>
+                <td><?php echo $value->stock_quantity; ?></td>
+                <td><img src="<?php echo $value->product_img; ?>" alt="Product Image" width="100px"></td>
                 <td>
-                    <a href="?act=edit&id=<?php echo $value->id ?>"><button>sua</button></a>
-                    <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->id ?>')">xoa</button>
+                    <a href="?act=edit&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>"><button>Sửa</button></a>
+                    <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>')">Xóa</button>
                 </td>
-
             </tr>
-        <?php }  ?>
+        <?php } ?>
     </table>
+
+
 </body>
 <script>
     function confirmDeleteBook(deleUrl) {
