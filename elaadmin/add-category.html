@@ -207,8 +207,8 @@
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
                                         <li><a href="index.html">Bảng điều khiển</a></li>
-                                        <li><a href="order-management.html"></a>Sản phẩm</li>
-                                        <li class="active">Xóa sản phẩm</li>
+                                        <li><a href="danhmuc.html">Danh mục</a></li>
+                                        <li class="active">Thêm danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -218,7 +218,30 @@
             </div>
 
                <!-- Nội dung -->
-    
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header"><strong>Thêm danh mục</strong></div>
+                        <div class="card-body card-block">
+                            <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="form-control-label">Tên danh mục</label>
+                                    <input type="text" name="product_price" placeholder="Nhập tên sản phẩm" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Thêm 
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
             <!-- /.content -->
             <div class="clearfix"></div>
             <!-- Footer -->

@@ -23,20 +23,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-    <style>
-        .table {
-            text-align: center; 
-            margin: auto; 
-        }
-    
-        .table th, .table td {
-            vertical-align: middle; 
-        }
-    
-        .table th, .table td {
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -77,15 +63,10 @@
                         <li class="active">
                             <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
                         </li>
-                        <li class="menu-title">Quản lý sản phẩm</li>
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="menu-icon fa fa-cube"></i>Sản phẩm</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-plus"></i><a href="add-product.html">Thêm sản phẩm</a></li>
-                                <li><i class="fa fa-edit"></i><a href="edit-product.html">Sửa sản phẩm</a></li>
-                                <li><i class="fa fa-trash"></i><a href="delete-product.html">Xóa sản phẩm</a></li>
-                            </ul>
+                        <li class="menu-title">Quản lý danh mục</li>
+                        <li>
+                            <a href="danhmuc.html" >
+                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
         
                         <li class="menu-title">Quản lý đơn hàng</li>
@@ -225,7 +206,9 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#"></a>Sản phẩm</li>
+                                        <li><a href="index.html">Bảng điều khiển</a></li>
+                                        <li><a href="danhmuc.html">Danh mục</a></li>
+                                        <li class="active">Sửa danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -234,45 +217,30 @@
                 </div>
             </div>
 
-              <!-- Bảng hiển thị sản phẩm -->
-            <div class="content mt-3">
-                <div class="container-fluid">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Danh mục</th>
-                                    <th>Hành động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><img src="images/avatar/1.jpg" alt="Product Image" width="50"></td>
-                                    <td>Sản phẩm A</td>
-                                    <td>500,000 VNĐ</td>
-                                    <td>Danh mục 1</td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm" onclick="window.location.href='add-product.html'">
-                                            <i class="fa fa-plus"></i> Thêm
-                                        </button>
-                                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit-product.html'">
-                                            <i class="fa fa-edit"></i> Sửa
-                                        </button>
-                                        <button class="btn btn-danger btn-sm" onclick="window.location.href='delete-product.html'">
-                                            <i class="fa fa-trash"></i> Xóa
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+               <!-- Nội dung -->
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header"><strong>Sửa danh mục</strong></div>
+                        <div class="card-body card-block">
+                            <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="form-control-label">Tên danh mục</label>
+                                    <input type="text" name="product_price" placeholder="Nhập tên sản phẩm" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Sửa 
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
             <!-- /.content -->
             <div class="clearfix"></div>

@@ -63,15 +63,10 @@
                         <li class="active">
                             <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
                         </li>
-                        <li class="menu-title">Quản lý sản phẩm</li>
-                        <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="menu-icon fa fa-cube"></i>Sản phẩm</a>
-                            <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-plus"></i><a href="add-product.html">Thêm sản phẩm</a></li>
-                                <li><i class="fa fa-edit"></i><a href="edit-product.html">Sửa sản phẩm</a></li>
-                                <li><i class="fa fa-trash"></i><a href="delete-product.html">Xóa sản phẩm</a></li>
-                            </ul>
+                        <li class="menu-title">Quản lý danh mục</li>
+                        <li>
+                            <a href="danhmuc.html" >
+                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
         
                         <li class="menu-title">Quản lý đơn hàng</li>
@@ -211,8 +206,8 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#">Bảng điều khiển</a></li>
-                                        <li><a href="#"></a>Sản phẩm</li>
+                                        <li><a href="index.html">Bảng điều khiển</a></li>
+                                        <li><a href="order-management.html">Sản phẩm</a></li>
                                         <li class="active">Sửa sản phẩm</li>
                                     </ol>
                                 </div>
@@ -240,6 +235,10 @@
                                     <input type="number" name="product_price" placeholder="Nhập giá sản phẩm" class="form-control">
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-control-label">Số lượng</label>
+                                    <input type="number" name="product_quantity" placeholder="Nhập số lượng" class="form-control">
+                                </div>
+                                <div class="form-group">
                                     <label class="form-control-label">Mô tả</label>
                                     <textarea name="product_description" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
                                 </div>
@@ -247,8 +246,10 @@
                                     <label class="form-control-label">Danh mục</label>
                                     <select name="product_category" class="form-control">
                                         <option value="">Chọn danh mục</option>
-                                        <option value="electronics">Áo đông nam</option>
-                                        <option value="fashion">Áo gió</option>
+                                        <option value="aokhoac">Áo Khoác</option>
+                                        <option value="aoquanni">Áo quần nỉ</option>
+                                        <option value="aoblazer">Áo blazer</option>
+                                        <option value="aoquanbò">Áo quần bò</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
