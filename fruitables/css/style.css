@@ -103,7 +103,7 @@
 }
 
 p{
-    color: aliceblue;
+    color: rgb(10, 10, 10);
 }
 
 .topbar .top-link a {
@@ -417,6 +417,8 @@ p{
 .counter h1 {
     margin-bottom: 0;
 }
+
+
 /*** Facts End ***/
 
 
