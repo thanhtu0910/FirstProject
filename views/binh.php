@@ -1,4 +1,4 @@
-<form method="POST" action="http://localhost/duan1/d-n-/?act=binh" enctype="multipart/form-data">
+<form method="POST"  enctype="multipart/form-data">
     <h2>Thêm Sản Phẩm</h2>
 
     <!-- Thông tin sản phẩm chính -->
@@ -37,17 +37,28 @@
 
 <script>
     function addVariant() {
-        const variants = document.getElementById('variants');
+        const variants = document.getElementById('variants'); // Lấy phần chứa biến thể
 
+        // Tạo một mã ngẫu nhiên cho mỗi biến thể để tránh xung đột tên
         let r = (Math.random() + 1).toString(36).substring(7);
 
+        // HTML cho mỗi biến thể mới, với các input được gán tên hợp lệ cho mảng
         let html = `
-             <div class="variant">
-                <input type="text" name="variant[${r}][price]" placeholder="gia">
-                <input type="file" name="variant[${r}][img]" placeholder="anh">
+            <div class="variant" id="variant-${r}">
+                <input type="text" name="variant[${r}][price]" placeholder="Giá" required>
+                <input type="text" name="variant[${r}][stock_quantity]" placeholder="Số lượng" required>
+                <input type="file" name="variant[${r}][product_img]" placeholder="Ảnh sản phẩm" required>
+                <button type="button" onclick="removeVariant('variant-${r}')">Xóa biến thể</button>
             </div>
         `;
 
+        // Thêm phần HTML vào phần 'variants'
         variants.innerHTML += html;
+    }
+
+    // Hàm để xóa biến thể
+    function removeVariant(id) {
+        const variant = document.getElementById(id);
+        variant.remove();
     }
 </script>

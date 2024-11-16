@@ -92,4 +92,22 @@ class ConnectDatabase
             echo "Lỗi khi lấy ID vừa chèn vào: " . $e->getMessage();
         }
     }
+    public function loadSingle($params = [])
+    {
+        try {
+            // Chuẩn bị truy vấn SQL
+            $stmt = $this->pdo->prepare($this->sql);
+            // Thực thi truy vấn với tham số
+            $stmt->execute($params);
+
+            // Trả về bản ghi đầu tiên dưới dạng mảng kết hợp, hoặc null nếu không có kết quả
+            return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+        } catch (PDOException $e) {
+            // Ghi log lỗi và ném ra Exception thay vì die
+            error_log("Lỗi truy vấn: " . $e->getMessage()); // Ghi log lỗi vào file
+            throw new Exception("Đã xảy ra lỗi khi truy vấn cơ sở dữ liệu."); // Ném exception để xử lý tại nơi gọi
+        }
+    }
+
+
 }
