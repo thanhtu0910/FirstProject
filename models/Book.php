@@ -26,23 +26,6 @@ class Book
         return $this->connect->loadData();
     }
 
-
-    // public function getid($product_id)
-    // {
-    //     $sql = "SELECT * FROM `products` WHERE product_id=?";
-    //     $this->connect->setQuery($sql);
-    //     return $this->connect->loadData([$product_id], false);
-    // }
-    // public function getvid($variant_id)
-    // {
-    //     $sql = "SELECT * FROM `product_variants` WHERE variant_id=?";
-    //     $this->connect->setQuery($sql);
-    //     return $this->connect->loadData([$variant_id], false);
-    // }
-
-
-
-
     public function delete($product_id)
     {
         $sql = "DELETE FROM `products` WHERE product_id=?";
@@ -79,12 +62,23 @@ class Book
     }
 
     // Hàm thêm biến thể với product_id
-    public function addvariants($product_id, $price, $stock_quantity, $product_img)
+    public function addvariants($product_id, $variants)
     {
-        $sql = "INSERT INTO `product_variants` (product_id, price, stock_quantity, product_img) VALUES (?, ?, ?,?)";
-        $this->connect->setQuery($sql);
-        return $this->connect->loadData([$product_id, $price, $stock_quantity, $product_img]);
+        $sql = "INSERT INTO `product_variants` (product_id, price, stock_quantity, product_img) VALUES (?, ?, ?, ?)";
+
+        foreach ($variants as $variant) {
+            // Lấy giá trị từ mảng biến thể
+            $price = $variant['price'];
+            $stock_quantity = $variant['stock_quantity'];
+            $product_img = $variant['product_img'];
+
+            // Thêm từng biến thể vào bảng `product_variants`
+            $this->connect->setQuery($sql);
+            $this->connect->loadData([$product_id, $price, $stock_quantity, $product_img]);
+        }
+        return true; // Trả về true nếu thêm tất cả biến thể thành công
     }
+
     // ---------------------------------------------------------------------------------------
     // sửa
     // Cập nhật các thuộc tính của biến thể sản phẩm

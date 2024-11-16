@@ -8,27 +8,6 @@ class Bookcc
         $listbook = $mBook->getall();
         include_once "views/list.php";
     }
-    // public function addbook()
-    // {
-    //     if (isset($_POST['btn_submit'])) {
-    //         $book_name = $_POST['book_name'];
-    //         $author = $_POST['author'];
-    //         $publication_year = $_POST['publication_year'];
-    //         $book_description = $_POST['book_description'];
-
-    //         $target_dir = "images/";
-    //         $name_img = time() . $_FILES['book_cover_image']['name'];
-    //         $book_cover_image = $target_dir . $name_img;
-    //         move_uploaded_file($_FILES['book_cover_image']['tmp_name'], $book_cover_image);
-
-    //         $mBook = new Book();
-    //         $addBook = $mBook->insert(null, $book_name, $book_cover_image, $author, $publication_year, $book_description);
-    //         if (!$addBook) {
-    //             header('location:index.php');
-    //         }
-    //     }
-    //     include_once "views/add.php";
-    // }
 
     public function deletebook()
     {
@@ -97,41 +76,59 @@ class Bookcc
     public function binh()
     {
         if (isset($_POST['btn_submit'])) {
-
+            // Dữ liệu sản phẩm chính
             $name = $_POST['name'];
             $description = $_POST['description'];
-
             $category_id = $_POST['category_id'];
-            $price = $_POST['price'];
-            $stock_quantity = $_POST['stock_quantity'];
-
-            $target_dir = "images/";
-            $name_img = time() . $_FILES['product_img']['name'];
-            $product_img = $target_dir . $name_img;
-            move_uploaded_file($_FILES['product_img']['tmp_name'], $product_img);
-
-            // echo "<pre>";
-            // print_r($_POST);
-            // print_r($_FILES);
-            // die;
 
             // Khởi tạo đối tượng
             $book = new Book();
 
+            // Thêm sản phẩm chính vào bảng `products` và lấy `product_id` vừa tạo
             $product_id = $book->add($name, $description, $category_id);
 
+            // Nếu thêm sản phẩm thành công
             if ($product_id) {
-                $abook = new Book();
-                $ccc = $abook->addvariants($product_id, $price, $stock_quantity, $product_img);
-                header('Location: index.php'); // Sau khi cập nhật, chuyển hướng về trang chủ
+                // Dữ liệu các biến thể
+                $variants = [];
+                if (isset($_POST['variant']) && is_array($_POST['variant'])) {
+                    foreach ($_POST['variant'] as $key => $variant) {
+                        // Xử lý upload ảnh cho từng biến thể
+                        $target_dir = "images/";
+                        $name_img = time() . '_' . $_FILES['variant']['name'][$key]['product_img'];
+                        $product_img = $target_dir . $name_img;
 
+                        move_uploaded_file(
+                            $_FILES['variant']['tmp_name'][$key]['product_img'],
+                            $product_img
+                        );
+
+                        // Thêm biến thể vào mảng
+                        $variants[] = [
+                            'price' => $variant['price'],
+                            'stock_quantity' => $variant['stock_quantity'],
+                            'product_img' => $product_img
+                        ];
+                    }
+                }
+
+                // Gọi hàm thêm biến thể
+                $book->addvariants($product_id, $variants);
+
+                // Chuyển hướng sau khi thêm thành công
+                header('Location: index.php');
+                exit;
             }
         }
+
+        // Lấy danh mục sản phẩm
         $mBook = new Book();
         $ccc = $mBook->categories();
+
+        // Gọi giao diện
         include_once "views/binh.php";
-        // include_once "views/edit.php";
     }
+
 
     public function editbook()
     {
