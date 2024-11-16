@@ -49,6 +49,12 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$product_id], false);
     }
+    public function deletev($variant_id)
+    {
+        $sql = "DELETE FROM `product_variants` WHERE variant_id=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$variant_id], false);
+    }
     public function register($user_id, $username, $password, $email, $phone, $address, $role)
     {
         $sql = "INSERT INTO `users` VALUES (?,?,?,?,?,?,?)";

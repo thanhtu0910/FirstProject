@@ -33,14 +33,21 @@ class Bookcc
     public function deletebook()
     {
         if (isset($_GET['id'])) {
-            $product_id = $_GET['product_id'];
+            // $product_id = $_GET['product_id'];
+            // $variant_id = $_GET['variant_id'];
+            $product_id = $_GET['id'];
+            $variant_id = $_GET['vid'];
             $mBook = new Book();
+            $delteBook = $mBook->deletev($variant_id);
             $delteBook = $mBook->delete($product_id);
+
             if (!$delteBook) {
                 header('location:index.php');
             }
         }
     }
+
+
     public function register()
     {
         if (isset($_POST['btn_submit'])) {
@@ -48,12 +55,11 @@ class Bookcc
             $password = $_POST['password'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
-            $address = $_POST['address'];
-            $role = $_POST['role'];
+
 
             // echo "<pre>";
             // print_r($_POST);
-            // // print_r($_FILES);
+            // print_r($_FILES);
             // die;
 
             $mBook = new Book();
@@ -129,69 +135,69 @@ class Bookcc
 
     public function editbook()
     {
-            // Lấy product_id và variant_id từ URL
-            $product_id = $_GET['id'];
-            $variant_id = $_GET['vid'];
+        // Lấy product_id và variant_id từ URL
+        $product_id = $_GET['id'];
+        $variant_id = $_GET['vid'];
 
-            // Lấy thông tin sản phẩm và biến thể từ CSDL
-            $mBook = new Book();
-            $idBook = $mBook->getid($product_id); // Lấy thông tin sản phẩm
-            $iddBook = $mBook->getvid($variant_id); // Lấy thông tin biến thể
-            $ccc = $mBook->categories(); // Lấy danh sách danh mục
+        // Lấy thông tin sản phẩm và biến thể từ CSDL
+        $mBook = new Book();
+        $idBook = $mBook->getid($product_id); // Lấy thông tin sản phẩm
+        $iddBook = $mBook->getvid($variant_id); // Lấy thông tin biến thể
+        $ccc = $mBook->categories(); // Lấy danh sách danh mục
 
-            // Kiểm tra xem thông tin sản phẩm và biến thể có hợp lệ không
-            if (!$idBook || !$iddBook) {
-                echo "Không tìm thấy sản phẩm hoặc biến thể với ID: $product_id và $variant_id.";
-                return; // Dừng thực thi nếu không có thông tin hợp lệ
-            }
+        // Kiểm tra xem thông tin sản phẩm và biến thể có hợp lệ không
+        if (!$idBook || !$iddBook) {
+            echo "Không tìm thấy sản phẩm hoặc biến thể với ID: $product_id và $variant_id.";
+            return; // Dừng thực thi nếu không có thông tin hợp lệ
+        }
 
-            if (isset($_POST['btn_submit'])) {
-                // Lấy thông tin từ form
-                $name = $_POST['name'];
-                $description = $_POST['description'];
-                $category_id = $_POST['category_id'];
-                $price = $_POST['price'];
-                $stock_quantity = $_POST['stock_quantity'];
+        if (isset($_POST['btn_submit'])) {
+            // Lấy thông tin từ form
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $category_id = $_POST['category_id'];
+            $price = $_POST['price'];
+            $stock_quantity = $_POST['stock_quantity'];
 
-                // Kiểm tra và xử lý ảnh sản phẩm
-                $product_img = $iddBook->product_img; // Giữ lại ảnh cũ nếu không có ảnh mới
+            // Kiểm tra và xử lý ảnh sản phẩm
+            $product_img = $iddBook->product_img; // Giữ lại ảnh cũ nếu không có ảnh mới
 
-                if ($_FILES['product_img']['name'] != '') {
-                    $target_dir = "images/";
-                    $name_img = time() . '_' . basename($_FILES['product_img']['name']);
-                    $product_img = $target_dir . $name_img;
+            if ($_FILES['product_img']['name'] != '') {
+                $target_dir = "images/";
+                $name_img = time() . '_' . basename($_FILES['product_img']['name']);
+                $product_img = $target_dir . $name_img;
 
-                    // Kiểm tra loại file trước khi tải lên
-                    $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
-                    if (in_array($_FILES['product_img']['type'], $allowed_types)) {
-                        move_uploaded_file($_FILES['product_img']['tmp_name'], $product_img);
-                    } else {
-                        echo "Chỉ chấp nhận các định dạng ảnh JPEG, PNG, GIF.";
-                        exit;
-                    }
+                // Kiểm tra loại file trước khi tải lên
+                $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+                if (in_array($_FILES['product_img']['type'], $allowed_types)) {
+                    move_uploaded_file($_FILES['product_img']['tmp_name'], $product_img);
+                } else {
+                    echo "Chỉ chấp nhận các định dạng ảnh JPEG, PNG, GIF.";
+                    exit;
                 }
-
-                // Gọi hàm updatevariants để cập nhật bảng product_variants
-                $updateVariant = $mBook->updatevariants(
-                    $variant_id,
-                    $product_id,
-                    $price,
-                    $stock_quantity,
-                    $product_img
-                );
-
-                // Gọi hàm updateProductByVariant để cập nhật bảng products
-                $updateProduct = $mBook->update(
-                    $variant_id,
-                    $name,
-                    $description,
-                    $category_id
-                );
-
-                // Không kiểm tra kết quả cập nhật, trực tiếp chuyển hướng sau khi lưu
-                header('Location: index.php');
-                exit;
             }
+
+            // Gọi hàm updatevariants để cập nhật bảng product_variants
+            $updateVariant = $mBook->updatevariants(
+                $variant_id,
+                $product_id,
+                $price,
+                $stock_quantity,
+                $product_img
+            );
+
+            // Gọi hàm updateProductByVariant để cập nhật bảng products
+            $updateProduct = $mBook->update(
+                $variant_id,
+                $name,
+                $description,
+                $category_id
+            );
+
+            // Không kiểm tra kết quả cập nhật, trực tiếp chuyển hướng sau khi lưu
+            header('Location: index.php');
+            exit;
+        }
 
         // Kiểm tra xem dữ liệu có hợp lệ trước khi truyền vào view
         if (isset($idBook) && isset($iddBook) && isset($ccc)) {
@@ -204,5 +210,4 @@ class Bookcc
             include_once "views/edit.php";
         }
     }
-
 }
