@@ -258,12 +258,14 @@ $query = mysqli_query($conn, $sql);
                                     <td><?php echo $row['category_id']?></td>
                                     <td><?php echo $row['name']?></td>
                                     <td>
-                                        <button class="btn btn-success btn-sm" onclick="window.location.href='index.php?page_layout=suadm'">
+                                        <button class="btn btn-success btn-sm" onclick="window.location.href='index.php?page_layout=suadm&category_id=<?php echo $row['category_id'];?>'">
                                             <i class="fa fa-edit"></i> Sửa
                                         </button>
-                                        <button class="btn btn-danger btn-sm" onclick="window.location.href='delete-category.html'">
+                                        <button onClick="if(confirm('Bạn có chắc muốn xóa?')) window.location.href='delete-category.php?category_id=<?php echo $row['category_id'];?>'" 
+                                                class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"></i> Xóa
                                         </button>
+
                                     </td>
                                 </tr>
                                <?php

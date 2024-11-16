@@ -1,3 +1,18 @@
+<?php
+include_once '../models/ConnectDatabase.php';
+$category_id = $_GET['category_id'];
+$sql = "SELECT * FROM `categories` WHERE category_id=$category_id";
+$query = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($query);
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    if(isset($name)){
+        $sql = "UPDATE `categories` SET name='$name' WHERE category_id=$category_id";
+        $query = mysqli_query($conn, $sql);
+        header('Location: index.php?page_layout=danhmuc');
+    }
+}
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -225,12 +240,12 @@
                     <div class="card">
                         <div class="card-header"><strong>Sửa danh mục</strong></div>
                         <div class="card-body card-block">
-                            <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="form-control-label">Tên danh mục</label>
-                                    <input type="text" name="product_price" placeholder="Nhập tên sản phẩm" class="form-control">
+                                    <input type="text" name="name" placeholder="Nhập tên danh mục" class="form-control" value="<?php echo $row['name']; ?>">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm">
+                                <button type="submit" name="submit" class="btn btn-primary btn-sm">
                                     <i class="fa fa-dot-circle-o"></i> Sửa 
                                 </button>
                             </form>
