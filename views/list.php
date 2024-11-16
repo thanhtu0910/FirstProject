@@ -37,7 +37,7 @@
                 <td><img src="<?php echo $value->product_img; ?>" alt="Product Image" width="100px"></td>
                 <td>
                     <a href="?act=edit&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>"><button>Sửa</button></a>
-                    <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>')">Xóa</button>
+                    <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>')">Xóa</button>
                 </td>
             </tr>
         <?php } ?>
