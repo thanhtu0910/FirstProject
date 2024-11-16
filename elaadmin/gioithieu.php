@@ -76,14 +76,14 @@
                     </li>
                     <li class="menu-title">Quản lý danh mục</li>
                     <li>
-                        <a href="danhmuc.html" >
+                        <a href="index.php?page_layout=danhmuc" >
                             <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                     </li>
                    
 
                     <li class="menu-title">Quản lý đơn hàng</li>
                     <li>
-                        <a href="order-management.html"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+                        <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                     </li>
     
                     <li class="menu-title">Quản lý người dùng</li>

@@ -1,3 +1,37 @@
+<?php
+include_once '../models/ConnectDatabase.php';
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+}else{
+    $page = 1;
+}
+$rowsPerPage = 5;
+$perRow=$page*$rowsPerPage-$rowsPerPage;
+$sql = "SELECT 
+            products.product_id, 
+            products.name AS product_name, 
+            products.price, 
+            products.description, 
+            products.image, 
+            categories.name AS category_name 
+        FROM `products` 
+        INNER JOIN `categories` 
+        ON products.category_id = categories.category_id 
+        ORDER BY products.product_id DESC LIMIT $perRow, $rowsPerPage";
+$query = mysqli_query($conn, $sql);
+
+$totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM products"));
+$totalPages = ceil($totalRows/$rowsPerPage);
+
+$listPage = "";
+for($i=1;$i<=$totalPages;$i++){
+    if($page==$i){
+        $listPage.='<li><a href="index.php?page_layout=sanpham&page='.$i.'" class="active">'.$i.'</a></li>';
+    }else{
+        $listPage.='<li><a href="index.php?page_layout=sanpham&page='.$i.'">'.$i.'</a></li>';
+    }
+}
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -75,22 +109,22 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
                         </li>
                         <li class="menu-title">Quản lý danh mục</li>
                         <li>
-                            <a href="danhmuc.html" >
+                            <a href="index.php?page_layout=danhmuc" >
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
         
                         <li class="menu-title">Quản lý đơn hàng</li>
                         <li>
-                            <a href="order-management.html"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                         </li>
         
                         <li class="menu-title">Quản lý người dùng</li>
                         <li>
-                            <a href="user-management.html"> <i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
+                            <a href="user-management.php"> <i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
                         </li>
                     </ul>
                 </div>
@@ -220,7 +254,7 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#"></a>Sản phẩm</li>
+                                        <li><a href="index.php?page_layout=sanpham"></a>Sản phẩm</li>
                                     </ol>
                                 </div>
                             </div>
@@ -234,7 +268,7 @@
                 <div class="container-fluid">
                     <div class="table-responsive">
                         <table class="table table-bordered">
-                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='add-product.html'">
+                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='index.php?page_layout=themsp'">
                                 <i class="fa fa-plus"></i> Thêm sản phẩm
                             </button>
                             <thead class="thead-dark">
@@ -243,23 +277,26 @@
                                     <th>Hình ảnh</th>
                                     <th>Tên sản phẩm</th>
                                     <th>Giá</th>
-                                    <th>Số lượng</th>
+                                    <th>Mô tả</th>
                                     <th>Danh mục</th>
                                     <th>Ngày nhập</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                while($row= mysqli_fetch_array($query)){                               
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td><img src="images/avatar/1.jpg" alt="Product Image" width="50"></td>
-                                    <td>Sản phẩm A</td>
-                                    <td>500,000 VNĐ</td>
-                                    <td>1</td>
-                                    <td>Danh mục 1</td>
-                                    <td>20/10/2024</td>
+                                    <td><?php echo $row['product_id'];?></td>
+                                    <td><img src="images/<?php echo $row['image'];?>" alt="Product Image" width="50"></td>
+                                    <td><?php echo $row['product_name'];?></td>
+                                    <td><?php echo $row['price'];?></td>
+                                    <td><?php echo $row['description'];?></td>
+                                    <td><?php echo $row['category_name'];?></td>
+                                    <td><?php echo $row['product_id'];?></td>
                                     <td>
-                                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit-product.html'">
+                                        <button class="btn btn-success btn-sm" onclick="window.location.href='index.php?page_layout=suasp'">
                                             <i class="fa fa-edit"></i> Sửa
                                         </button>
                                         <button class="btn btn-danger btn-sm" onclick="window.location.href='delete-product.html'">
@@ -267,8 +304,17 @@
                                         </button>
                                     </td>
                                 </tr>
+                                <?php
+                                }                              
+                                ?>
                             </tbody>
                         </table>
+                        <ul class="ok" >
+                            <?php
+                            echo $listPage;
+                            ?>
+                        </ul>
+
                     </div>
                 </div>
             </div>
