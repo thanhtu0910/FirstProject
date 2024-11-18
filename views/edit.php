@@ -41,6 +41,7 @@
             text-align: center;
         }
     </style>
+
 </head>
 
 <body>
@@ -261,7 +262,7 @@
                                         <label for="category_id" class="form-control-label">Danh mục:</label>
                                         <select name="category_id" class="form-control">
                                             <?php foreach ($ccc as $value) { ?>
-                                                <option value="<?php echo $value->category_id ?>">
+                                                <option>
                                                     <?php echo $value->name ?>
                                                 </option>
                                             <?php } ?>
@@ -333,3 +334,6 @@
 </body>
 
 </html>
+<script>
+    document.title = 'Sửa sản phẩm';
+</script>

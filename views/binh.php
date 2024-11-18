@@ -349,6 +349,7 @@
 
 </html>
 <script>
+    document.title = 'Thêm sản phẩm';
     let aa = 1;
 
     function addVariant() {
@@ -377,7 +378,7 @@
                                              
                            
                 </div>
-                <button type="button" onclick="removeVariant('variant-${r}')" class="btn btn-primary btn-sm">Xóa biến thể</button> 
+                <button type="button" onclick="removeVariant('variant-${r}')" class="btn btn-primary btn-sm" >Xóa biến thể</button> 
             </div>
         `;
 

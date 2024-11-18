@@ -22,14 +22,16 @@
     <div id="variants">
         <!-- Mẫu biến thể -->
         <div class="variant">
-            <input type="text" name="price" required value="<?php echo $iddBook['price'] ?>">
-            <input type="text" name="stock_quantity" required value="<?php echo $iddBook['stock_quantity'] ?>">
+            <?php foreach ($iddBook  as $valu) { ?>
+                <input type="text" name="price" required value="<?php echo $valu->price ?>">
+                <input type="text" name="stock_quantity" required value="<?php echo $valu->stock_quantity ?>">
+            <?php } ?>
             <input type="file" name="product_img">
             <img src="<?php echo $iddBook['product_img'] ?>" alt="" width="100px">
         </div>
     </div>
 
 
-    <button type="submit" name="btn_submit" >Lưu sản phẩm</button>
+    <button type="submit" name="btn_submit">Lưu sản phẩm</button>
 
 </form>

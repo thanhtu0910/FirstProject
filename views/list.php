@@ -86,7 +86,7 @@
                         </li>
                         <li class="menu-title">Quản lý danh mục</li>
                         <li>
-                            <a href="danhmuc.html">
+                            <a href="http://localhost/duan1/d-n-/views/elaadmin/index.php?page_layout=danhmuc">
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
 
@@ -322,4 +322,5 @@
             document.location = deleUrl;
         }
     }
+    document.title = 'Admin';
 </script>

@@ -118,9 +118,6 @@ class Book
 
 
 
-
-
-
     public function getid($product_id)
     {
         $sql = "SELECT * FROM products WHERE product_id = ?";
