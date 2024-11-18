@@ -117,4 +117,15 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }
+
+    public function addReview($product_id, $user_id, $rating, $comment_text) {
+        $sql = "INSERT INTO `reviews` (product_id, user_id, rating, comment, created_at) VALUES (?, ?, ?, ?, NOW())";
+        try {
+            $this->connect->setQuery($sql);
+            return $this->connect->loadData([$product_id, $user_id, $rating, $comment_text]);
+        } catch (Exception $e) {
+            error_log("SQL Error: " . $e->getMessage());
+            return false;
+        }
+    }
 }

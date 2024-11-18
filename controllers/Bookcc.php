@@ -181,4 +181,40 @@ class Bookcc
         // Hiển thị form sửa sản phẩm
         include_once "views/edit.php";
     }
+
+    public function binhluan() {
+        // Kiểm tra dữ liệu từ form và session
+        if (!isset($_POST['product_id'], $_POST['comment_text'], $_POST['rating'], $_SESSION['user_id'])) {
+            echo "Dữ liệu không hợp lệ hoặc bạn chưa đăng nhập!";
+            return;
+        }
+        
+        $mBook = new Book();
+    
+        // Nhận dữ liệu từ form
+        $product_id = (int)$_POST['product_id']; // ID sản phẩm
+        $comment_text = trim($_POST['comment_text']); // Nội dung bình luận
+        $rating = (int)$_POST['rating']; // Đánh giá (rating)
+        $user_id = (int)$_SESSION['user_id']; // Lấy user_id từ session (người dùng đã đăng nhập)
+    
+        // Kiểm tra dữ liệu đầu vào
+        if (empty($comment_text) || strlen($comment_text) < 3) {
+            echo "Bình luận phải có ít nhất 3 ký tự!";
+            return;
+        }
+        if ($rating <= 0 || $rating > 5) {
+            echo "Vui lòng nhập đánh giá hợp lệ (1 đến 5 sao)!";
+            return;
+        }
+    
+        // Thêm bình luận vào CSDL
+        if ($mBook->addReview($product_id, $user_id, $rating, $comment_text)) {
+            header("Location: product.php?id=$product_id"); // Chuyển hướng về trang chi tiết sản phẩm
+            exit();
+        } else {
+            error_log("Lỗi khi thêm bình luận: product_id=$product_id, user_id=$user_id, rating=$rating");
+            echo "Lỗi khi thêm bình luận!";
+        }
+        include_once "views/binhluan.php";
+    }
 }
