@@ -1,3 +1,13 @@
+<?php
+
+include_once(__DIR__ . '/../../models/ConnectDatabase.php'); 
+
+
+
+
+$sql = "SELECT * FROM `categories` ORDER BY category_id ASC";
+$query = mysqli_query($conn, $sql);
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -75,21 +85,35 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
+<<<<<<< HEAD:views/elaadmin/danhmuc.html
                             <a href="index.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-laptop" style="font-size: 20px;"></i>Bảng điều khiển
                             </a>
+=======
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/danhmuc.php
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/danhmuc.html
                             <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
                             </a>
+=======
+                            <a href="index.php?page_layout=danhmuc" >
+                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/danhmuc.php
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/danhmuc.html
                             <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
                             </a>
+=======
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/danhmuc.php
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/danhmuc.html
                             <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-users" style="font-size: 20px;"></i>Quản lý người dùng
                             </a>
@@ -103,6 +127,9 @@
                             <a href="comment-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-comments" style="font-size: 20px;"></i>Quản lý bình luận
                             </a>
+=======
+                            <a href="user-management.php"> <i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/danhmuc.php
                         </li>
                     </ul>
                 </div>
@@ -246,7 +273,7 @@
                 <div class="container-fluid">
                     <div class="table-responsive">
                         <table class="table table-bordered">
-                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='add-category.html'">
+                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='index.php?page_layout=themdm'">
                                 <i class="fa fa-plus"></i> Thêm danh mục
                             </button>
                             <thead class="thead-dark">
@@ -257,18 +284,26 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              <?php
+                              while($row = mysqli_fetch_array($query)){
+                              ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Danh mục A</td>
+                                    <td><?php echo $row['category_id']?></td>
+                                    <td><?php echo $row['name']?></td>
                                     <td>
-                                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit-category.html'">
+                                        <button class="btn btn-success btn-sm" onclick="window.location.href='index.php?page_layout=suadm&category_id=<?php echo $row['category_id'];?>'">
                                             <i class="fa fa-edit"></i> Sửa
                                         </button>
-                                        <button class="btn btn-danger btn-sm" onclick="window.location.href='delete-category.html'">
+                                        <button onClick="if(confirm('Bạn có chắc muốn xóa?')) window.location.href='delete-category.php?category_id=<?php echo $row['category_id'];?>'" 
+                                                class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"></i> Xóa
                                         </button>
+
                                     </td>
                                 </tr>
+                               <?php
+                               }                             
+                               ?>
                             </tbody>
                         </table>
                     </div>

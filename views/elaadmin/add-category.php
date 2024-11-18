@@ -1,3 +1,39 @@
+<?php
+ob_start(); // Bắt đầu bộ đệm đầu ra
+
+// Kết nối cơ sở dữ liệu
+include_once(__DIR__ . '/../../models/ConnectDatabase.php'); 
+
+if (isset($_POST['submit'])) {
+    $name = trim($_POST['name']); // Xóa khoảng trắng thừa
+
+    if (!empty($name)) {
+        $stmt = $conn->prepare("INSERT INTO categories(name) VALUES (?)");
+        $stmt->bind_param("s", $name);
+
+        if ($stmt->execute()) {
+            // Hiển thị thông báo và chuyển hướng
+            echo "<script>
+                alert('Thêm danh mục thành công!');
+                window.location.href = 'index.php?page_layout=danhmuc';
+            </script>";
+            exit;
+        } else {
+            echo "Lỗi: " . $stmt->error;
+        }
+
+        $stmt->close();
+    } else {
+        echo "Tên danh mục không được để trống.";
+    }
+}
+
+ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
+?>
+
+
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -66,14 +102,23 @@
                             </a>
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/edit-category.html
                             <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
                             </a>
+=======
+                            <a href="index.php?page_layout=danhmuc" >
+                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-category.php
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/edit-category.html
                             <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
                             </a>
+=======
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-category.php
                         </li>
                         <li>
                             <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
@@ -218,9 +263,9 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="index.html">Bảng điều khiển</a></li>
-                                        <li><a href="danhmuc.html">Danh mục</a></li>
-                                        <li class="active">Sửa danh mục</li>
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=danhmuc">Danh mục</a></li>
+                                        <li class="active">Thêm danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -235,15 +280,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header"><strong>Sửa danh mục</strong></div>
+                        <div class="card-header"><strong>Thêm danh mục</strong></div>
                         <div class="card-body card-block">
-                            <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="form-control-label">Tên danh mục</label>
-                                    <input type="text" name="product_price" placeholder="Nhập tên sản phẩm" class="form-control">
+                                    <input type="text" name="name" placeholder="Nhập tên sản phẩm" class="form-control">
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Sửa 
+                                <button type="submit" name="submit" class="btn btn-primary btn-sm">
+                                    Thêm
                                 </button>
                             </form>
                         </div>

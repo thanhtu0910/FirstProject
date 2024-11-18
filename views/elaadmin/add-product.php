@@ -1,18 +1,3 @@
-<?php
-include_once '../models/ConnectDatabase.php';
-$category_id = $_GET['category_id'];
-$sql = "SELECT * FROM `categories` WHERE category_id=$category_id";
-$query = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($query);
-if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    if(isset($name)){
-        $sql = "UPDATE `categories` SET name='$name' WHERE category_id=$category_id";
-        $query = mysqli_query($conn, $sql);
-        header('Location: index.php?page_layout=danhmuc');
-    }
-}
-?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -76,33 +61,47 @@ if(isset($_POST['submit'])){
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-<<<<<<< HEAD:elaadmin/add-category.html
+<<<<<<< HEAD:views/elaadmin/add-product.html
                             <a href="index.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-laptop" style="font-size: 20px;"></i>Bảng điều khiển
                             </a>
 =======
                             <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
->>>>>>> 7b6eb7ed659d06ab9fac091b73d28c5ff18adb63:views/elaadmin/add-category.html
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-product.php
                         </li>
                         <li>
-<<<<<<< HEAD:elaadmin/add-category.html
+<<<<<<< HEAD:views/elaadmin/add-product.html
+<<<<<<< HEAD:elaadmin/add-product.html
                             <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
                             </a>
+                        </li>
+=======
+                            <a href="danhmuc.html">
 =======
                             <a href="index.php?page_layout=danhmuc" >
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-product.php
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
->>>>>>> 7b6eb7ed659d06ab9fac091b73d28c5ff18adb63:views/elaadmin/add-category.html
                         </li>
+        
+                        <li class="menu-title">Quản lý đơn hàng</li>
+>>>>>>> 7b6eb7ed659d06ab9fac091b73d28c5ff18adb63:views/elaadmin/add-product.html
                         <li>
-<<<<<<< HEAD:elaadmin/add-category.html
+<<<<<<< HEAD:views/elaadmin/add-product.html
                             <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
                             </a>
+                        </li>
+<<<<<<< HEAD:elaadmin/add-product.html
+=======
+
 =======
                             <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
->>>>>>> 7b6eb7ed659d06ab9fac091b73d28c5ff18adb63:views/elaadmin/add-category.html
                         </li>
+        
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-product.php
+                        <li class="menu-title">Quản lý người dùng</li>
+>>>>>>> 7b6eb7ed659d06ab9fac091b73d28c5ff18adb63:views/elaadmin/add-product.html
                         <li>
                             <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-users" style="font-size: 20px;"></i>Quản lý người dùng
@@ -122,7 +121,14 @@ if(isset($_POST['submit'])){
                 </div>
             </nav>
         </aside>
+<<<<<<< HEAD:views/elaadmin/add-product.html
+<<<<<<< HEAD:elaadmin/add-product.html
+=======
+
+>>>>>>> 7b6eb7ed659d06ab9fac091b73d28c5ff18adb63:views/elaadmin/add-product.html
+=======
        
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-product.php
         <!-- /#left-panel -->
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
@@ -246,15 +252,14 @@ if(isset($_POST['submit'])){
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-<<<<<<<< HEAD:views/elaadmin/add-category.html
+<<<<<<< HEAD:views/elaadmin/add-product.html
                                         <li><a href="index.html">Bảng điều khiển</a></li>
-                                        <li><a href="danhmuc.html">Danh mục</a></li>
-                                        <li class="active">Thêm danh mục</li>
-========
+                                        <li><a href="product-management.html">Sản phẩm</a></li>
+=======
                                         <li><a href="index.php">Bảng điều khiển</a></li>
-                                        <li><a href="index.php?page_layout=danhmuc">Danh mục</a></li>
-                                        <li class="active">Sửa danh mục</li>
->>>>>>>> 6196e09ccef8dda15e02b64290368d059dcb99f7:elaadmin/edit-category.php
+                                        <li><a href="index.php?page_layout=sanpham">Sản phẩm</a></li>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/add-product.php
+                                        <li class="active">Thêm sản phẩm</li>
                                     </ol>
                                 </div>
                             </div>
@@ -269,27 +274,41 @@ if(isset($_POST['submit'])){
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-<<<<<<<< HEAD:views/elaadmin/add-category.html
-                        <div class="card-header"><strong>Thêm danh mục</strong></div>
+                        <div class="card-header"><strong>Thêm sản phẩm mới</strong></div>
                         <div class="card-body card-block">
                             <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="form-control-label">Tên danh mục</label>
-                                    <input type="text" name="product_price" placeholder="Nhập tên sản phẩm" class="form-control">
+                                    <label class="form-control-label">Tên sản phẩm</label>
+                                    <input type="text" name="product_name" placeholder="Nhập tên sản phẩm" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Giá sản phẩm</label>
+                                    <input type="number" name="product_price" placeholder="Nhập giá sản phẩm" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Số lượng</label>
+                                    <input type="number" name="product_quantity" placeholder="Nhập số lượng" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Mô tả</label>
+                                    <textarea name="product_description" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Danh mục</label>
+                                    <select name="product_category" class="form-control">
+                                        <option value="">Chọn danh mục</option>
+                                        <option value="aokhoac">Áo Khoác</option>
+                                        <option value="aoquanni">Áo quần nỉ</option>
+                                        <option value="aoblazer">Áo blazer</option>
+                                        <option value="aoquanbò">Áo quần bò</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Tải lên hình ảnh</label>
+                                    <input type="file" name="product_image" class="form-control-file">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Thêm 
-========
-                        <div class="card-header"><strong>Sửa danh mục</strong></div>
-                        <div class="card-body card-block">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="form-control-label">Tên danh mục</label>
-                                    <input type="text" name="name" placeholder="Nhập tên danh mục" class="form-control" value="<?php echo $row['name']; ?>">
-                                </div>
-                                <button type="submit" name="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Sửa 
->>>>>>>> 6196e09ccef8dda15e02b64290368d059dcb99f7:elaadmin/edit-category.php
+                                    <i class="fa fa-dot-circle-o"></i> Thêm sản phẩm
                                 </button>
                             </form>
                         </div>

@@ -77,14 +77,23 @@
                         </a>
                     </li>
                     <li>
+<<<<<<< HEAD:views/elaadmin/index.html
                         <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
                             <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
                         </a>
+=======
+                        <a href="index.php?page_layout=danhmuc" >
+                            <i class="menu-icon fa fa-cube"></i>Danh mục</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/gioithieu.php
                     </li>
                     <li>
+<<<<<<< HEAD:views/elaadmin/index.html
                         <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
                             <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
                         </a>
+=======
+                        <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/gioithieu.php
                     </li>
                     <li>
                         <a href="user-management.html" style="font-size: 15px; font-weight: bold;">

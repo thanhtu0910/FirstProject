@@ -61,19 +61,32 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
+<<<<<<< HEAD:views/elaadmin/edit-product.html
                             <a href="index.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-laptop" style="font-size: 20px;"></i>Bảng điều khiển
                             </a>
+=======
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/edit-product.php
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/edit-product.html
                             <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
                             </a>
+=======
+                            <a href="index.php?page_layout=danhmuc" >
+                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/edit-product.php
                         </li>
                         <li>
+<<<<<<< HEAD:views/elaadmin/edit-product.html
                             <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
                                 <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
                             </a>
+=======
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/edit-product.php
                         </li>
                         <li>
                             <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
@@ -218,8 +231,13 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
+<<<<<<< HEAD:views/elaadmin/edit-product.html
                                         <li><a href="index.html">Bảng điều khiển</a></li>
                                         <li><a href="product-management.html">Sản phẩm</a></li>
+=======
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=sanpham">Sản phẩm</a></li>
+>>>>>>> dbc7c3c891448448e213366ecdc5642768c141e2:views/elaadmin/edit-product.php
                                         <li class="active">Sửa sản phẩm</li>
                                     </ol>
                                 </div>
