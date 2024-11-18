@@ -61,17 +61,17 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
                         </li>
                         <li class="menu-title">Quản lý danh mục</li>
                         <li>
-                            <a href="danhmuc.html" >
+                            <a href="index.php?page_layout=danhmuc" >
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
         
                         <li class="menu-title">Quản lý đơn hàng</li>
                         <li>
-                            <a href="order-management.html"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                         </li>
         
                         <li class="menu-title">Quản lý người dùng</li>
@@ -206,9 +206,9 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="index.html">Bảng điều khiển</a></li>
-                                        <li><a href="order-management.html">Sản phẩm</a></li>
-                                        <li class="active">Sửa sản phẩm</li>
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=sanpham">Sản phẩm</a></li>
+                                        <li class="active">Thêm sản phẩm</li>
                                     </ol>
                                 </div>
                             </div>
@@ -223,9 +223,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header"><strong>Sửa sản phẩm mới</strong></div>
+                        <div class="card-header"><strong>Thêm sản phẩm mới</strong></div>
                         <div class="card-body card-block">
-                            <form action="edit-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="form-control-label">Tên sản phẩm</label>
                                     <input type="text" name="product_name" placeholder="Nhập tên sản phẩm" class="form-control">
@@ -257,7 +257,7 @@
                                     <input type="file" name="product_image" class="form-control-file">
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i>Cập nhật sản phẩm
+                                    <i class="fa fa-dot-circle-o"></i> Thêm sản phẩm
                                 </button>
                             </form>
                         </div>

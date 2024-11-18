@@ -1,3 +1,39 @@
+<?php
+ob_start(); // Bắt đầu bộ đệm đầu ra
+
+// Kết nối cơ sở dữ liệu
+include_once(__DIR__ . '/../../models/ConnectDatabase.php'); 
+
+if (isset($_POST['submit'])) {
+    $name = trim($_POST['name']); // Xóa khoảng trắng thừa
+
+    if (!empty($name)) {
+        $stmt = $conn->prepare("INSERT INTO categories(name) VALUES (?)");
+        $stmt->bind_param("s", $name);
+
+        if ($stmt->execute()) {
+            // Hiển thị thông báo và chuyển hướng
+            echo "<script>
+                alert('Thêm danh mục thành công!');
+                window.location.href = 'index.php?page_layout=danhmuc';
+            </script>";
+            exit;
+        } else {
+            echo "Lỗi: " . $stmt->error;
+        }
+
+        $stmt->close();
+    } else {
+        echo "Tên danh mục không được để trống.";
+    }
+}
+
+ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
+?>
+
+
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -23,20 +59,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-    <style>
-        .table {
-            text-align: center; 
-            margin: auto; 
-        }
-    
-        .table th, .table td {
-            vertical-align: middle; 
-        }
-    
-        .table th, .table td {
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -79,13 +101,13 @@
                         </li>
                         <li class="menu-title">Quản lý danh mục</li>
                         <li>
-                            <a href="danhmuc.html" >
+                            <a href="index.php?page_layout=danhmuc" >
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
         
                         <li class="menu-title">Quản lý đơn hàng</li>
                         <li>
-                            <a href="order-management.html"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                         </li>
         
                         <li class="menu-title">Quản lý người dùng</li>
@@ -220,7 +242,9 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#"></a>Danh mục</li>
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=danhmuc">Danh mục</a></li>
+                                        <li class="active">Thêm danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -229,40 +253,31 @@
                 </div>
             </div>
 
-              <!-- Bảng hiển thị sản phẩm -->
-              <div class="content mt-3">
-                <div class="container-fluid">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='add-category.html'">
-                                <i class="fa fa-plus"></i> Thêm danh mục
-                            </button>
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Hành động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Danh mục A</td>
-                                    <td>
-                                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit-category.html'">
-                                            <i class="fa fa-edit"></i> Sửa
-                                        </button>
-                                        <button class="btn btn-danger btn-sm" onclick="window.location.href='delete-category.html'">
-                                            <i class="fa fa-trash"></i> Xóa
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+               <!-- Nội dung -->
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header"><strong>Thêm danh mục</strong></div>
+                        <div class="card-body card-block">
+                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="form-control-label">Tên danh mục</label>
+                                    <input type="text" name="name" placeholder="Nhập tên sản phẩm" class="form-control">
+                                </div>
+                                <button type="submit" name="submit" class="btn btn-primary btn-sm">
+                                    Thêm
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+        </div>
+    </div>
+</div>
+
             <!-- /.content -->
             <div class="clearfix"></div>
             <!-- Footer -->

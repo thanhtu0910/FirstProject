@@ -1,3 +1,13 @@
+<?php
+
+include_once(__DIR__ . '/../../models/ConnectDatabase.php'); 
+
+
+
+
+$sql = "SELECT * FROM `categories` ORDER BY category_id ASC";
+$query = mysqli_query($conn, $sql);
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -23,6 +33,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+    <style>
+        .table {
+            text-align: center; 
+            margin: auto; 
+        }
+    
+        .table th, .table td {
+            vertical-align: middle; 
+        }
+    
+        .table th, .table td {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,22 +85,22 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
                         </li>
                         <li class="menu-title">Quản lý danh mục</li>
                         <li>
-                            <a href="danhmuc.html" >
+                            <a href="index.php?page_layout=danhmuc" >
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
         
                         <li class="menu-title">Quản lý đơn hàng</li>
                         <li>
-                            <a href="order-management.html"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                         </li>
         
                         <li class="menu-title">Quản lý người dùng</li>
                         <li>
-                            <a href="user-management.html"> <i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
+                            <a href="user-management.php"> <i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
                         </li>
                     </ul>
                 </div>
@@ -206,9 +230,7 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="index.html">Bảng điều khiển</a></li>
-                                        <li><a href="danhmuc.html">Danh mục</a></li>
-                                        <li class="active">Sửa danh mục</li>
+                                        <li><a href="#"></a>Danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -217,31 +239,48 @@
                 </div>
             </div>
 
-               <!-- Nội dung -->
-    <div class="content mt-3">
-        <div class="animated fadeIn">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header"><strong>Sửa danh mục</strong></div>
-                        <div class="card-body card-block">
-                            <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="form-control-label">Tên danh mục</label>
-                                    <input type="text" name="product_price" placeholder="Nhập tên sản phẩm" class="form-control">
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Sửa 
-                                </button>
-                            </form>
-                        </div>
+              <!-- Bảng hiển thị sản phẩm -->
+              <div class="content mt-3">
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='index.php?page_layout=themdm'">
+                                <i class="fa fa-plus"></i> Thêm danh mục
+                            </button>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên danh mục</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <?php
+                              while($row = mysqli_fetch_array($query)){
+                              ?>
+                                <tr>
+                                    <td><?php echo $row['category_id']?></td>
+                                    <td><?php echo $row['name']?></td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm" onclick="window.location.href='index.php?page_layout=suadm&category_id=<?php echo $row['category_id'];?>'">
+                                            <i class="fa fa-edit"></i> Sửa
+                                        </button>
+                                        <button onClick="if(confirm('Bạn có chắc muốn xóa?')) window.location.href='delete-category.php?category_id=<?php echo $row['category_id'];?>'" 
+                                                class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i> Xóa
+                                        </button>
+
+                                    </td>
+                                </tr>
+                               <?php
+                               }                             
+                               ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
+            
             <!-- /.content -->
             <div class="clearfix"></div>
             <!-- Footer -->
