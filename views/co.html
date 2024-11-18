@@ -1,0 +1,92 @@
+<table class="table table-bordered">
+                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='add-product.html'">
+                                <i class="fa fa-plus"></i> Thêm sản phẩm
+                            </button>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Danh mục</th>
+                                    <th>Ngày nhập</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="images/avatar/1.jpg" alt="Product Image" width="50"></td>
+                                    <td>Sản phẩm A</td>
+                                    <td>500,000 VNĐ</td>
+                                    <td>1</td>
+                                    <td>Danh mục 1</td>
+                                    <td>20/10/2024</td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit-product.html'">
+                                            <i class="fa fa-edit"></i> Sửa
+                                        </button>
+                                        <button class="btn btn-danger btn-sm" onclick="window.location.href='delete-product.html'">
+                                            <i class="fa fa-trash"></i> Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        ----------------------------------
+
+
+
+
+
+                        <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="form-control-label">Tên sản phẩm</label>
+                                    <input type="text" name="product_name" placeholder="Nhập tên sản phẩm" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Giá sản phẩm</label>
+                                    <input type="number" name="product_price" placeholder="Nhập giá sản phẩm" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Số lượng</label>
+                                    <input type="number" name="product_quantity" placeholder="Nhập số lượng" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Mô tả</label>
+                                    <textarea name="product_description" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Danh mục</label>
+                                    <select name="product_category" class="form-control">
+                                        <option value="">Chọn danh mục</option>
+                                        <option value="aokhoac">Áo Khoác</option>
+                                        <option value="aoquanni">Áo quần nỉ</option>
+                                        <option value="aoblazer">Áo blazer</option>
+                                        <option value="aoquanbò">Áo quần bò</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Tải lên hình ảnh</label>
+                                    <input type="file" name="product_image" class="form-control-file">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Thêm sản phẩm
+                                </button>
+                            </form>
