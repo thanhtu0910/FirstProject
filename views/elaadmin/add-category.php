@@ -97,29 +97,38 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+                            <a href="index.html" style="font-size: 15px; font-weight: bold;">
+                                <i class="menu-icon fa fa-laptop" style="font-size: 20px;"></i>Bảng điều khiển
+                            </a>
                         </li>
-                        <li class="menu-title">Quản lý danh mục</li>
                         <li>
                             <a href="index.php?page_layout=danhmuc" >
                                 <i class="menu-icon fa fa-cube"></i>Danh mục</a>
                         </li>
-        
-                        <li class="menu-title">Quản lý đơn hàng</li>
                         <li>
                             <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                         </li>
-        
-                        <li class="menu-title">Quản lý người dùng</li>
                         <li>
-                            <a href="user-management.html"> <i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
+                            <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
+                                <i class="menu-icon fa fa-users" style="font-size: 20px;"></i>Quản lý người dùng
+                            </a>
+                        </li>
+                        <li>
+                            <a href="order-management.html" style="font-size: 15px; font-weight: bold;">
+                                <i class="menu-icon fa fa-truck" style="font-size: 20px;"></i>Quản lý đơn hàng
+                            </a>
+                        </li>
+                        <li>
+                            <a href="comment-management.html" style="font-size: 15px; font-weight: bold;">
+                                <i class="menu-icon fa fa-comments" style="font-size: 20px;"></i>Quản lý bình luận
+                            </a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </aside>
-       
         <!-- /#left-panel -->
+         
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
                <!-- Header-->

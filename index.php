@@ -30,6 +30,9 @@ switch ($bb) {
     // case 'xem':
     //     $aa->xem();
     //     break;
+    case 'binhluan':
+        $aa->binhluan();
+        break;
 
     default:
         $aa->listbook();

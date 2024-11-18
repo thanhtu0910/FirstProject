@@ -25,23 +25,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-    <style>
-        .table {
-            text-align: center;
-            margin: auto;
-        }
-
-        .table th,
-        .table td {
-            vertical-align: middle;
-        }
-
-        .table th,
-        .table td {
-            text-align: center;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -71,7 +54,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
         <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
         <link rel="stylesheet" href="assets/css/style.css">
-
         <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
     </head>
@@ -79,32 +61,51 @@
     <body>
         <!-- Left Panel -->
         <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="?act=listbook"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
-                    </li>
-                    <li>
-                        <a href="danhmuc.html"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
-                    </li>
-                    <li>
-                        <a href="product-management.html"><i class="menu-icon fa fa-shopping-cart"></i>Quản lý sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="user-management.html"><i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
-                    </li>
-                    <li>
-                        <a href="order-management.html"><i class="menu-icon fa fa-truck"></i>Quản lý đơn hàng</a>
-                    </li>
-                    <li>
-                        <a href="comment-management.html"><i class="menu-icon fa fa-comments"></i>Quản lý bình luận</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </aside>
+            <nav class="navbar navbar-expand-sm navbar-default">
+                <div id="main-menu" class="main-menu collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
+                        </li>
+                        <li>
+                            <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
+                                <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
+                            </a>
+                        </li>
+                        <a href="danhmuc.html">
+                            <a href="index.php?page_layout=danhmuc">
+                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
+                            </li>
 
+                            <li class="menu-title">Quản lý đơn hàng</li>
+                            <li>
+                                <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
+                                    <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
+                                </a>
+                            </li>
+                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
+                            </li>
+
+                            <li class="menu-title">Quản lý người dùng</li>
+                            <li>
+                                <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
+                                    <i class="menu-icon fa fa-users" style="font-size: 20px;"></i>Quản lý người dùng
+                                </a>
+                            </li>
+                            <li>
+                                <a href="order-management.html" style="font-size: 15px; font-weight: bold;">
+                                    <i class="menu-icon fa fa-truck" style="font-size: 20px;"></i>Quản lý đơn hàng
+                                </a>
+                            </li>
+                            <li>
+                                <a href="comment-management.html" style="font-size: 15px; font-weight: bold;">
+                                    <i class="menu-icon fa fa-comments" style="font-size: 20px;"></i>Quản lý bình luận
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
 
         <!-- /#left-panel -->
         <!-- Right Panel -->
@@ -113,8 +114,8 @@
             <header id="header" class="header">
                 <div class="top-left">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="./"><img src="image/logo.png" alt="Logo"></a>
-                        <a class="navbar-brand hidden" href="./"><img src="image/logo2.png" alt="Logo"></a>
+                        <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+                        <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                     </div>
                 </div>
@@ -159,7 +160,7 @@
                                 <div class="dropdown-menu" aria-labelledby="message">
                                     <p class="red">You have 4 Mails</p>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/1.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Jonathan Smith</span>
                                             <span class="time float-right">Just now</span>
@@ -167,7 +168,7 @@
                                         </div>
                                     </a>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/2.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Jack Sanders</span>
                                             <span class="time float-right">5 minutes ago</span>
@@ -175,7 +176,7 @@
                                         </div>
                                     </a>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/3.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Cheryl Wheeler</span>
                                             <span class="time float-right">10 minutes ago</span>
@@ -183,7 +184,7 @@
                                         </div>
                                     </a>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/4.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Rachel Santos</span>
                                             <span class="time float-right">15 minutes ago</span>
@@ -196,7 +197,7 @@
 
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle" src="image/admin.jpg" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
                             </a>
 
                             <div class="user-menu dropdown-menu">
@@ -230,8 +231,11 @@
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
                                         <li><a href="index.html">Bảng điều khiển</a></li>
-                                        <li><a href="order-management.html">Sản phẩm</a></li>
-                                        <li class="active">Sửa sản phẩm</li>
+                                        <li><a href="product-management.html">Sản phẩm</a></li>
+
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=sanpham">Sản phẩm</a></li>
+                                        <li class="active">Thêm sản phẩm</li>
                                     </ol>
                                 </div>
                             </div>
@@ -246,47 +250,42 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-header"><strong>Sửa sản phẩm mới</strong></div>
+                                <div class="card-header"><strong>Thêm sản phẩm mới</strong></div>
                                 <div class="card-body card-block">
-                                    <form method="POST" enctype="multipart/form-data">
-
-                                        <!-- Thông tin sản phẩm chính -->
-                                        <label class="form-control-label">Tên sản phẩm</label>
-
-                                        <input type="text" id="name" name="name" required value="<?php echo $idBook['name'] ?>" class="form-control">
-                                        <label class="form-control-label">Mô tả</label>
-
-                                        <input type="text" id="description" name="description" required value="<?php echo $idBook['description'] ?>" class="form-control">
-
-                                        <br>
-
-                                        <label for="category_id" class="form-control-label">Danh mục:</label>
-                                        <select name="category_id" class="form-control">
-                                            <?php foreach ($ccc as $value) { ?>
-                                                <option>
-                                                    <?php echo $value->name ?>
-                                                </option>
-                                            <?php } ?>
-                                        </select>
-
-
-                                        <div id="variants">
-                                            <!-- Mẫu biến thể -->
-                                            <div class="variant">
-                                                <label class="form-control-label">Giá</label> <br>
-
-                                                <input type="text" name="price" value="<?php echo $iddBook['price'] ?>"><br>
-                                                <label class="form-control-label">Số lượng</label><br>
-
-                                                <input type="text" name="stock_quantity" value="<?php echo $iddBook['stock_quantity'] ?>"><br>
-                                                <input type="file" name="product_img">
-                                                <img src="<?php echo $iddBook['product_img'] ?>" alt="" width="100px">
-                                            </div>
+                                    <form action="add-product-handler.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Tên sản phẩm</label>
+                                            <input type="text" name="product_name" placeholder="Nhập tên sản phẩm" class="form-control">
                                         </div>
-
-
-                                        <button type="submit" name="btn_submit" class="btn btn-primary btn-sm">Lưu sản phẩm</button>
-
+                                        <div class="form-group">
+                                            <label class="form-control-label">Giá sản phẩm</label>
+                                            <input type="number" name="product_price" placeholder="Nhập giá sản phẩm" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Số lượng</label>
+                                            <input type="number" name="product_quantity" placeholder="Nhập số lượng" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Mô tả</label>
+                                            <textarea name="product_description" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Danh mục</label>
+                                            <select name="product_category" class="form-control">
+                                                <option value="">Chọn danh mục</option>
+                                                <option value="aokhoac">Áo Khoác</option>
+                                                <option value="aoquanni">Áo quần nỉ</option>
+                                                <option value="aoblazer">Áo blazer</option>
+                                                <option value="aoquanbò">Áo quần bò</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-control-label">Tải lên hình ảnh</label>
+                                            <input type="file" name="product_image" class="form-control-file">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Thêm sản phẩm
+                                        </button>
                                     </form>
                                 </div>
                             </div>
@@ -335,6 +334,3 @@
 </body>
 
 </html>
-<script>
-    document.title = 'Sửa sản phẩm';
-</script>
