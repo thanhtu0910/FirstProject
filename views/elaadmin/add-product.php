@@ -60,52 +60,7 @@
 
     <body>
         <!-- Left Panel -->
-        <aside id="left-panel" class="left-panel">
-            <nav class="navbar navbar-expand-sm navbar-default">
-                <div id="main-menu" class="main-menu collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Bảng điều khiển</a>
-                        </li>
-                        <li>
-                            <a href="danhmuc.html" style="font-size: 15px; font-weight: bold;">
-                                <i class="menu-icon fa fa-cube" style="font-size: 20px;"></i>Quản lý danh mục
-                            </a>
-                        </li>
-                        <a href="danhmuc.html">
-                            <a href="index.php?page_layout=danhmuc">
-                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
-                            </li>
-
-                            <li class="menu-title">Quản lý đơn hàng</li>
-                            <li>
-                                <a href="product-management.html" style="font-size: 15px; font-weight: bold;">
-                                    <i class="menu-icon fa fa-shopping-cart" style="font-size: 20px;"></i>Quản lý sản phẩm
-                                </a>
-                            </li>
-                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
-                            </li>
-
-                            <li class="menu-title">Quản lý người dùng</li>
-                            <li>
-                                <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
-                                    <i class="menu-icon fa fa-users" style="font-size: 20px;"></i>Quản lý người dùng
-                                </a>
-                            </li>
-                            <li>
-                                <a href="order-management.html" style="font-size: 15px; font-weight: bold;">
-                                    <i class="menu-icon fa fa-truck" style="font-size: 20px;"></i>Quản lý đơn hàng
-                                </a>
-                            </li>
-                            <li>
-                                <a href="comment-management.html" style="font-size: 15px; font-weight: bold;">
-                                    <i class="menu-icon fa fa-comments" style="font-size: 20px;"></i>Quản lý bình luận
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </nav>
-        </aside>
+        <?php include "views/component/asideadmin.php" ?>
 
         <!-- /#left-panel -->
         <!-- Right Panel -->

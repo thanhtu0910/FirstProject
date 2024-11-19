@@ -97,31 +97,21 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html" style="font-size: 15px; font-weight: bold;">
-                                <i class="menu-icon fa fa-laptop" style="font-size: 20px;"></i>Bảng điều khiển
-                            </a>
+                            <a href="http://localhost/duan01/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
                         </li>
                         <li>
-                            <a href="index.php?page_layout=danhmuc" >
-                                <i class="menu-icon fa fa-cube"></i>Danh mục</a>
+                            <a href="http://localhost/duan01/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
                         </li>
                         <li>
-                            <a href="index.php?page_layout=sanpham"> <i class="menu-icon fa fa-shopping-cart"></i>Quản lý đơn hàng</a>
                         </li>
                         <li>
-                            <a href="user-management.html" style="font-size: 15px; font-weight: bold;">
-                                <i class="menu-icon fa fa-users" style="font-size: 20px;"></i>Quản lý người dùng
-                            </a>
+                            <a href="user-management.html"><i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
                         </li>
                         <li>
-                            <a href="order-management.html" style="font-size: 15px; font-weight: bold;">
-                                <i class="menu-icon fa fa-truck" style="font-size: 20px;"></i>Quản lý đơn hàng
-                            </a>
+                            <a href="order-management.html"><i class="menu-icon fa fa-truck"></i>Quản lý đơn hàng</a>
                         </li>
                         <li>
-                            <a href="comment-management.html" style="font-size: 15px; font-weight: bold;">
-                                <i class="menu-icon fa fa-comments" style="font-size: 20px;"></i>Quản lý bình luận
-                            </a>
+                            <a href="comment-management.html"><i class="menu-icon fa fa-comments"></i>Quản lý bình luận</a>
                         </li>
                     </ul>
                 </div>
@@ -135,8 +125,8 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                <header id="header" class="header">
                 <div class="top-left">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
-                        <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                        <a class="navbar-brand" href="./"><img src="image/logo.png" alt="Logo"></a>
+                        <a class="navbar-brand hidden" href="./"><img src="image/logo2.png" alt="Logo"></a>
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                     </div>
                 </div>
@@ -181,7 +171,7 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                                 <div class="dropdown-menu" aria-labelledby="message">
                                     <p class="red">You have 4 Mails</p>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/1.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Jonathan Smith</span>
                                             <span class="time float-right">Just now</span>
@@ -189,7 +179,7 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                                         </div>
                                     </a>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/2.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Jack Sanders</span>
                                             <span class="time float-right">5 minutes ago</span>
@@ -197,7 +187,7 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                                         </div>
                                     </a>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/3.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Cheryl Wheeler</span>
                                             <span class="time float-right">10 minutes ago</span>
@@ -205,7 +195,7 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
                                         </div>
                                     </a>
                                     <a class="dropdown-item media" href="#">
-                                        <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
+                                        <span class="photo media-left"><img alt="avatar" src="image/avatar/4.jpg"></span>
                                         <div class="message media-body">
                                             <span class="name float-left">Rachel Santos</span>
                                             <span class="time float-right">15 minutes ago</span>
@@ -218,7 +208,7 @@ ob_end_flush(); // Kết thúc và gửi dữ liệu trong bộ đệm
     
                         <div class="user-area dropdown float-right">
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                                <img class="user-avatar rounded-circle" src="image/admin.jpg" alt="User Avatar">
                             </a>
     
                             <div class="user-menu dropdown-menu">

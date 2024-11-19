@@ -88,10 +88,10 @@ $query = mysqli_query($conn, $sql);
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="?act=listbook"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
+                            <a href="http://localhost/duan01/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
                         </li>
                         <li>
-                            <a href="http://localhost/duan1/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
+                            <a href="http://localhost/duan01/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
                         </li>
                         <li>
                         </li>
@@ -108,6 +108,7 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </nav>
         </aside>
+    
 
         <!-- /#left-panel -->
         <!-- Right Panel -->
