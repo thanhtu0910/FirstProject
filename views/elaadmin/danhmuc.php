@@ -251,9 +251,9 @@ $query = mysqli_query($conn, $sql);
                             </button>
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Hành động</th>
+                                    <th>Category_id</th>
+                                    <th>Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
