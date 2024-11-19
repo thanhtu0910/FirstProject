@@ -202,7 +202,7 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#"></a>Sản phẩm</li>
+                                        <li><a href="#"></a>Người dùng</li>
                                     </ol>
                                 </div>
                             </div>
