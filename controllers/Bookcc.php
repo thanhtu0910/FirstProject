@@ -2,10 +2,16 @@
 
 class Bookcc
 {
+    public function danhmuc(){
+        $mDm = new Book();
+        $danhmuc = $mDm->getDM();
+        include_once "views/danhmuc.php";
+    }
     public function listbook()
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
+        // return $listbook;
         include_once "views/list.php";
     }
 
@@ -128,6 +134,54 @@ class Bookcc
         // Gọi giao diện
         include_once "views/binh.php";
     }
+    public function addDM(){
+        if(isset($_POST['btn_submit'])){
+            $name = $_POST['name'];
+          
+            $mBook = new Book();
+            $addDM = $mBook->addDM(null, $name);
+            header('Location: index.php?act=danhmuc');
+            exit();
+        }
+        include_once "views/add-category.php";
+    }
+   public function editDM(){
+        if(isset($_GET['category_id'])){
+            $mBook = new Book();
+            $category_id = $mBook->getIdDM($_GET['category_id']);
+            if (isset($_POST['submit'])) {
+                $name = $_POST['name'];
+                if (isset($name)) {
+                    header('Location: index.php?act=danhmuc');
+                    exit(); 
+                }
+                $editDM = $mBook->editDM($name, $_GET['category_id']);
+            }
+        }
+        include_once 'views/edit-category.php';
+    }
+    public function deleteDM() {
+        if (isset($_GET['category_id'])) {
+            $category_id = $_GET['category_id'];
+            $mBook = new Book();
+    
+            // Gọi hàm xóa danh mục
+            $result = $mBook->deleteDM($category_id);
+    
+            // Kiểm tra kết quả và chuyển hướng
+            if ($result) {
+                header('Location: index.php?act=danhmuc'); // Thành công, quay về danh sách
+                exit(); // Đảm bảo dừng thực thi
+            } else {
+                echo "Lỗi: Không thể xóa danh mục. Vui lòng thử lại!";
+            }
+        } else {
+            echo "Lỗi: Không tìm thấy ID danh mục.";
+        }
+    }
+    
+    
+    
 
 
     public function editbook()

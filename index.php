@@ -5,6 +5,9 @@ require_once "models/Book.php";
 $aa = new Bookcc();
 $bb = isset($_GET['act']) ? $_GET['act'] : "/";
 switch ($bb) {
+    case 'danhmuc':
+        $aa->danhmuc();
+        break;
     case 'list':
         $aa->listbook();
         break;
@@ -26,6 +29,12 @@ switch ($bb) {
 
     case 'binh':
         $aa->binh();
+        break;
+    case 'addDM':
+        $aa->addDM();
+        break;
+    case 'editDM':
+        $aa->editDM();
         break;
     // case 'xem':
     //     $aa->xem();

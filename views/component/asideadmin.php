@@ -3,10 +3,10 @@
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="http://localhost/duan01/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
+                            <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
                         </li>
                         <li>
-                            <a href="http://localhost/duan01/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
+                            <a href="index.php?page_layout=danhmuc"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
                         </li>
                         <li>
                         </li>

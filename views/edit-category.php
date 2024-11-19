@@ -1,10 +1,4 @@
-<?php
 
-include_once(__DIR__ . '/../../models/ConnectDatabase.php');
-
-$sql = "SELECT * FROM `categories` ORDER BY category_id ASC";
-$query = mysqli_query($conn, $sql);
-?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -32,22 +26,6 @@ $query = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-    <style>
-        .table {
-            text-align: center;
-            margin: auto;
-        }
-
-        .table th,
-        .table td {
-            vertical-align: middle;
-        }
-
-        .table th,
-        .table td {
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -75,8 +53,8 @@ $query = mysqli_query($conn, $sql);
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-        <link rel="stylesheet" href="/assets/css/cs-skin-elastic.css">
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+        <link rel="stylesheet" href="assets/css/style.css">
         <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
     </head>
@@ -108,9 +86,12 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </nav>
         </aside>
-    
 
         <!-- /#left-panel -->
+
+
+
+
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
             <!-- Header-->
@@ -233,7 +214,9 @@ $query = mysqli_query($conn, $sql);
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#"></a>Danh mục</li>
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=danhmuc">Danh mục</a></li>
+                                        <li class="active">Sửa danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -242,64 +225,47 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </div>
 
-            <!-- Bảng hiển thị sản phẩm -->
+            <!-- Nội dung -->
             <div class="content mt-3">
-                <div class="container-fluid">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <button class="btn btn-primary btn-sm" style="width: 150px;" onclick="window.location.href='index.php?page_layout=themdm'">
-                                <i class="fa fa-plus"></i> Thêm danh mục
-                            </button>
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Hành động</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                while ($row = mysqli_fetch_array($query)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['category_id'] ?></td>
-                                        <td><?php echo $row['name'] ?></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm" onclick="window.location.href='index.php?page_layout=suadm&category_id=<?php echo $row['category_id']; ?>'">
-                                                <i class="fa fa-edit"></i> Sửa
-                                            </button>
-                                            <button onClick="if(confirm('Bạn có chắc muốn xóa?')) window.location.href='delete-category.php?category_id=<?php echo $row['category_id']; ?>'"
-                                                class="btn btn-danger btn-sm">
-                                                <i class="fa fa-trash"></i> Xóa
-                                            </button>
-
-                                        </td>
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header"><strong>Sửa danh mục</strong></div>
+                                <div class="card-body card-block">
+                                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Tên danh mục</label>
+                                            <input type="text" name="name" placeholder="Nhập tên danh mục" class="form-control" value="<?php echo $category_id->name ?>">
+                                        </div>
+                                        <button type="submit" name="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Sửa
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- /.content -->
-            <div class="clearfix"></div>
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-inner bg-white">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            Copyright &copy; 2024 Ela Admin
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            Designed by <a href="https://colorlib.com">Colorlib</a>
-                        </div>
+        <!-- /.content -->
+        <div class="clearfix"></div>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-inner bg-white">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Copyright &copy; 2024 Ela Admin
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        Designed by <a href="https://colorlib.com">Colorlib</a>
                     </div>
                 </div>
-            </footer>
-            <!-- /.site-footer -->
+            </div>
+        </footer>
+        <!-- /.site-footer -->
         </div>
         <!-- /#right-panel -->
 

@@ -3,6 +3,11 @@ require "models/ConnectDatabase.php";
 class Book
 {
     public $connect;
+    public function getDM(){
+        $sql = "SELECT * FROM `categories` ORDER BY category_id ASC";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData();
+    }
     public function __construct()
     {
         $this->connect = new ConnectDatabase();
@@ -60,6 +65,27 @@ class Book
         // Lấy product_id vừa được thêm
         return $this->connect->lastInsertId(); // Phương thức này trả về product_id vừa thêm
     }
+    public function addDM($category_id, $name){
+        $sql = "INSERT INTO `categories`(category_id, name) VALUES (?,?)";
+        $this->connect->setQuery($sql);
+        return $this->connect->execute([$category_id, $name]);
+    }
+    public function getIdDM($category_id){
+        $sql = "SELECT * FROM `categories` WHERE category_id=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$category_id],false);
+    }
+    public function editDM($name, $category_id){
+        $sql = "UPDATE `categories` SET `name`=? WHERE `category_id`=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->execute([$name, $category_id], false);
+    }
+    public function deleteDM($category_id) {
+        $sql = "DELETE FROM `categories` WHERE `category_id` = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->execute([$category_id], false); // Thực thi câu lệnh DELETE
+    }
+    
 
     // Hàm thêm biến thể với product_id
     public function addvariants($product_id, $variants)
