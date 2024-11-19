@@ -88,15 +88,15 @@ $query = mysqli_query($conn, $sql);
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="http://localhost/duan01/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
+                            <a href="http://localhost/duan1/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
                         </li>
                         <li>
-                            <a href="http://localhost/duan01/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
+                            <a href="http://localhost/duan1/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
                         </li>
                         <li>
                         </li>
                         <li>
-                            <a href="user-management.html"><i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
+                            <a href="http://localhost/duan1/d-n-/?act=listuser"><i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
                         </li>
                         <li>
                             <a href="order-management.html"><i class="menu-icon fa fa-truck"></i>Quản lý đơn hàng</a>
@@ -116,7 +116,7 @@ $query = mysqli_query($conn, $sql);
             <header id="header" class="header">
                 <div class="top-left">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="./"><img src="image/logo.png" alt="Logo"></a>
+                        <a class="navbar-brand" href="http://localhost/duan1/d-n-/"><img src="image/logo.png" alt="Logo"></a>
                         <a class="navbar-brand hidden" href="./"><img src="image/logo2.png" alt="Logo"></a>
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                     </div>

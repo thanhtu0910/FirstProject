@@ -1,18 +1,3 @@
-<?php
-include_once(__DIR__ . '/../../models/ConnectDatabase.php');
-$category_id = $_GET['category_id'];
-$sql = "SELECT * FROM `categories` WHERE category_id=$category_id";
-$query = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($query);
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    if (isset($name)) {
-        $sql = "UPDATE `categories` SET name='$name' WHERE category_id=$category_id";
-        $query = mysqli_query($conn, $sql);
-        header('Location: index.php?page_layout=danhmuc');
-    }
-}
-?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -40,6 +25,22 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+    <style>
+        .table {
+            text-align: center;
+            margin: auto;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+
+        .table th,
+        .table td {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -69,50 +70,23 @@ if (isset($_POST['submit'])) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
         <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
         <link rel="stylesheet" href="assets/css/style.css">
+
         <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
     </head>
 
     <body>
         <!-- Left Panel -->
-        <aside id="left-panel" class="left-panel">
-            <nav class="navbar navbar-expand-sm navbar-default">
-                <div id="main-menu" class="main-menu collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="http://localhost/duan1/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="http://localhost/duan1/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
-                        </li>
-                        <li>
-                        </li>
-                        <li>
-                            <a href="http://localhost/duan1/d-n-/?act=listuser"><i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
-                        </li>
-                        <li>
-                            <a href="order-management.html"><i class="menu-icon fa fa-truck"></i>Quản lý đơn hàng</a>
-                        </li>
-                        <li>
-                            <a href="comment-management.html"><i class="menu-icon fa fa-comments"></i>Quản lý bình luận</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </aside>
+        <?php include "views/component/asideadmin.php" ?>
 
         <!-- /#left-panel -->
-
-
-
-
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
             <!-- Header-->
             <header id="header" class="header">
                 <div class="top-left">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="http://localhost/duan1/d-n-/"><img src="image/logo.png" alt="Logo"></a>
+                        <a class="navbar-brand" href="./"><img src="image/logo.png" alt="Logo"></a>
                         <a class="navbar-brand hidden" href="./"><img src="image/logo2.png" alt="Logo"></a>
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                     </div>
@@ -228,9 +202,7 @@ if (isset($_POST['submit'])) {
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="index.php">Bảng điều khiển</a></li>
-                                        <li><a href="index.php?page_layout=danhmuc">Danh mục</a></li>
-                                        <li class="active">Sửa danh mục</li>
+                                        <li><a href="#"></a>Người dùng</li>
                                     </ol>
                                 </div>
                             </div>
@@ -239,47 +211,55 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
 
-            <!-- Nội dung -->
-            <div class="content mt-3">
-                <div class="animated fadeIn">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header"><strong>Sửa danh mục</strong></div>
-                                <div class="card-body card-block">
-                                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Tên danh mục</label>
-                                            <input type="text" name="name" placeholder="Nhập tên danh mục" class="form-control" value="<?php echo $row['name']; ?>">
-                                        </div>
-                                        <button type="submit" name="submit" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-dot-circle-o"></i> Sửa
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+            <!-- Bảng hiển thị sản phẩm -->
+                <div class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped table-sm">
+                                <thead class="thead-dark text-center">
+                                    <tr>
+                                        <th>user_id</th>
+                                        <th>name</th>
+                                        <th>pass</th>
+                                        <th>email</th>
+                                        <th>phone</th>
+                                        <th>address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($login as $value) { ?>
+                                        <tr>
+                                            <td class="text-center"><?php echo $value->user_id; ?></td>
+                                            <td><?php echo $value->username; ?></td>
+                                            <td><?php echo $value->password; ?></td>
+                                            <td><?php echo $value->email; ?></td>
+                                            <td><?php echo $value->phone; ?></td>
+                                            <td><?php echo $value->address; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- /.content -->
-        <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-inner bg-white">
-                <div class="row">
-                    <div class="col-sm-6">
-                        Copyright &copy; 2024 Ela Admin
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
+
+            <!-- /.content -->
+            <div class="clearfix"></div>
+            <!-- Footer -->
+            <footer class="site-footer">
+                <div class="footer-inner bg-white">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Copyright &copy; 2024 Ela Admin
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            Designed by <a href="https://colorlib.com">Colorlib</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <!-- /.site-footer -->
+            </footer>
+            <!-- /.site-footer -->
         </div>
         <!-- /#right-panel -->
 
@@ -303,3 +283,11 @@ if (isset($_POST['submit'])) {
 </body>
 
 </html>
+<script>
+    function confirmDeleteBook(deleUrl) {
+        if (confirm('Are you sure you want to delete')) {
+            document.location = deleUrl;
+        }
+    }
+    document.title = 'Admin';
+</script>

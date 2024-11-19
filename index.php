@@ -33,7 +33,10 @@ switch ($bb) {
     case 'binhluan':
         $aa->binhluan();
         break;
-
+    case 'listuser':
+        $aa->listuser();
+        break;
+        
     default:
         $aa->listbook();
         break;

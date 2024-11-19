@@ -90,3 +90,34 @@
                                     <i class="fa fa-dot-circle-o"></i> Thêm sản phẩm
                                 </button>
                             </form>
+
+
+
+
+
+
+
+                            
+<table border="1">
+    <tr>
+        <td>product_id</td>
+        <td>name</td>
+        <td>description</td>
+        <td>category_name</td>
+        <td>variant_id</td>
+        <td>price</td>
+        <td>stock_quantity</td>
+        <td>product_img</td>
+        <td>action</td>
+    </tr>
+    <?php foreach ($login as $value) { ?>
+        <tr>
+            <td><?php echo $value->user_id; ?></td>
+            <td><?php echo $value->username; ?></td>
+            <td><?php echo $value->password; ?></td>
+            <td><?php echo $value->email; ?></td>
+            <td><?php echo $value->phone; ?></td>
+            <td><?php echo $value->address; ?></td>
+        </tr>
+    <?php } ?>
+</table>

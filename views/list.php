@@ -211,46 +211,58 @@
                 </div>
             </div>
 
-            <!-- Bảng hiển thị sản phẩm -->
-            <div class="content mt-3">
-                <div class="container-fluid">
-                    <div class="table-responsive">
+           <!-- Bảng hiển thị sản phẩm -->
+<div class="content mt-3">
+    <div class="container-fluid">
+        <div class="table-responsive">
 
-                        <a href="?act=binh"><button class="btn btn-primary btn-sm">Thêm mới sản phẩm</button></a>
-                        <table border="1" class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <td>product_id</td>
-                                    <td>name</td>
-                                    <td>description</td>
-                                    <td>category_name</td>
-                                    <td>variant_id</td>
-                                    <td>price</td>
-                                    <td>stock_quantity</td>
-                                    <td>product_img</td>
-                                    <td>action</td>
-                                </tr>
-                            </thead>
-                            <?php foreach ($listbook as $value) { ?>
-                                <tr>
-                                    <td><?php echo $value->product_id; ?></td>
-                                    <td><?php echo $value->name; ?></td>
-                                    <td><?php echo $value->description; ?></td>
-                                    <td><?php echo $value->category_name; ?></td>
-                                    <td><?php echo $value->variant_id; ?></td>
-                                    <td><?php echo $value->price; ?></td>
-                                    <td><?php echo $value->stock_quantity; ?></td>
-                                    <td><img src="<?php echo $value->product_img; ?>" alt="Product Image" width="100px"></td>
-                                    <td>
-                                        <a href="?act=edit&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>"><button class="btn btn-success btn-sm">Sửa</button></a>
-                                        <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>')" class="btn btn-success btn-sm">Xóa</button>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <!-- Nút thêm mới sản phẩm -->
+            <a href="?act=binh">
+                <button class="btn btn-primary btn-sm mb-3">Thêm mới sản phẩm</button>
+            </a>
+
+            <!-- Bảng sản phẩm -->
+            <table class="table table-bordered table-hover table-striped table-sm">
+                <thead class="thead-dark text-center">
+                    <tr>
+                        <th>product_id</th>
+                        <th>name</th>
+                        <th>description</th>
+                        <th>category_name</th>
+                        <th>variant_id</th>
+                        <th>price</th>
+                        <th>stock_quantity</th>
+                        <th>product_img</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($listbook as $value) { ?>
+                        <tr>
+                            <td class="text-center"><?php echo $value->product_id; ?></td>
+                            <td><?php echo $value->name; ?></td>
+                            <td><?php echo $value->description; ?></td>
+                            <td><?php echo $value->category_name; ?></td>
+                            <td class="text-center"><?php echo $value->variant_id; ?></td>
+                            <td><?php echo number_format($value->price); ?> VND</td>
+                            <td class="text-center"><?php echo $value->stock_quantity; ?></td>
+                            <td class="text-center">
+                                <img src="<?php echo $value->product_img; ?>" alt="Product Image" class="img-fluid" width="80">
+                            </td>
+                            <td class="text-center">
+                                <a href="?act=edit&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>">
+                                    <button class="btn btn-success btn-sm">Sửa</button>
+                                </a>
+                                <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>')" class="btn btn-danger btn-sm">Xóa</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
             <!-- /.content -->
             <div class="clearfix"></div>
