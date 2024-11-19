@@ -108,7 +108,6 @@ $query = mysqli_query($conn, $sql);
                 </div>
             </nav>
         </aside>
-    
 
         <!-- /#left-panel -->
         <!-- Right Panel -->

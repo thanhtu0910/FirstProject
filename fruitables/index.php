@@ -288,7 +288,7 @@
                 <div class="tab-class text-center">
                     <div class="row g-4">
                         <div class="col-lg-4 text-start">
-                            <h1>Our Organic Products</h1>
+                            <h1>Thời trang mùa đông </h1>
                         </div>
                         <div class="col-lg-8 text-end">
                             <ul

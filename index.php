@@ -23,10 +23,10 @@ switch ($bb) {
     case 'dangxuat':
         $aa->dangxuat();
         break;
-
     case 'binh':
         $aa->binh();
         break;
+    
     // case 'xem':
     //     $aa->xem();
     //     break;
