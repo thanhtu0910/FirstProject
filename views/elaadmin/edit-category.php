@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
             <header id="header" class="header">
                 <div class="top-left">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="./"><img src="image/logo.png" alt="Logo"></a>
+                        <a class="navbar-brand" href="http://localhost/duan1/d-n-/"><img src="image/logo.png" alt="Logo"></a>
                         <a class="navbar-brand hidden" href="./"><img src="image/logo2.png" alt="Logo"></a>
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                     </div>
