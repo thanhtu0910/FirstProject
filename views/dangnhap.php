@@ -17,7 +17,7 @@ if (isset($_POST["btn_submit"])) {
     $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
 
     foreach ($login as $value) {
-        if ($username == $value->username && $password == $value->password) {
+       if ($username == $value->username && $password == $value->password) { 
             $isLoginSuccessful = true;
             break; // Thoát khỏi vòng lặp khi đăng nhập thành công
         }
@@ -29,7 +29,7 @@ if (isset($_POST["btn_submit"])) {
         echo "Đăng nhập thành công!";
         header('location:index.php');
         $_SESSION["username"] = $username;
-        // include_once "views/da.php";
+        include_once "views/da.php";
     } else {
         echo "Tài khoản hoặc mật khẩu của bạn sai!";
     }
