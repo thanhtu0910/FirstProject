@@ -3,7 +3,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="index.php"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
+                    <a href="?act="><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
                 </li>
                 <li>
                     <a href="http://localhost/duan1/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
@@ -23,3 +23,7 @@
         </div>
     </nav>
 </aside>
+<?php if(isset($_SESSION['username'])){
+    $username=$_SESSION['username'];
+}
+ ?>

@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -39,6 +40,17 @@
         .table th,
         .table td {
             text-align: center;
+        }
+
+        .aa {
+            border: none;
+            background-color: white;
+            height: 30px;
+
+        }
+
+        .bb {
+            color: blue;
         }
     </style>
 </head>
@@ -103,25 +115,15 @@
                             </div>
 
                             <div class="dropdown for-notification">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-bell"></i>
-                                    <span class="count bg-danger">3</span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="notification">
-                                    <p class="red">You have 3 Notification</p>
-                                    <a class="dropdown-item media" href="#">
-                                        <i class="fa fa-check"></i>
-                                        <p>Server #1 overloaded.</p>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <i class="fa fa-info"></i>
-                                        <p>Server #2 overloaded.</p>
-                                    </a>
-                                    <a class="dropdown-item media" href="#">
-                                        <i class="fa fa-warning"></i>
-                                        <p>Server #3 overloaded.</p>
-                                    </a>
-                                </div>
+                                <?php
+                                if (isset($_SESSION['username'])) {
+                                ?>
+                                    <a>xin chao, <?php echo $username ?></a>
+                                    <button class="aa"><a href="?act=dangxuat" class="bb">Logout</a></button>
+
+                                <?php } else {
+                                } ?>
+
                             </div>
 
                             <div class="dropdown for-message">
