@@ -6,3 +6,4 @@ if (isset($_SESSION["user"])) {
     // echo "Đăng xuất thành công!";
 }
 header("location: dangnhap.php");
+exit;

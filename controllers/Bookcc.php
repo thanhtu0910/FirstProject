@@ -11,8 +11,15 @@ class Bookcc
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
-        // return $listbook;
+        $vv = $mBook->getall();
         include_once "views/list.php";
+        // include_once "fruitables/shop.php";
+    }
+    public function listuser()
+    {
+        $mBook = new Book();
+        $login = $mBook->login();
+        include_once "views/user.php";
     }
 
     public function deletebook()
@@ -58,10 +65,11 @@ class Bookcc
                 $role
             );
             if (!$addBook) {
-                header('location:index.php');
+                header('location:?act=login');
             }
         }
         include_once "views/dangli.php";
+        include_once "views/dangnhap.php";
     }
     public function login()
     {
@@ -75,7 +83,12 @@ class Bookcc
     }
     public function dangxuat()
     {
-        header('location: views/dangnhap.php');
+        session_start();
+
+        if (isset($_SESSION["user"])) {
+            unset($_SESSION["user"]);
+        }
+        header('location: ?act=login');
     }
 
 
@@ -262,21 +275,22 @@ class Bookcc
         }
     }
 
-    public function binhluan() {
+    public function binhluan()
+    {
         // Kiểm tra dữ liệu từ form và session
         if (!isset($_POST['product_id'], $_POST['comment_text'], $_POST['rating'], $_SESSION['user_id'])) {
             echo "Dữ liệu không hợp lệ hoặc bạn chưa đăng nhập!";
             return;
         }
-        
+
         $mBook = new Book();
-    
+
         // Nhận dữ liệu từ form
         $product_id = (int)$_POST['product_id']; // ID sản phẩm
         $comment_text = trim($_POST['comment_text']); // Nội dung bình luận
         $rating = (int)$_POST['rating']; // Đánh giá (rating)
         $user_id = (int)$_SESSION['user_id']; // Lấy user_id từ session (người dùng đã đăng nhập)
-    
+
         // Kiểm tra dữ liệu đầu vào
         if (empty($comment_text) || strlen($comment_text) < 3) {
             echo "Bình luận phải có ít nhất 3 ký tự!";
@@ -286,7 +300,7 @@ class Bookcc
             echo "Vui lòng nhập đánh giá hợp lệ (1 đến 5 sao)!";
             return;
         }
-    
+
         // Thêm bình luận vào CSDL
         if ($mBook->addReview($product_id, $user_id, $rating, $comment_text)) {
             header("Location: product.php?id=$product_id"); // Chuyển hướng về trang chi tiết sản phẩm

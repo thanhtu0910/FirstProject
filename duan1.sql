@@ -49,7 +49,7 @@ CREATE TABLE `cart_items` (
   `product_id` int NOT NULL COMMENT 'id sản phẩm',
   `quantity` int NOT NULL COMMENT 'số lượng sản phẩm ',
   `added_at` timestamp NOT NULL COMMENT 'ngày thêm sản phẩm',
-  `variant_id` int NOT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------

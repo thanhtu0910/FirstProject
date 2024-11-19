@@ -24,7 +24,7 @@
           }
       }
       else{
-        include_once 'gioithieu.php';
+        include_once 'index.php';
       }
      
       

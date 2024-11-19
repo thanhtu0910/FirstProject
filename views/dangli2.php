@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng ký / Đăng nhập</title>
+  <title>Đăng ký</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     body {
@@ -146,98 +146,75 @@
     }
   </style>
 </head>
-<?php
-session_start();
-
-if (isset($_POST["btn_submit"])) {
-  $username = $_POST["username"];
-  $password = $_POST["password"];
-
-  $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
-
-  foreach ($login as $value) {
-    if ($username == $value->username && $password == $value->password) {
-      $isLoginSuccessful = true;
-      break; // Thoát khỏi vòng lặp khi đăng nhập thành công
-    }
-  }
-
-  // Kiểm tra biến cờ sau vòng lặp
-  if ($isLoginSuccessful) {
-    header('location:index.php');
-    $_SESSION["username"] = $username;
-    // include_once "views/da.php";
-  } else {
-    echo "<script>alert('Tài khoản hoặc mật khẩu của bạn sai!')</script>";
-  }
-}
-
-?>
-
-
 
 <body>
   <!-- Header -->
-
-
-  <!-- Form -->
-  <div class="form-container" id="form-container">
-    <h2>Đăng nhập</h2>
-    <form action="" method="post" id="login-form">
+  <div class="container topbar">
+    <div class="d-flex justify-content-between">
+      <div class="top-info ps-2">
+        <small class="me-3"><i class="fas fa-map-marker-alt me-2"></i><a href="#">Cầu Giấy, Hà Nội</a></small>
+        <small class="me-3"><i class="fas fa-envelope me-2"></i><a href="#">tuttph49773@gmail.com</a></small>
+      </div>
+      <div class="top-link pe-2">
+        <a href="#"><small class="mx-2">Chính sách bảo mật</small>/</a>
+        <a href="#"><small class="mx-2">Điều khoản sử dụng</small>/</a>
+        <a href="#"><small class="ms-2">Bán hàng và hoàn tiền</small></a>
+      </div>
+    </div>
+  </div>
+  <h1>Clothes</h1>
+  <!-- Form Đăng Ký -->
+  <div class="form-container">
+    <h2>Đăng ký</h2>
+    <!-- <form id="register-form">
       <div class="form-group">
-        <label for="name">Tên tài khoản</label>
-        <input type="text" name="username">
+        <label for="name">Họ và Tên</label>
+        <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email" required>
       </div>
       <div class="form-group">
         <label for="password">Mật khẩu</label>
-        <input type="password" name="password">
+        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
       </div>
-      <button type="submit" name="btn_submit">Đăng nhập</button>
+      <div class="form-group">
+        <label for="confirm-password">Xác nhận Mật khẩu</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu" required>
+      </div>
+      <button type="submit">Đăng ký</button>
+    </form> -->
+
+
+    <form action="" method="post" id="register-form">
+      <div class="form-group">
+        <label for="username">Họ và Tên</label>
+        <input type="text" id="username" name="username" placeholder="Nhập tài khoản" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Mật khẩu</label>
+        <input type="email" name="email" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Mật khẩu</label>
+        <input type="text" name="phone" placeholder="phone">
+      </div>
+      <button type="submit" name="btn_submit">Đăng ký</button>
+      <a href="?act=login">Đăng nhập</a>
     </form>
 
+
+
+
     <div class="switch">
-      <p>Chưa có tài khoản? <a href="#" id="switch-to-register">Đăng ký</a></p>
+      <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
     </div>
   </div>
-
-  <!-- Footer -->
-
-
-  <script>
-    const container = document.getElementById('form-container');
-    const switchToRegister = document.getElementById('switch-to-register');
-
-    switchToRegister.addEventListener('click', (e) => {
-      e.preventDefault();
-      container.innerHTML = `
-        <h2>Đăng ký</h2>
-        <form id="register-form">
-          <div class="form-group">
-            <label for="name">Họ và Tên</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Mật khẩu</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-          <button type="submit">Đăng ký</button>
-          
-        </form>
-        <div class="switch">
-          <p>Đã có tài khoản? <a href="#" id="switch-to-login">Đăng nhập</a></p>
-        </div>
-      `;
-
-      document.getElementById('switch-to-login').addEventListener('click', (e) => {
-        e.preventDefault();
-        location.reload();
-      });
-    });
-  </script>
 </body>
 
 </html>

@@ -182,7 +182,7 @@ p{
 
 /*** Hero Header ***/
 .hero-header {
-    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/hero-img.jpg);
+    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/banner.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -409,7 +409,7 @@ p{
 }
 
 .counter h4 {
-    color: var(--bs-primary);
+    color: var(--bg-primary);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
