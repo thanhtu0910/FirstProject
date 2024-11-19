@@ -237,14 +237,11 @@
                                             <label class="form-control-label">Tên danh mục</label>
                                             <input type="text" name="name" placeholder="Nhập tên sản phẩm" class="form-control">
                                         </div>
-                                        <button type="submit" name="submit" class="btn btn-primary btn-sm">
+                                        <button type="submit" name="btn_submit" class="btn btn-primary btn-sm">
                                             Thêm
                                         </button>
                                     </form>
                                 </div>
-                                <button type="submit" name="btn_submit" class="btn btn-primary btn-sm">
-                                    Thêm
-                                </button>
                             </form>
                         </div>
                     </div>

@@ -236,7 +236,7 @@
                                     <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                         <div class="form-group">
                                             <label class="form-control-label">Tên danh mục</label>
-                                            <input type="text" name="name" placeholder="Nhập tên danh mục" class="form-control" value="<?php echo $category_id->name ?>">
+                                            <input type="text" name="name" placeholder="Nhập tên danh mục" class="form-control" value="<?php echo htmlspecialchars($category->name ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary btn-sm">
                                             <i class="fa fa-dot-circle-o"></i> Sửa
