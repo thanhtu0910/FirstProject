@@ -23,7 +23,10 @@
         </div>
     </nav>
 </aside>
+<<<<<<< HEAD
 <?php if(isset($_SESSION['username'])){
     $username=$_SESSION['username'];
 }
  ?>
+=======
+>>>>>>> 79dcaa0595eae463a0a731bc59a0f54d077f8322
