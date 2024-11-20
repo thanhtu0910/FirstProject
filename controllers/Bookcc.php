@@ -70,7 +70,7 @@ class Bookcc
                 $role
             );
             if (!$addBook) {
-                header('location:?act=login');
+                header('location:?act=dangnhap');
             }
         }
         include_once "views/dangli.php";
