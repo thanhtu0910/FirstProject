@@ -25,7 +25,7 @@ if (isset($_POST['btn_submit'])) {
         echo '<p style="color: red;">Vui lòng nhập nhiều hơn 6 ký tự</p>';
     } else {
         // Kết nối cơ sở dữ liệu
-        $conn = mysqli_connect("localhost", "root", "", "duan1");
+        $conn = mysqli_connect("127.0.0.1", "root", "", "duan1");
         if (!$conn) {
             die('<p style="color: red;">Kết nối CSDL thất bại</p>');
         }
@@ -45,7 +45,15 @@ if (isset($_POST['btn_submit'])) {
             $result = mysqli_query($conn, $sql2);
 
             if ($result) {
+                // Hiển thị thông báo thành công và sau đó chuyển hướng
                 echo '<p style="color: green;">Đăng ký thành công</p>';
+                // JavaScript tự động chuyển hướng sau khi người dùng nhấn OK
+                echo "<script>
+                        alert('Đăng ký thành công!');
+                        setTimeout(function() {
+                            window.location.href = 'list.php'; // Chuyển hướng đến trang list.php
+                        }, 500); // Delay 500ms
+                      </script>";
             } else {
                 echo '<p style="color: red;">Đăng ký thất bại</p>';
             }
@@ -56,7 +64,5 @@ if (isset($_POST['btn_submit'])) {
     }
 }
 ?>
-
-
 
 

@@ -30,12 +30,16 @@
       /* Chữ màu trắng */
       height: 20px;
       border-radius: 15px;
+      margin: 0 5px; 
     }
+
+
 
     .topbar a {
       text-decoration: none;
       color: #d2b48c;
       /* Màu be tối */
+      margin: 0 5px; 
     }
 
     .container {
@@ -144,6 +148,20 @@
       color: #d2b48c;
       /* Màu be tối khi hover */
     }
+
+    textarea {
+    width: 100%;                /* Đảm bảo chiều rộng của textarea là 100% của container */
+    height: 150px;              /* Chiều cao của textarea */
+    padding: 10px;              /* Khoảng cách giữa văn bản và viền của textarea */
+    border: 1px solid #ccc;     /* Đường viền mảnh màu xám */
+    border-radius: 5px;         /* Làm tròn các góc của textarea */
+    font-size: 14px;            /* Kích thước chữ */
+    font-family: Arial, sans-serif; /* Font chữ */
+    resize: vertical;           /* Cho phép người dùng thay đổi chiều cao */
+    box-sizing: border-box;     /* Đảm bảo padding và border không ảnh hưởng đến kích thước */
+}
+
+
   </style>
 </head>
 
@@ -244,7 +262,15 @@ if (isset($_POST['btn_submit'])) {  // Kiểm tra khi người dùng đã nhấn
             $result = mysqli_query($conn, $sql2);
 
             if ($result) {
-              echo "<script>alert('Đăng ký thành công');</script>"; 
+              // Hiển thị thông báo thành công và sau đó chuyển hướng
+              echo '<p style="color: green;">Đăng ký thành công</p>';
+              // JavaScript tự động chuyển hướng sau khi người dùng nhấn OK
+              echo "<script>
+                      alert('Đăng ký thành công!');
+                      setTimeout(function() {
+                          window.location.href = 'list.php';
+                      }, 500); // Delay 500ms
+                    </script>";
             } else {
               echo "<script>alert('Đăng ký không thành công');</script>";
             }
