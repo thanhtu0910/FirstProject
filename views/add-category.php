@@ -1,3 +1,7 @@
+
+
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -25,33 +29,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
-    <style>
-        .table {
-            text-align: center;
-            margin: auto;
-        }
-
-        .table th,
-        .table td {
-            vertical-align: middle;
-        }
-
-        .table th,
-        .table td {
-            text-align: center;
-        }
-
-        .aa {
-            border: none;
-            background-color: white;
-            height: 30px;
-
-        }
-
-        .bb {
-            color: blue;
-        }
-    </style>
 </head>
 
 <body>
@@ -81,23 +58,46 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
         <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
         <link rel="stylesheet" href="assets/css/style.css">
-
         <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
     </head>
 
     <body>
         <!-- Left Panel -->
-        <?php include "views/component/asideadmin.php" ?>
-
+        <aside id="left-panel" class="left-panel">
+            <nav class="navbar navbar-expand-sm navbar-default">
+                <div id="main-menu" class="main-menu collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="http://localhost/duan1/d-n-/"><i class="menu-icon fa fa-laptop"></i>Quản lý sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/duan1/d-n-/views/elaadmin/danhmuc.php"><i class="menu-icon fa fa-cube"></i>Quản lý danh mục</a>
+                        </li>
+                        <li>
+                        </li>
+                        <li>
+                            <a href="http://localhost/duan1/d-n-/?act=listuser"><i class="menu-icon fa fa-users"></i>Quản lý người dùng</a>
+                        </li>
+                        <li>
+                            <a href="order-management.html"><i class="menu-icon fa fa-truck"></i>Quản lý đơn hàng</a>
+                        </li>
+                        <li>
+                            <a href="comment-management.html"><i class="menu-icon fa fa-comments"></i>Quản lý bình luận</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
         <!-- /#left-panel -->
+
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
             <!-- Header-->
             <header id="header" class="header">
                 <div class="top-left">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="./"><img src="image/logo.png" alt="Logo"></a>
+                        <a class="navbar-brand" href="http://localhost/duan1/d-n-/"><img src="image/logo.png" alt="Logo"></a>
                         <a class="navbar-brand hidden" href="./"><img src="image/logo2.png" alt="Logo"></a>
                         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                     </div>
@@ -114,15 +114,25 @@
                             </div>
 
                             <div class="dropdown for-notification">
-                                <?php
-                                if (isset($_SESSION['username'])) {
-                                ?>
-                                    <a>xin chao, <?php echo $username ?></a>
-                                    <button class="aa"><a href="?act=dangxuat" class="bb">Logout</a></button>
-
-                                <?php } else {
-                                } ?>
-
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-bell"></i>
+                                    <span class="count bg-danger">3</span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="notification">
+                                    <p class="red">You have 3 Notification</p>
+                                    <a class="dropdown-item media" href="#">
+                                        <i class="fa fa-check"></i>
+                                        <p>Server #1 overloaded.</p>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <i class="fa fa-info"></i>
+                                        <p>Server #2 overloaded.</p>
+                                    </a>
+                                    <a class="dropdown-item media" href="#">
+                                        <i class="fa fa-warning"></i>
+                                        <p>Server #3 overloaded.</p>
+                                    </a>
+                                </div>
                             </div>
 
                             <div class="dropdown for-message">
@@ -203,7 +213,9 @@
                             <div class="page-header float-right">
                                 <div class="page-title">
                                     <ol class="breadcrumb text-right">
-                                        <li><a href="#"></a>Sản phẩm</li>
+                                        <li><a href="index.php">Bảng điều khiển</a></li>
+                                        <li><a href="index.php?page_layout=danhmuc">Danh mục</a></li>
+                                        <li class="active">Thêm danh mục</li>
                                     </ol>
                                 </div>
                             </div>
@@ -212,75 +224,47 @@
                 </div>
             </div>
 
-            <!-- Bảng hiển thị sản phẩm -->
+            <!-- Nội dung -->
             <div class="content mt-3">
-                <div class="container-fluid">
-                    <div class="table-responsive">
-
-                        <!-- Nút thêm mới sản phẩm -->
-                        <a href="?act=binh">
-                            <button class="btn btn-primary btn-sm mb-3">Thêm mới sản phẩm</button>
-                        </a>
-
-                        <!-- Bảng sản phẩm -->
-                        <table class="table table-bordered table-hover table-striped table-sm">
-                            <thead class="thead-dark text-center">
-                                <tr>
-                                    <th>product_id</th>
-                                    <th>name</th>
-                                    <th>description</th>
-                                    <th>category_name</th>
-                                    <th>variant_id</th>
-                                    <th>price</th>
-                                    <th>stock_quantity</th>
-                                    <th>product_img</th>
-                                    <th>action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($listbook as $value) { ?>
-                                    <tr>
-                                        <td class="text-center"><?php echo $value->product_id; ?></td>
-                                        <td><?php echo $value->name; ?></td>
-                                        <td><?php echo $value->description; ?></td>
-                                        <td><?php echo $value->category_name; ?></td>
-                                        <td class="text-center"><?php echo $value->variant_id; ?></td>
-                                        <td><?php echo number_format($value->price); ?> VND</td>
-                                        <td class="text-center"><?php echo $value->stock_quantity; ?></td>
-                                        <td class="text-center">
-                                            <img src="<?php echo $value->product_img; ?>" alt="Product Image" class="img-fluid" width="80">
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="?act=edit&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>">
-                                                <button class="btn btn-success btn-sm">Sửa</button>
-                                            </a>
-                                            <button onclick="confirmDeleteBook('?act=delete&id=<?php echo $value->product_id; ?>&vid=<?php echo $value->variant_id; ?>')" class="btn btn-danger btn-sm">Xóa</button>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                      
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header"><strong>Thêm danh mục</strong></div>
+                                <div class="card-body card-block">
+                                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Tên danh mục</label>
+                                            <input type="text" name="name" placeholder="Nhập tên sản phẩm" class="form-control">
+                                        </div>
+                                        <button type="submit" name="btn_submit" class="btn btn-primary btn-sm">
+                                            Thêm
+                                        </button>
+                                    </form>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- /.content -->
-            <div class="clearfix"></div>
-            <!-- Footer -->
-            <footer class="site-footer">
-                <div class="footer-inner bg-white">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            Copyright &copy; 2024 Ela Admin
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            Designed by <a href="https://colorlib.com">Colorlib</a>
-                        </div>
+        <!-- /.content -->
+        <div class="clearfix"></div>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-inner bg-white">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Copyright &copy; 2024 Ela Admin
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        Designed by <a href="https://colorlib.com">Colorlib</a>
                     </div>
                 </div>
-            </footer>
-            <!-- /.site-footer -->
+            </div>
+        </footer>
+        <!-- /.site-footer -->
         </div>
         <!-- /#right-panel -->
 
@@ -304,11 +288,3 @@
 </body>
 
 </html>
-<script>
-    function confirmDeleteBook(deleUrl) {
-        if (confirm('Are you sure you want to delete')) {
-            document.location = deleUrl;
-        }
-    }
-    document.title = 'Admin';
-</script>
