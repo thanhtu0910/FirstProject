@@ -6,7 +6,9 @@ class Bookcc
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
+        $vv = $mBook->getall();
         include_once "views/list.php";
+        // include_once "fruitables/shop.php";
     }
     public function listuser()
     {
@@ -58,10 +60,11 @@ class Bookcc
                 $role
             );
             if (!$addBook) {
-                header('location:index.php');
+                header('location:?act=login');
             }
         }
         include_once "views/dangli.php";
+        include_once "views/dangnhap.php";
     }
     public function login()
     {
@@ -75,7 +78,12 @@ class Bookcc
     }
     public function dangxuat()
     {
-        header('location: views/dangnhap.php');
+        session_start();
+
+        if (isset($_SESSION["user"])) {
+            unset($_SESSION["user"]);
+        }
+        header('location: ?act=login');
     }
 
 

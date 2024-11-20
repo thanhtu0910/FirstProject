@@ -212,35 +212,37 @@
             </div>
 
             <!-- Bảng hiển thị sản phẩm -->
-            <div class="content mt-3">
-                <div class="container-fluid">
-                    <div class="table-responsive">
-
-                        <table border="1" class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <td>user_id</td>
-                                    <td>name</td>
-                                    <td>pass</td>
-                                    <td>email</td>
-                                    <td>phone</td>
-                                    <td>address</td>
-                                </tr>
-                            </thead>
-                            <?php foreach ($login as $value) { ?>
-                                <tr>
-                                    <td><?php echo $value->user_id; ?></td>
-                                    <td><?php echo $value->username; ?></td>
-                                    <td><?php echo $value->password; ?></td>
-                                    <td><?php echo $value->email; ?></td>
-                                    <td><?php echo $value->phone; ?></td>
-                                    <td><?php echo $value->address; ?></td>
-                                </tr>
-                            <?php } ?>
-                        </table>
+                <div class="content mt-3">
+                    <div class="container-fluid">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped table-sm">
+                                <thead class="thead-dark text-center">
+                                    <tr>
+                                        <th>user_id</th>
+                                        <th>name</th>
+                                        <th>pass</th>
+                                        <th>email</th>
+                                        <th>phone</th>
+                                        <th>address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($login as $value) { ?>
+                                        <tr>
+                                            <td class="text-center"><?php echo $value->user_id; ?></td>
+                                            <td><?php echo $value->username; ?></td>
+                                            <td><?php echo $value->password; ?></td>
+                                            <td><?php echo $value->email; ?></td>
+                                            <td><?php echo $value->phone; ?></td>
+                                            <td><?php echo $value->address; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+
 
             <!-- /.content -->
             <div class="clearfix"></div>
