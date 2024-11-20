@@ -7,6 +7,11 @@ class Bookcc
         $danhmuc = $mDm->getDM();
         include_once "views/danhmuc.php";
     }
+    public function shophtml(){
+        $mBook = new Book();
+        $shophtml = $mBook->getDM();
+        require_once "views/fruitables/shop.php";
+    }
     public function listbook()
     {
         $mBook = new Book();
@@ -158,21 +163,46 @@ class Bookcc
         }
         include_once "views/add-category.php";
     }
-   public function editDM(){
-        if(isset($_GET['category_id'])){
+    public function editDM() {
+        if (isset($_GET['category_id'])) {
             $mBook = new Book();
-            $category_id = $mBook->getIdDM($_GET['category_id']);
-            if (isset($_POST['submit'])) {
-                $name = $_POST['name'];
-                if (isset($name)) {
-                    header('Location: index.php?act=danhmuc');
-                    exit(); 
-                }
-                $editDM = $mBook->editDM($name, $_GET['category_id']);
+            
+            // Lấy thông tin danh mục theo category_id
+            $category = $mBook->getIdDM($_GET['category_id']);
+            
+            if (!$category) {
+                echo "Danh mục không tồn tại!";
+                exit();
             }
+    
+            // Xử lý form submit
+            if (isset($_POST['submit'])) {
+                $name = $_POST['name'] ?? '';
+    
+                // Kiểm tra nếu `name` không được nhập
+                if (empty($name)) {
+                    $error = "Tên danh mục không được để trống!";
+                } else {
+                    // Thực hiện cập nhật danh mục
+                    $editDM = $mBook->editDM($name, $_GET['category_id']);
+                    if ($editDM) {
+                        // Chuyển hướng nếu cập nhật thành công
+                        header('Location: index.php?act=danhmuc');
+                        exit();
+                    } else {
+                        $error = "Cập nhật danh mục thất bại!";
+                    }
+                }
+            }
+    
+            // Hiển thị view với thông tin danh mục
+            include_once 'views/edit-category.php';
+        } else {
+            echo "Thiếu ID danh mục để chỉnh sửa!";
+            exit();
         }
-        include_once 'views/edit-category.php';
     }
+    
     public function deleteDM() {
         if (isset($_GET['category_id'])) {
             $category_id = $_GET['category_id'];

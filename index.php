@@ -35,6 +35,9 @@ switch ($bb) {
     case 'editDM':
         $aa->editDM();
         break;
+    case 'deleteDM':
+        $aa->deleteDM();
+        break;
     // case 'xem':
     //     $aa->xem();
     //     break;
@@ -43,6 +46,9 @@ switch ($bb) {
         break;
     case 'listuser':
         $aa->listuser();
+        break;
+    case 'shophtml':
+        $aa->shophtml();
         break;
         
     default:

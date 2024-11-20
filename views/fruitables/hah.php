@@ -5,18 +5,12 @@
         <meta charset="utf-8">
         <title>Quần áo đông Nam Website</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<<<<<<< HEAD
         <meta content name="keywords">
         <meta content name="description">
-=======
-        <meta content="" name="keywords">
-        <meta content="" name="description">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<<<<<<< HEAD
         <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
             rel="stylesheet">
@@ -32,18 +26,6 @@
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css"
             rel="stylesheet">
-=======
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
-
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-        <!-- Libraries Stylesheet -->
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -52,23 +34,15 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
 
-<<<<<<< HEAD
     <body style="background-color: rgb(235, 235, 235);">
 
         <!-- Spinner Start -->
         <div id="spinner"
             class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-=======
-    <body style="background-color: rgb(243, 240, 240);">
-
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
 
-<<<<<<< HEAD
         <!-- Navbar start -->
         <div class="container-fluid fixed-top">
             <div class="container topbar bg-primary d-none d-lg-block">
@@ -173,28 +147,6 @@
                             <span id="search-icon-1"
                                 class="input-group-text p-3"><i
                                     class="fa fa-search"></i></span>
-=======
-
-        <!-- Navbar start -->
-    <?php
-        require "inc/header.php";
-    ?>
-        <!-- Navbar End -->
-
-
-        <!-- Modal Search Start -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-   title" id="exampleModalLabel">Search by keyword</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                         </div>
                     </div>
                 </div>
@@ -202,16 +154,11 @@
         </div>
         <!-- Modal Search End -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Hero Start -->
         <div class="container-fluid py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-12 col-lg-7">
-<<<<<<< HEAD
                         <h4 class="mb-3 text-secondary">Thời trang không chỉ để
                             mặc, mà để thể hiện cá tính!</h4>
                         <h1 class="mb-5 display-3 text-primary">Phong cách &
@@ -259,33 +206,6 @@
                                 data-bs-slide="next">
                                 <span class="carousel-control-next-icon"
                                     aria-hidden="true"></span>
-=======
-                        <h4 class="mb-3 text-dark">Thời trang không chỉ để mặc, mà để thể hiện cá tính!</h4>
-                        <h1 class="mb-5 display-3 text-primary">Phong cách & thoải mái mỗi ngày!</h1>
-                        <div class="position-relative mx-auto">
-                            <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Search">
-                            <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-5">
-                        <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active rounded">
-                                    <img src="img/images-2.jpg" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Áo phao</a>
-                                </div>
-                                <div class="carousel-item rounded">
-                                    <img src="img/images.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                                    <a href="#" class="btn px-4 py-2 text-white rounded">Áo Hoodie</a>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
@@ -295,16 +215,11 @@
         </div>
         <!-- Hero End -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Featurs Section Start -->
         <div class="container-fluid featurs py-5">
             <div class="container py-5">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-<<<<<<< HEAD
                         <div
                             class="featurs-item text-center rounded bg-light p-4">
                             <div
@@ -315,20 +230,10 @@
                                 <h5 style="color:black ">Free shipping</h5>
                                 <p class="mb-0" style="color:black ">Miễn phí
                                     cho các đơn hàng lớn</p>
-=======
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
-                                <i class="fas fa-car-side fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center" >
-                                <h5 style="color:black ">Free shipping</h5>
-                                <p class="mb-0" style="color:black ">Dành các đơn hàng trên 200.000đ</p>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-<<<<<<< HEAD
                         <div
                             class="featurs-item text-center rounded bg-light p-4">
                             <div
@@ -340,20 +245,10 @@
                                 <h5 style="color:black ">Bảo mật thanh toán</h5>
                                 <p class="mb-0" style="color:black ">100% Thanh
                                     toán bảo mật </p>
-=======
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square  rounded-circle bg-primary mb-5 mx-auto">
-                                <i class="fas fa-user-shield fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5 style="color:black ">Bảo mật thanh toán</h5>
-                                <p class="mb-0" style="color:black ">100% Thanh toán bảo mật </p>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-<<<<<<< HEAD
                         <div
                             class="featurs-item text-center rounded bg-light p-4">
                             <div
@@ -365,38 +260,20 @@
                                 <h5 style="color:black ">30 ngày đổi trả</h5>
                                 <p class="mb-0" style="color:black ">30 ngày đổi
                                     trả</p>
-=======
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
-                                <i class="fas fa-exchange-alt fa-3x text-white"></i>
-                            </div>
-                            <div class="featurs-content text-center">
-                                <h5 style="color:black ">30 ngày đổi trả</h5>
-                                <p class="mb-0" style="color:black ">30 ngày đổi trả</p>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-<<<<<<< HEAD
                         <div
                             class="featurs-item text-center rounded bg-light p-4">
                             <div
                                 class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
-=======
-                        <div class="featurs-item text-center rounded bg-light p-4">
-                            <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 <i class="fa fa-phone-alt fa-3x text-white"></i>
                             </div>
                             <div class="featurs-content text-center">
                                 <h5 style="color:black ">Hỗ trợ 24/7</h5>
-<<<<<<< HEAD
                                 <p class="mb-0" style="color:black ">Hỗ trợ mọi
                                     lúc</p>
-=======
-                                <p class="mb-0" style="color:black ">Hỗ trợ mọi lúc</p>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
@@ -405,17 +282,12 @@
         </div>
         <!-- Featurs Section End -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Fruits Shop Start-->
         <div class="container-fluid fruite py-5">
             <div class="container py-5">
                 <div class="tab-class text-center">
                     <div class="row g-4">
                         <div class="col-lg-4 text-start">
-<<<<<<< HEAD
                             <h1>Thời trang mùa đông </h1>
                         </div>
                         <div class="col-lg-8 text-end">
@@ -461,35 +333,6 @@
                                         data-bs-toggle="pill" href="#tab-5">
                                         <span class="text-dark"
                                             style="width: 130px;">Jeans</span>
-=======
-                            <h1 style="color: black;">Our Organic Products</h1>
-                        </div>
-                        <div class="col-lg-8 text-end">
-                            <ul class="nav nav-pills d-inline-flex text-center mb-5">
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active" data-bs-toggle="pill" href="#tab-1">
-                                        <span class="text-dark" style="width: 130px;">All Products</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-2">
-                                        <span class="text-dark" style="width: 130px;">Áo hoodie</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-3">
-                                        <span class="text-dark" style="width: 130px;">Sweater</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-4">
-                                        <span class="text-dark" style="width: 130px;">Boomber</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill" href="#tab-5">
-                                        <span class="text-dark" style="width: 130px;">Jeans</span>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                     </a>
                                 </li>
                             </ul>
@@ -501,7 +344,6 @@
                                 <div class="col-lg-12">
                                     <div class="row g-4">
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -761,131 +603,6 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Blazer </h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Grapes</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-2.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Raspberries</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-4.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Apricots</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-3.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Banana</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Oranges</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-2.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4 style="color: black;">Raspberries</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-4 col-xl-3">
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Grapes</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
@@ -899,7 +616,6 @@
                                 <div class="col-lg-12">
                                     <div class="row g-4">
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -928,25 +644,11 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Grapes</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -975,19 +677,6 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-2.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bs-primary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Raspberries</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
@@ -1001,7 +690,6 @@
                                 <div class="col-lg-12">
                                     <div class="row g-4">
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1030,25 +718,11 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Oranges</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1077,19 +751,6 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Apple</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
@@ -1103,7 +764,6 @@
                                 <div class="col-lg-12">
                                     <div class="row g-4">
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1132,25 +792,11 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Grapes</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1179,19 +825,6 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-4.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Apricots</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
@@ -1205,7 +838,6 @@
                                 <div class="col-lg-12">
                                     <div class="row g-4">
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1234,25 +866,11 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-3.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Banana</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1281,25 +899,11 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-2.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Raspberries</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-4 col-xl-3">
-<<<<<<< HEAD
                                             <div
                                                 class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1328,19 +932,6 @@
                                                             class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                 class="fa fa-shopping-bag me-2 text-primary"></i>
                                                             Add to cart</a>
-=======
-                                            <div class="rounded position-relative fruite-item">
-                                                <div class="fruite-img">
-                                                    <img src="img/fruite-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                                                </div>
-                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
-                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Oranges</h4>
-                                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                                                    <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                                     </div>
                                                 </div>
                                             </div>
@@ -1350,26 +941,17 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                 </div>
-=======
-                </div>      
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
             </div>
         </div>
         <!-- Fruits Shop End-->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Featurs Start -->
         <div class="container-fluid service py-5">
             <div class="container py-5">
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-6 col-lg-4">
                         <a href="#">
-<<<<<<< HEAD
                             <div
                                 class="service-item bg-secondary rounded border border-secondary">
                                 <img src="img/featur-1.jpg"
@@ -1377,12 +959,6 @@
                                 <div class="px-4 rounded-bottom">
                                     <div
                                         class="service-content bg-primary text-center p-4 rounded">
-=======
-                            <div class="service-item bg-secondary rounded border border-secondary">
-                                <img src="img/featur-1.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="px-4 rounded-bottom">
-                                    <div class="service-content bg-primary text-center p-4 rounded">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                         <h5 class="text-white">Fresh Apples</h5>
                                         <h3 class="mb-0">20% OFF</h3>
                                     </div>
@@ -1392,7 +968,6 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <a href="#">
-<<<<<<< HEAD
                             <div
                                 class="service-item bg-dark rounded border border-dark">
                                 <img src="img/featur-2.jpg"
@@ -1402,13 +977,6 @@
                                         class="service-content bg-light text-center p-4 rounded">
                                         <h5 class="text-primary">Tasty
                                             Fruits</h5>
-=======
-                            <div class="service-item bg-dark rounded border border-dark">
-                                <img src="img/featur-2.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="px-4 rounded-bottom">
-                                    <div class="service-content bg-light text-center p-4 rounded">
-                                        <h5 class="text-primary">Tasty Fruits</h5>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                         <h3 class="mb-0">Free delivery</h3>
                                     </div>
                                 </div>
@@ -1417,7 +985,6 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <a href="#">
-<<<<<<< HEAD
                             <div
                                 class="service-item bg-primary rounded border border-primary">
                                 <img src="img/featur-3.jpg"
@@ -1427,13 +994,6 @@
                                         class="service-content bg-secondary text-center p-4 rounded">
                                         <h5 class="text-white">Exotic
                                             Vegitable</h5>
-=======
-                            <div class="service-item bg-primary rounded border border-primary">
-                                <img src="img/featur-3.jpg" class="img-fluid rounded-top w-100" alt="">
-                                <div class="px-4 rounded-bottom">
-                                    <div class="service-content bg-secondary text-center p-4 rounded">
-                                        <h5 class="text-white">Exotic Vegitable</h5>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                         <h3 class="mb-0">Discount 30$</h3>
                                     </div>
                                 </div>
@@ -1445,7 +1005,6 @@
         </div>
         <!-- Featurs End -->
 
-<<<<<<< HEAD
         <!-- Vesitable Shop Start-->
         <div class="container-fluid vesitable py-5">
             <div class="container py-5">
@@ -1650,123 +1209,6 @@
                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                         class="fa fa-shopping-bag me-2 text-primary"></i>
                                     Add to cart</a>
-=======
-
-        <!-- Vesitable Shop Start-->
-        <div class="container-fluid vesitable py-5">
-            <div class="container py-5">
-                <h1 class="mb-0" style="color: black;" >Fresh Organic Vegetables</h1>
-                <div class="owl-carousel vegetable-carousel justify-content-center">
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-1.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-3.png" class="img-fluid w-100 rounded-top bg-light" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Banana</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-4.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Bell Papper</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Potatoes</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bs-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;"v>Potatoes</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="img/vegetable-item-6.jpg" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4 style="color: black;">Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
@@ -1775,17 +1217,12 @@
         </div>
         <!-- Vesitable Shop End -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Banner Section Start-->
         <div class="container-fluid banner bg-secondary my-5">
             <div class="container py-5">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6">
                         <div class="py-4">
-<<<<<<< HEAD
                             <h1 class="display-3 text-white">Fresh Exotic
                                 Fruits</h1>
                             <p class="fw-normal display-3 text-dark mb-4">in Our
@@ -1796,26 +1233,15 @@
                                 etc.</p>
                             <a href="#"
                                 class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a>
-=======
-                            <h1 class="display-3 text-white">Fresh Exotic Fruits</h1>
-                            <p class="fw-normal display-3 text-dark mb-4">in Our Store</p>
-                            <p class="mb-4 text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
-                            <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="position-relative">
-<<<<<<< HEAD
                             <img src="img/baner-1.png"
                                 class="img-fluid w-100 rounded" alt>
                             <div
                                 class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute"
                                 style="width: 140px; height: 140px; top: 0; left: 0;">
-=======
-                            <img src="img/baner-1.png" class="img-fluid w-100 rounded" alt="">
-                            <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 <h1 style="font-size: 100px;">1</h1>
                                 <div class="d-flex flex-column">
                                     <span class="h2 mb-0">50$</span>
@@ -1829,35 +1255,23 @@
         </div>
         <!-- Banner Section End -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Bestsaler Product Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5" style="max-width: 700px;">
                     <h1 class="display-4">Bestseller Products</h1>
-<<<<<<< HEAD
                     <p>Latin words, combined with a handful of model sentence
                         structures, to generate Lorem Ipsum which looks
                         reasonable.</p>
-=======
-                    <p>Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.</p>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-6 col-xl-4">
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-<<<<<<< HEAD
                                     <img src="img/best-product-1.jpg"
                                         class="img-fluid rounded-circle w-100"
                                         alt>
-=======
-                                    <img src="img/best-product-1.jpg" class="img-fluid rounded-circle w-100" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="col-6">
                                     <a href="#" class="h5">Organic Tomato</a>
@@ -1869,14 +1283,10 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                             class="fa fa-shopping-bag me-2 text-primary"></i>
                                         Add to cart</a>
-=======
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                             </div>
                         </div>
@@ -1885,13 +1295,9 @@
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-<<<<<<< HEAD
                                     <img src="img/best-product-2.jpg"
                                         class="img-fluid rounded-circle w-100"
                                         alt>
-=======
-                                    <img src="img/best-product-2.jpg" class="img-fluid rounded-circle w-100" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="col-6">
                                     <a href="#" class="h5">Organic Tomato</a>
@@ -1903,14 +1309,10 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                             class="fa fa-shopping-bag me-2 text-primary"></i>
                                         Add to cart</a>
-=======
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                             </div>
                         </div>
@@ -1919,13 +1321,9 @@
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-<<<<<<< HEAD
                                     <img src="img/best-product-3.jpg"
                                         class="img-fluid rounded-circle w-100"
                                         alt>
-=======
-                                    <img src="img/best-product-3.jpg" class="img-fluid rounded-circle w-100" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="col-6">
                                     <a href="#" class="h5">Organic Tomato</a>
@@ -1937,14 +1335,10 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                             class="fa fa-shopping-bag me-2 text-primary"></i>
                                         Add to cart</a>
-=======
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                             </div>
                         </div>
@@ -1953,13 +1347,9 @@
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-<<<<<<< HEAD
                                     <img src="img/best-product-4.jpg"
                                         class="img-fluid rounded-circle w-100"
                                         alt>
-=======
-                                    <img src="img/best-product-4.jpg" class="img-fluid rounded-circle w-100" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="col-6">
                                     <a href="#" class="h5">Organic Tomato</a>
@@ -1971,14 +1361,10 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                             class="fa fa-shopping-bag me-2 text-primary"></i>
                                         Add to cart</a>
-=======
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                             </div>
                         </div>
@@ -1987,13 +1373,9 @@
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-<<<<<<< HEAD
                                     <img src="img/best-product-5.jpg"
                                         class="img-fluid rounded-circle w-100"
                                         alt>
-=======
-                                    <img src="img/best-product-5.jpg" class="img-fluid rounded-circle w-100" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="col-6">
                                     <a href="#" class="h5">Organic Tomato</a>
@@ -2005,14 +1387,10 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                             class="fa fa-shopping-bag me-2 text-primary"></i>
                                         Add to cart</a>
-=======
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                             </div>
                         </div>
@@ -2021,13 +1399,9 @@
                         <div class="p-4 rounded bg-light">
                             <div class="row align-items-center">
                                 <div class="col-6">
-<<<<<<< HEAD
                                     <img src="img/best-product-6.jpg"
                                         class="img-fluid rounded-circle w-100"
                                         alt>
-=======
-                                    <img src="img/best-product-6.jpg" class="img-fluid rounded-circle w-100" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="col-6">
                                     <a href="#" class="h5">Organic Tomato</a>
@@ -2039,26 +1413,18 @@
                                         <i class="fas fa-star"></i>
                                     </div>
                                     <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                     <a href="#"
                                         class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                             class="fa fa-shopping-bag me-2 text-primary"></i>
                                         Add to cart</a>
-=======
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="text-center">
-<<<<<<< HEAD
                             <img src="img/fruite-item-1.jpg"
                                 class="img-fluid rounded" alt>
-=======
-                            <img src="img/fruite-item-1.jpg" class="img-fluid rounded" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             <div class="py-4">
                                 <a href="#" class="h5">Organic Tomato</a>
                                 <div class="d-flex my-3 justify-content-center">
@@ -2069,25 +1435,17 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                                 <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                 <a href="#"
                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                         class="fa fa-shopping-bag me-2 text-primary"></i>
                                     Add to cart</a>
-=======
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="text-center">
-<<<<<<< HEAD
                             <img src="img/fruite-item-2.jpg"
                                 class="img-fluid rounded" alt>
-=======
-                            <img src="img/fruite-item-2.jpg" class="img-fluid rounded" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             <div class="py-4">
                                 <a href="#" class="h5">Organic Tomato</a>
                                 <div class="d-flex my-3 justify-content-center">
@@ -2098,25 +1456,17 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                                 <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                 <a href="#"
                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                         class="fa fa-shopping-bag me-2 text-primary"></i>
                                     Add to cart</a>
-=======
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="text-center">
-<<<<<<< HEAD
                             <img src="img/fruite-item-3.jpg"
                                 class="img-fluid rounded" alt>
-=======
-                            <img src="img/fruite-item-3.jpg" class="img-fluid rounded" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             <div class="py-4">
                                 <a href="#" class="h5">Organic Tomato</a>
                                 <div class="d-flex my-3 justify-content-center">
@@ -2127,25 +1477,17 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                                 <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                 <a href="#"
                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                         class="fa fa-shopping-bag me-2 text-primary"></i>
                                     Add to cart</a>
-=======
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="text-center">
-<<<<<<< HEAD
                             <img src="img/fruite-item-4.jpg"
                                 class="img-fluid rounded" alt>
-=======
-                            <img src="img/fruite-item-4.jpg" class="img-fluid rounded" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             <div class="py-2">
                                 <a href="#" class="h5">Organic Tomato</a>
                                 <div class="d-flex my-3 justify-content-center">
@@ -2156,14 +1498,10 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                                 <h4 class="mb-3">3.12 $</h4>
-<<<<<<< HEAD
                                 <a href="#"
                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                         class="fa fa-shopping-bag me-2 text-primary"></i>
                                     Add to cart</a>
-=======
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
@@ -2172,10 +1510,6 @@
         </div>
         <!-- Bestsaler Product End -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Fact Start -->
         <div class="container-fluid py-5">
             <div class="container">
@@ -2215,10 +1549,6 @@
         </div>
         <!-- Fact Start -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
         <!-- Tastimonial Start -->
         <div class="container-fluid testimonial py-5">
             <div class="container py-5">
@@ -2227,7 +1557,6 @@
                     <h1 class="display-5 mb-5 text-dark">Our Client Saying!</h1>
                 </div>
                 <div class="owl-carousel testimonial-carousel">
-<<<<<<< HEAD
                     <div
                         class="testimonial-item img-border-radius bg-light rounded p-4">
                         <div class="position-relative">
@@ -2240,25 +1569,14 @@
                                     of the printing Ipsum has been the
                                     industry's standard dummy text ever since
                                     the 1500s,
-=======
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                        <div class="position-relative">
-                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
-                            <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </p>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
-<<<<<<< HEAD
                                     <img src="img/testimonial-1.jpg"
                                         class="img-fluid rounded"
                                         style="width: 100px; height: 100px;"
                                         alt>
-=======
-                                    <img src="img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="ms-4 d-block">
                                     <h4 class="text-dark">Client Name</h4>
@@ -2274,7 +1592,6 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div
                         class="testimonial-item img-border-radius bg-light rounded p-4">
                         <div class="position-relative">
@@ -2287,25 +1604,14 @@
                                     of the printing Ipsum has been the
                                     industry's standard dummy text ever since
                                     the 1500s,
-=======
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                        <div class="position-relative">
-                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
-                            <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </p>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
-<<<<<<< HEAD
                                     <img src="img/testimonial-1.jpg"
                                         class="img-fluid rounded"
                                         style="width: 100px; height: 100px;"
                                         alt>
-=======
-                                    <img src="img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="ms-4 d-block">
                                     <h4 class="text-dark">Client Name</h4>
@@ -2321,7 +1627,6 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div
                         class="testimonial-item img-border-radius bg-light rounded p-4">
                         <div class="position-relative">
@@ -2334,25 +1639,14 @@
                                     of the printing Ipsum has been the
                                     industry's standard dummy text ever since
                                     the 1500s,
-=======
-                    <div class="testimonial-item img-border-radius bg-light rounded p-4">
-                        <div class="position-relative">
-                            <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
-                            <div class="mb-4 pb-4 border-bottom border-secondary">
-                                <p class="mb-0">Lorem Ipsum is simply dummy text of the printing Ipsum has been the industry's standard dummy text ever since the 1500s,
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </p>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
-<<<<<<< HEAD
                                     <img src="img/testimonial-1.jpg"
                                         class="img-fluid rounded"
                                         style="width: 100px; height: 100px;"
                                         alt>
-=======
-                                    <img src="img/testimonial-1.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                                 </div>
                                 <div class="ms-4 d-block">
                                     <h4 class="text-dark">Client Name</h4>
@@ -2373,19 +1667,11 @@
         </div>
         <!-- Tastimonial End -->
 
-<<<<<<< HEAD
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
             <div class="container py-5">
                 <div class="pb-4 mb-4"
                     style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
-=======
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
-            <div class="container py-5">
-                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                     <div class="row g-4">
                         <div class="col-lg-3">
                             <a href="#">
@@ -2395,7 +1681,6 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mx-auto">
-<<<<<<< HEAD
                                 <input
                                     class="form-control border-0 w-100 py-3 px-4 rounded-pill"
                                     type="number" placeholder="Your Email">
@@ -2403,15 +1688,10 @@
                                     class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white"
                                     style="top: 0; right: 0;">Subscribe
                                     Now</button>
-=======
-                                <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
-                                <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="d-flex justify-content-end pt-3">
-<<<<<<< HEAD
                                 <a
                                     class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle"
                                     href><i class="fab fa-twitter"></i></a>
@@ -2424,12 +1704,6 @@
                                 <a
                                     class="btn btn-outline-secondary btn-md-square rounded-circle"
                                     href><i class="fab fa-linkedin-in"></i></a>
-=======
-                                <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in"></i></a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                             </div>
                         </div>
                     </div>
@@ -2438,7 +1712,6 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Why People Like us!</h4>
-<<<<<<< HEAD
                             <p class="mb-4">typesetting, remaining essentially
                                 unchanged. It was
                                 popularised in the 1960s with the like Aldus
@@ -2446,51 +1719,28 @@
                             <a href
                                 class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read
                                 More</a>
-=======
-                            <p class="mb-4">typesetting, remaining essentially unchanged. It was 
-                                popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
-                            <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
                             <h4 class="text-light mb-3">Shop Info</h4>
-<<<<<<< HEAD
                             <a class="btn-link" href>About Us</a>
                             <a class="btn-link" href>Contact Us</a>
                             <a class="btn-link" href>Privacy Policy</a>
                             <a class="btn-link" href>Terms & Condition</a>
                             <a class="btn-link" href>Return Policy</a>
                             <a class="btn-link" href>FAQs & Help</a>
-=======
-                            <a class="btn-link" href="">About Us</a>
-                            <a class="btn-link" href="">Contact Us</a>
-                            <a class="btn-link" href="">Privacy Policy</a>
-                            <a class="btn-link" href="">Terms & Condition</a>
-                            <a class="btn-link" href="">Return Policy</a>
-                            <a class="btn-link" href="">FAQs & Help</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
                             <h4 class="text-light mb-3">Account</h4>
-<<<<<<< HEAD
                             <a class="btn-link" href>My Account</a>
                             <a class="btn-link" href>Shop details</a>
                             <a class="btn-link" href>Shopping Cart</a>
                             <a class="btn-link" href>Wishlist</a>
                             <a class="btn-link" href>Order History</a>
                             <a class="btn-link" href>International Orders</a>
-=======
-                            <a class="btn-link" href="">My Account</a>
-                            <a class="btn-link" href="">Shop details</a>
-                            <a class="btn-link" href="">Shopping Cart</a>
-                            <a class="btn-link" href="">Wishlist</a>
-                            <a class="btn-link" href="">Order History</a>
-                            <a class="btn-link" href="">International Orders</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -2500,11 +1750,7 @@
                             <p>Email: Example@gmail.com</p>
                             <p>Phone: +0123 4567 8910</p>
                             <p>Payment Accepted</p>
-<<<<<<< HEAD
                             <img src="img/payment.png" class="img-fluid" alt>
-=======
-                            <img src="img/payment.png" class="img-fluid" alt="">
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                         </div>
                     </div>
                 </div>
@@ -2516,7 +1762,6 @@
         <div class="container-fluid copyright bg-dark py-4">
             <div class="container">
                 <div class="row">
-<<<<<<< HEAD
                     <div
                         class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         <span class="text-light"><a href="#"><i
@@ -2532,23 +1777,12 @@
                             href="https://htmlcodex.com">HTML Codex</a>
                         Distributed By <a class="border-bottom"
                             href="https://themewagon.com">ThemeWagon</a>
-=======
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
-                    </div>
-                    <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
                     </div>
                 </div>
             </div>
         </div>
         <!-- Copyright End -->
 
-<<<<<<< HEAD
         <!-- Back to Top -->
         <a href="#"
             class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i
@@ -2566,24 +1800,6 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
-=======
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
->>>>>>> c35aacca1fede569702f57ef79fec703ce6a5f70
     </body>
 
 </html>
