@@ -537,7 +537,7 @@
         <td>product_img</td>
         <td>action</td>
     </tr>
-    <?php foreach ($vv as $value) { ?>
+    <?php foreach ($listbookk as $value) { ?>
         <tr>
             <td><?php echo $value->product_id; ?></td>
             <td><?php echo $value->name; ?></td>

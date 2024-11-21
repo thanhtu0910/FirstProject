@@ -178,8 +178,20 @@ if (isset($_POST["btn_submit"])) {
 
 <body>
   <!-- Header -->
-
-
+  <div class="container topbar">
+    <div class="d-flex justify-content-between">
+      <div class="top-info ps-2">
+        <small class="me-3"><i class="fas fa-map-marker-alt me-2"></i><a href="#">Cầu Giấy, Hà Nội</a></small>
+        <small class="me-3"><i class="fas fa-envelope me-2"></i><a href="#">tuttph49773@gmail.com</a></small>
+      </div>
+      <div class="top-link pe-2">
+        <a href="#"><small class="mx-2">Chính sách bảo mật</small>/</a>
+        <a href="#"><small class="mx-2">Điều khoản sử dụng</small>/</a>
+        <a href="#"><small class="ms-2">Bán hàng và hoàn tiền</small></a>
+      </div>
+    </div>
+  </div>
+  <h1>Clothes</h1>
   <!-- Form -->
   <div class="form-container" id="form-container">
     <h2>Đăng nhập</h2>
@@ -224,7 +236,7 @@ if (isset($_POST["btn_submit"])) {
             <label for="password">Mật khẩu</label>
             <input type="password" id="password" name="password" required>
           </div>
-          <button type="submit">Đăng ký</button>
+          <button type="submit" name="btn_submit">Đăng ký</button>
           
         </form>
         <div class="switch">

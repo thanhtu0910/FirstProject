@@ -6,10 +6,9 @@ class Bookcc
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
-        $vv = $mBook->getall();
         include_once "views/list.php";
-        include_once "fruitables/shop.php";
     }
+
     public function listuser()
     {
         $mBook = new Book();
@@ -64,7 +63,6 @@ class Bookcc
             }
         }
         include_once "views/dangli.php";
-        include_once "views/dangnhap.php";
     }
     public function login()
     {

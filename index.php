@@ -8,6 +8,9 @@ switch ($bb) {
     case 'list':
         $aa->listbook();
         break;
+    case 'list':
+        $aa->listbookk();
+        break;
     case 'edit':
         $aa->editbook();
         break;
@@ -23,10 +26,10 @@ switch ($bb) {
     case 'dangxuat':
         $aa->dangxuat();
         break;
+
     case 'binh':
         $aa->binh();
         break;
-    
     // case 'xem':
     //     $aa->xem();
     //     break;
