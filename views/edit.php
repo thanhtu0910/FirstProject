@@ -220,39 +220,37 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-header"><strong>Sửa sản phẩm mới</strong></div>
+                                <div class="card-header"><strong></strong></div>
                                 <div class="card-body card-block">
                                     <form method="POST" enctype="multipart/form-data">
 
                                         <!-- Thông tin sản phẩm chính -->
                                         <label class="form-control-label">Tên sản phẩm</label>
-
                                         <input type="text" id="name" name="name" required value="<?php echo $idBook['name'] ?>" class="form-control">
                                         <label class="form-control-label">Mô tả</label>
-
                                         <input type="text" id="description" name="description" required value="<?php echo $idBook['description'] ?>" class="form-control">
 
                                         <br>
 
                                         <label for="category_id" class="form-control-label">Danh mục:</label>
-                                        <select name="category_id" class="form-control">
+                                        <select name="category_id">
                                             <?php foreach ($ccc as $value) { ?>
-                                                <option>
+                                                <option value="<?php echo $value->category_id ?>">
                                                     <?php echo $value->name ?>
                                                 </option>
                                             <?php } ?>
                                         </select>
-
 
                                         <div id="variants">
                                             <!-- Mẫu biến thể -->
                                             <div class="variant">
                                                 <label class="form-control-label">Giá</label> <br>
 
-                                                <input type="text" name="price" value="<?php echo $iddBook['price'] ?>"><br>
+                                                <input type="text" name="price" placeholder="Giá" value="<?php echo $iddBook['price'] ?>"> <br>
+                                                <br>
                                                 <label class="form-control-label">Số lượng</label><br>
 
-                                                <input type="text" name="stock_quantity" value="<?php echo $iddBook['stock_quantity'] ?>"><br>
+                                                <input type="text" name="stock_quantity" placeholder="Số lượng tồn kho" value="<?php echo $iddBook['stock_quantity'] ?>"> <br>
                                                 <input type="file" name="product_img">
                                                 <img src="<?php echo $iddBook['product_img'] ?>" alt="" width="100px">
                                             </div>

@@ -245,7 +245,7 @@
                                         <td><?php echo $value->description; ?></td>
                                         <td><?php echo $value->category_name; ?></td>
                                         <td class="text-center"><?php echo $value->variant_id; ?></td>
-                                        <td><?php echo number_format($value->price); ?> VND</td>
+                                        <td><?php echo $value->price; ?></td>
                                         <td class="text-center"><?php echo $value->stock_quantity; ?></td>
                                         <td class="text-center">
                                             <img src="<?php echo $value->product_img; ?>" alt="Product Image" class="img-fluid" width="80">
@@ -260,7 +260,7 @@
                                 <?php } ?>
                             </tbody>
                         </table>
-                      
+
                     </div>
                 </div>
             </div>

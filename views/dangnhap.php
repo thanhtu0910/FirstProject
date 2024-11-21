@@ -155,10 +155,6 @@ if (isset($_POST["btn_submit"])) {
 
   $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
 
-
-
-
-  
   foreach ($login as $value) {
     if ($username == $value->username && $password == $value->password) {
       $isLoginSuccessful = true;
@@ -212,7 +208,7 @@ if (isset($_POST["btn_submit"])) {
     </form>
 
     <div class="switch">
-      <p>Chưa có tài khoản? <a href="#" id="switch-to-register">Đăng ký</a></p>
+      <p>Chưa có tài khoản? <a href="?act=register" id="switch-to-register">Đăng ký</a></p>
     </div>
   </div>
 

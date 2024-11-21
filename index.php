@@ -11,9 +11,7 @@ switch ($bb) {
     case 'list':
         $aa->listbook();
         break;
-    case 'list':
-        $aa->listbookk();
-        break;
+    
     case 'edit':
         $aa->editbook();
         break;
