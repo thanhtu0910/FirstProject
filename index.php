@@ -40,9 +40,6 @@ switch ($bb) {
     case 'deleteDM':
         $aa->deleteDM();
         break;
-    // case 'xem':
-    //     $aa->xem();
-    //     break;
     case 'binhluan':
         $aa->binhluan();
         break;
