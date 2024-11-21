@@ -6,7 +6,7 @@ class Bookcc
     {
         $mDm = new Book();
         $danhmuc = $mDm->getDM();
-        include_once "views/danhmuc.php";
+        include_once "views/admin/danhmuc.php";
     }
     public function shophtml()
     {
@@ -38,14 +38,14 @@ class Bookcc
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
-        include_once "views/list.php";
+        include_once "views/admin/list.php";
     }
 
     public function listuser()
     {
         $mBook = new Book();
         $login = $mBook->login();
-        include_once "views/user.php";
+        include_once "views/admin/user.php";
     }
 
     public function deletebook()
@@ -74,8 +74,7 @@ class Bookcc
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
-
-
+            
             // echo "<pre>";
             // print_r($_POST);
             // print_r($_FILES);
@@ -95,8 +94,8 @@ class Bookcc
                 header('location:?act=login');
             }
         }
-        // include_once "views/dangli.php";
-        include_once "views/dangnhap.php";
+        // include_once "views/admin/dangli.php";
+        include_once "views/admin/dangnhap.php";
     }
     public function login()
     {
@@ -106,7 +105,7 @@ class Bookcc
         if (!$login) {
             header('location:index.php');
         }
-        include_once "views/dangnhap.php";
+        include_once "views/admin/dangnhap.php";
     }
     public function dangxuat()
     {
@@ -172,7 +171,7 @@ class Bookcc
         $ccc = $mBook->categories();
 
         // Gọi giao diện
-        include_once "views/binh.php";
+        include_once "views/admin/binh.php";
     }
     public function addDM()
     {
@@ -184,7 +183,7 @@ class Bookcc
             header('Location: index.php?act=danhmuc');
             exit();
         }
-        include_once "views/add-category.php";
+        include_once "views/admin/add-category.php";
     }
     public function editDM()
     {
@@ -220,7 +219,7 @@ class Bookcc
             }
 
             // Hiển thị view với thông tin danh mục
-            include_once 'views/edit-category.php';
+            include_once 'views/admin/edit-category.php';
         } else {
             echo "Thiếu ID danh mục để chỉnh sửa!";
             exit();
@@ -330,7 +329,7 @@ class Bookcc
                 'categories' => $ccc       // Danh sách danh mục
             ];
             extract($data); // Tách biến để sử dụng trực tiếp trong view
-            include_once "views/edit.php";
+            include_once "views/admin/edit.php";
         }
     }
 
@@ -369,6 +368,6 @@ class Bookcc
             error_log("Lỗi khi thêm bình luận: product_id=$product_id, user_id=$user_id, rating=$rating");
             echo "Lỗi khi thêm bình luận!";
         }
-        include_once "views/binhluan.php";
+        include_once "views/admin/binhluan.php";
     }
 }
