@@ -30,12 +30,16 @@
       /* Chữ màu trắng */
       height: 20px;
       border-radius: 15px;
+      margin: 0 5px; 
     }
+
+
 
     .topbar a {
       text-decoration: none;
       color: #d2b48c;
       /* Màu be tối */
+      margin: 0 5px; 
     }
 
     .container {
@@ -144,8 +148,27 @@
       color: #d2b48c;
       /* Màu be tối khi hover */
     }
+
+    textarea {
+    width: 100%;                /* Đảm bảo chiều rộng của textarea là 100% của container */
+    height: 150px;              /* Chiều cao của textarea */
+    padding: 10px;              /* Khoảng cách giữa văn bản và viền của textarea */
+    border: 1px solid #ccc;     /* Đường viền mảnh màu xám */
+    border-radius: 5px;         /* Làm tròn các góc của textarea */
+    font-size: 14px;            /* Kích thước chữ */
+    font-family: Arial, sans-serif; /* Font chữ */
+    resize: vertical;           /* Cho phép người dùng thay đổi chiều cao */
+    box-sizing: border-box;     /* Đảm bảo padding và border không ảnh hưởng đến kích thước */
+}
+
+
   </style>
 </head>
+
+
+
+
+
 
 <body>
   <!-- Header -->
@@ -162,30 +185,12 @@
       </div>
     </div>
   </div>
+
   <h1>Clothes</h1>
+
   <!-- Form Đăng Ký -->
   <div class="form-container">
     <h2>Đăng ký</h2>
-    <!-- <form id="register-form">
-      <div class="form-group">
-        <label for="name">Họ và Tên</label>
-        <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Nhập email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Mật khẩu</label>
-        <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
-      </div>
-      <div class="form-group">
-        <label for="confirm-password">Xác nhận Mật khẩu</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu" required>
-      </div>
-      <button type="submit">Đăng ký</button>
-    </form> -->
-
 
     <form action="" method="post" id="register-form">
       <div class="form-group">
@@ -197,24 +202,82 @@
         <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
       </div>
       <div class="form-group">
-        <label for="email">Mật khẩu</label>
-        <input type="email" name="email" placeholder="Email">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email" required>
       </div>
       <div class="form-group">
-        <label for="phone">Mật khẩu</label>
-        <input type="text" name="phone" placeholder="phone">
+        <label for="phone">Số điện thoại</label>
+        <input type="number" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Địa chỉ</label>
+        <textarea id="address" name="address" placeholder="Nhập địa chỉ" required></textarea>
       </div>
       <button type="submit" name="btn_submit">Đăng ký</button>
-      <a href="?act=login">Đăng nhập</a>
     </form>
 
-
-
-
     <div class="switch">
-      <p>Đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
+      <p>Đã có tài khoản? <a href="dangnhap.php">Đăng nhập</a></p>
     </div>
   </div>
 </body>
 
+
 </html>
+
+<?php
+if (isset($_POST['btn_submit'])) {  // Kiểm tra khi người dùng đã nhấn nút submit
+    // Lấy dữ liệu từ form và loại bỏ khoảng trắng thừa
+    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+    $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+    $address = isset($_POST['address']) ? trim($_POST['address']) : '';
+
+    // Kiểm tra dữ liệu đầu vào
+    if (empty($username) || empty($password) || empty($email) || empty($phone) || empty($address)) {
+        echo '<p style="color: red;">Vui lòng không để trống</p>';
+    } elseif (strlen($username) < 6 || strlen($password) < 6) {
+        echo '<p style="color: red;">Vui lòng nhập nhiều hơn 6 ký tự</p>';
+    } else {
+        // Kết nối cơ sở dữ liệu
+        $conn = mysqli_connect("127.0.0.1", "root", "", "duan1");
+        if (!$conn) {
+            die('<p style="color: red;">Kết nối CSDL thất bại</p>');
+        }
+
+        // Kiểm tra tài khoản hoặc email đã tồn tại
+        $username = mysqli_real_escape_string($conn, $username);
+        $email = mysqli_real_escape_string($conn, $email);
+        $sql = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
+        $query = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($query) > 0) {
+            echo '<p style="color: red;">Tài khoản hoặc email đã tồn tại</p>';
+        } else {
+            // Mã hóa mật khẩu và thêm tài khoản
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $sql2 = "INSERT INTO users(username, password, email, phone, address) 
+                    VALUES ('$username', '$hashed_password', '$email', '$phone', '$address')";
+            $result = mysqli_query($conn, $sql2);
+
+            if ($result) {
+              // Hiển thị thông báo thành công và sau đó chuyển hướng
+              echo '<p style="color: green;">Đăng ký thành công</p>';
+              // JavaScript tự động chuyển hướng sau khi người dùng nhấn OK
+              echo "<script>
+                      alert('Đăng ký thành công!');
+                      setTimeout(function() {
+                          window.location.href = 'list.php';
+                      }, 500); // Delay 500ms
+                    </script>";
+            } else {
+              echo "<script>alert('Đăng ký không thành công');</script>";
+            }
+        }
+
+        // Đóng kết nối
+        mysqli_close($conn);
+    }
+}
+?>

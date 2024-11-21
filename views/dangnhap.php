@@ -155,6 +155,10 @@ if (isset($_POST["btn_submit"])) {
 
   $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
 
+
+
+
+  
   foreach ($login as $value) {
     if ($username == $value->username && $password == $value->password) {
       $isLoginSuccessful = true;
