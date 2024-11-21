@@ -2,12 +2,18 @@
 
 class Bookcc
 {
-    public function danhmuc(){
+    public function danhmuc()
+    {
         $mDm = new Book();
         $danhmuc = $mDm->getDM();
-        include_once "views/danhmuc.php";
+        include_once "views/admin/danhmuc.php";
     }
+<<<<<<< HEAD
     public function shophtml() {
+=======
+    public function shophtml()
+    {
+>>>>>>> 9b9a20afc3ab3688f10026308572a18371508878
         $mBook = new Book();
         $shophtml = $mBook->getDM();
     
@@ -74,14 +80,14 @@ class Bookcc
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
-        include_once "views/list.php";
+        include_once "views/admin/list.php";
     }
 
     public function listuser()
     {
         $mBook = new Book();
         $login = $mBook->login();
-        include_once "views/user.php";
+        include_once "views/admin/user.php";
     }
 
     public function deletebook()
@@ -109,8 +115,8 @@ class Bookcc
             $password = $_POST['password'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
-
-
+            $address = $_POST['address'];
+            
             // echo "<pre>";
             // print_r($_POST);
             // print_r($_FILES);
@@ -127,10 +133,11 @@ class Bookcc
                 $role
             );
             if (!$addBook) {
-                header('location:?act=dangnhap');
+                header('location:?act=login');
             }
         }
-        include_once "views/dangli.php";
+        // include_once "views/admin/dangli.php";
+        include_once "views/admin/dangnhap.php";
     }
     public function login()
     {
@@ -140,7 +147,7 @@ class Bookcc
         if (!$login) {
             header('location:index.php');
         }
-        include_once "views/dangnhap.php";
+        include_once "views/admin/dangnhap.php";
     }
     public function dangxuat()
     {
@@ -206,35 +213,37 @@ class Bookcc
         $ccc = $mBook->categories();
 
         // Gọi giao diện
-        include_once "views/binh.php";
+        include_once "views/admin/binh.php";
     }
-    public function addDM(){
-        if(isset($_POST['btn_submit'])){
+    public function addDM()
+    {
+        if (isset($_POST['btn_submit'])) {
             $name = $_POST['name'];
-          
+
             $mBook = new Book();
             $addDM = $mBook->addDM(null, $name);
             header('Location: index.php?act=danhmuc');
             exit();
         }
-        include_once "views/add-category.php";
+        include_once "views/admin/add-category.php";
     }
-    public function editDM() {
+    public function editDM()
+    {
         if (isset($_GET['category_id'])) {
             $mBook = new Book();
-            
+
             // Lấy thông tin danh mục theo category_id
             $category = $mBook->getIdDM($_GET['category_id']);
-            
+
             if (!$category) {
                 echo "Danh mục không tồn tại!";
                 exit();
             }
-    
+
             // Xử lý form submit
             if (isset($_POST['submit'])) {
                 $name = $_POST['name'] ?? '';
-    
+
                 // Kiểm tra nếu `name` không được nhập
                 if (empty($name)) {
                     $error = "Tên danh mục không được để trống!";
@@ -250,23 +259,24 @@ class Bookcc
                     }
                 }
             }
-    
+
             // Hiển thị view với thông tin danh mục
-            include_once 'views/edit-category.php';
+            include_once 'views/admin/edit-category.php';
         } else {
             echo "Thiếu ID danh mục để chỉnh sửa!";
             exit();
         }
     }
-    
-    public function deleteDM() {
+
+    public function deleteDM()
+    {
         if (isset($_GET['category_id'])) {
             $category_id = $_GET['category_id'];
             $mBook = new Book();
-    
+
             // Gọi hàm xóa danh mục
             $result = $mBook->deleteDM($category_id);
-    
+
             // Kiểm tra kết quả và chuyển hướng
             if ($result) {
                 header('Location: index.php?act=danhmuc'); // Thành công, quay về danh sách
@@ -278,9 +288,9 @@ class Bookcc
             echo "Lỗi: Không tìm thấy ID danh mục.";
         }
     }
-    
-    
-    
+
+
+
 
 
     public function editbook()
@@ -309,10 +319,10 @@ class Bookcc
             $price = $_POST['price'];
             $stock_quantity = $_POST['stock_quantity'];
 
-            // Kiểm tra và xử lý ảnh sản phẩm
-            $product_img = $iddBook->product_img; // Giữ lại ảnh cũ nếu không có ảnh mới
+            // Xử lý ảnh sản phẩm
+            $product_img = $iddBook['product_img']; // Mặc định giữ ảnh cũ nếu không có ảnh mới
 
-            if ($_FILES['product_img']['name'] != '') {
+            if (!empty($_FILES['product_img']['name'])) {
                 $target_dir = "images/";
                 $name_img = time() . '_' . basename($_FILES['product_img']['name']);
                 $product_img = $target_dir . $name_img;
@@ -327,7 +337,7 @@ class Bookcc
                 }
             }
 
-            // Gọi hàm updatevariants để cập nhật bảng product_variants
+            // Cập nhật bảng product_variants
             $updateVariant = $mBook->updatevariants(
                 $variant_id,
                 $product_id,
@@ -336,7 +346,7 @@ class Bookcc
                 $product_img
             );
 
-            // Gọi hàm updateProductByVariant để cập nhật bảng products
+            // Cập nhật bảng products
             $updateProduct = $mBook->update(
                 $variant_id,
                 $name,
@@ -344,22 +354,27 @@ class Bookcc
                 $category_id
             );
 
-            // Không kiểm tra kết quả cập nhật, trực tiếp chuyển hướng sau khi lưu
-            header('Location: index.php');
-            exit;
+            // Kiểm tra kết quả cập nhật
+            if (!$updateVariant && !$updateProduct) {
+                header('Location: index.php');
+                exit;
+            } else {
+                echo "Đã xảy ra lỗi khi cập nhật sản phẩm.";
+            }
         }
 
-        // Kiểm tra xem dữ liệu có hợp lệ trước khi truyền vào view
-        if (isset($idBook) && isset($iddBook) && isset($ccc)) {
+        // Kiểm tra và truyền dữ liệu vào view
+        if (isset($idBook, $iddBook, $ccc)) {
             $data = [
                 'idBook' => $idBook,       // Thông tin sản phẩm
                 'iddBook' => $iddBook,     // Thông tin biến thể
                 'categories' => $ccc       // Danh sách danh mục
             ];
             extract($data); // Tách biến để sử dụng trực tiếp trong view
-            include_once "views/edit.php";
+            include_once "views/admin/edit.php";
         }
     }
+
 
     public function binhluan()
     {
@@ -395,6 +410,6 @@ class Bookcc
             error_log("Lỗi khi thêm bình luận: product_id=$product_id, user_id=$user_id, rating=$rating");
             echo "Lỗi khi thêm bình luận!";
         }
-        include_once "views/binhluan.php";
+        include_once "views/admin/binhluan.php";
     }
 }

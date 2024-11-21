@@ -26,7 +26,11 @@
         </aside>
     
 
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-sm navbar-default">
+=======
+    <!-- <nav class="navbar navbar-expand-sm navbar-default">
+>>>>>>> 9b9a20afc3ab3688f10026308572a18371508878
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
@@ -48,8 +52,12 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
 </aside>
+<<<<<<< HEAD
+=======
+<!-- <<<<<<< HEAD -->
+>>>>>>> 9b9a20afc3ab3688f10026308572a18371508878
 <?php if(isset($_SESSION['username'])){
     $username=$_SESSION['username'];
 }

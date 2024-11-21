@@ -11,9 +11,7 @@ switch ($bb) {
     case 'list':
         $aa->listbook();
         break;
-    case 'list':
-        $aa->listbookk();
-        break;
+    
     case 'edit':
         $aa->editbook();
         break;
@@ -42,9 +40,6 @@ switch ($bb) {
     case 'deleteDM':
         $aa->deleteDM();
         break;
-    // case 'xem':
-    //     $aa->xem();
-    //     break;
     case 'binhluan':
         $aa->binhluan();
         break;
