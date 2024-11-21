@@ -38,6 +38,7 @@ class Bookcc
         $listbook = $mBook->getall();
         include_once "views/list.php";
     }
+
     public function listuser()
     {
         $mBook = new Book();
@@ -88,11 +89,10 @@ class Bookcc
                 $role
             );
             if (!$addBook) {
-                header('location:?act=login');
+                header('location:?act=dangnhap');
             }
         }
         include_once "views/dangli.php";
-        include_once "views/dangnhap.php";
     }
     public function login()
     {

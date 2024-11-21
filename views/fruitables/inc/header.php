@@ -25,7 +25,7 @@
                             <a href="shop-detail.php" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >Pages</a>
-                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                <div class="dropdown-menu m-0 bg-light rounded-0">
                                     <a href="cart.php" class="dropdown-item">Cart</a>
                                     <a href="checkout.php" class="dropdown-item">Checkout</a>
                                     <a href="testimonial.php" class="dropdown-item">Testimonial</a>

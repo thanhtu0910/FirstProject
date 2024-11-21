@@ -1,4 +1,5 @@
 <aside id="left-panel" class="left-panel">
+<<<<<<< HEAD
 
             <nav class="navbar navbar-expand-sm navbar-default">
                 <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -26,6 +27,8 @@
         </aside>
     
 
+=======
+>>>>>>> d14c1a72e7a0e0e15592fc70a7ce42a903d735c1
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -50,9 +53,18 @@
         </div>
     </nav>
 </aside>
+<<<<<<< HEAD
 
+=======
+<!-- <<<<<<< HEAD -->
+>>>>>>> d14c1a72e7a0e0e15592fc70a7ce42a903d735c1
 <?php if(isset($_SESSION['username'])){
     $username=$_SESSION['username'];
 }
  ?>
+<<<<<<< HEAD
 
+=======
+<!-- =======
+>>>>>>> 642a50a1d88254faf553fa5e4e8c083479ffac33 -->
+>>>>>>> d14c1a72e7a0e0e15592fc70a7ce42a903d735c1

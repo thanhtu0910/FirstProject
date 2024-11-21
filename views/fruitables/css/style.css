@@ -136,7 +136,7 @@ p{
 .navbar .navbar-nav .nav-link.active,
 .fixed-top.bg-white .navbar .navbar-nav .nav-link:hover,
 .fixed-top.bg-white .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-dark);
+    color: var(--bs-light);
 }
 
 .navbar .dropdown-toggle::after {
@@ -162,8 +162,8 @@ p{
 }
 
 .dropdown .dropdown-menu a:hover {
-    background: var(--bs-secondary);
-    color: var(--bs-primary);
+    background: var(--bs-white);
+    color: var(--bs-dark); /* Màu chữ tối để hiển thị rõ trên nền trắng */
 }
 
 .navbar .nav-item:hover .dropdown-menu {
@@ -501,3 +501,7 @@ p{
 }
 /*** Footer End ***/
 
+.dropdown-item:hover {
+    background-color: black;
+    color: white;
+}
