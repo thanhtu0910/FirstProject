@@ -10,15 +10,33 @@ class Bookcc
     public function shophtml(){
         $mBook = new Book();
         $shophtml = $mBook->getDM();
-        require_once "views/fruitables/shop.php";
+        $listpro = $mBook->getall();
+        require_once "views/fruitables/shop/shop.php";
     }
+    public function productDetail() {
+        $mBook = new Book();
+        $shophtml = $mBook->getDM();
+        // Lấy `product_id` từ URL
+        $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    
+        // Lấy chi tiết sản phẩm từ Model
+        $product = $mBook->getProductById($productId);
+    
+        // Kiểm tra nếu sản phẩm không tồn tại
+        if (!$product) {
+            echo "Sản phẩm không tồn tại.";
+            exit;
+        }
+    
+        // Gọi view chi tiết sản phẩm
+        require_once "views/fruitables/shop/shop-detail.php";
+    }
+    
     public function listbook()
     {
         $mBook = new Book();
         $listbook = $mBook->getall();
-        $vv = $mBook->getall();
         include_once "views/list.php";
-        // include_once "fruitables/shop.php";
     }
     public function listuser()
     {

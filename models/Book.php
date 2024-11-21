@@ -3,14 +3,14 @@ require "models/ConnectDatabase.php";
 class Book
 {
     public $connect;
+    public function __construct()
+    {
+        $this->connect = new ConnectDatabase();
+    }
     public function getDM(){
         $sql = "SELECT * FROM `categories` ORDER BY category_id ASC";
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
-    }
-    public function __construct()
-    {
-        $this->connect = new ConnectDatabase();
     }
     public function getall()
     {
@@ -29,6 +29,23 @@ class Book
 
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
+    }
+    public function getProductById($productId) {
+        $sql = "SELECT 
+                    products.product_id,
+                    products.name AS name,
+                    products.description,
+                    categories.name AS category_name,
+                    product_variants.variant_id,
+                    product_variants.price,
+                    product_variants.stock_quantity,
+                    product_variants.product_img
+                FROM products
+                JOIN categories ON products.category_id = categories.category_id
+                JOIN product_variants ON products.product_id = product_variants.product_id
+                WHERE products.product_id = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadSingle([$productId]);
     }
 
     public function delete($product_id)
