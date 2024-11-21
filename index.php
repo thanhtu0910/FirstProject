@@ -52,6 +52,11 @@ switch ($bb) {
     case 'shophtml':
         $aa->shophtml();
         break;
+        case 'productDetail':
+            $aa->productDetail();
+            break;
+        
+    
         
     default:
         $aa->listbook();
