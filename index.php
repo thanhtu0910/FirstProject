@@ -58,6 +58,17 @@ switch ($bb) {
         case 'fetchProducts':  // Thêm trường hợp mới cho AJAX
             $aa->getProductsByCategoryAjax();  // Gọi phương thức AJAX để trả về sản phẩm theo danh mục
             break;
+            case 'addToCart':
+                $aa->addToCart();
+                break;
+            
+            case 'showCart':
+                $aa->showCart();
+                break;
+            
+            case 'removeFromCart':
+                $aa->removeFromCart();
+                break;
     
         
     default:

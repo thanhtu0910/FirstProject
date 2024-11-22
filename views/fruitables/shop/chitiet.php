@@ -7,6 +7,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
+                                
                                 <h4 class="fw-bold mb-3" style="color:black"><?php echo htmlspecialchars($product['name']); ?></h4>
                                 <p class="mb-3" style="color:black">Danh mục: <?php echo htmlspecialchars($product['category_name']); ?></p>
                                 <h5 class="fw-bold mb-3" style="color:black">Giá: <?php echo number_format($product['price']); ?> VND</h5>
@@ -32,7 +33,13 @@
                                         </button>
                                     </div>
                                 </div>
-                                <a href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                <form action="index.php?act=addToCart" method="POST">
+                                    <input type="hidden" name="productId" value="<?php echo $product['product_id']; ?>">
+                                    <input type="hidden" name="quantity" value="1"> <!-- Có thể thay đổi số lượng tùy ý -->
+                                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </form>
                             </div>
                             <div class="col-lg-12">
                                 <nav>

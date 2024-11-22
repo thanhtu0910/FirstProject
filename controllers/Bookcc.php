@@ -77,6 +77,68 @@ class Bookcc
         $listbook = $mBook->getall();
         include_once "views/admin/list.php";
     }
+    //Phần giỏ hàng
+    public function addToCart()
+{
+    session_start();
+
+    // Lấy thông tin sản phẩm từ form
+    $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
+    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 1;
+
+    // Gọi model để lấy thông tin sản phẩm
+    $mBook = new Book();
+    $product = $mBook->getProductById($product_id);
+
+    if ($product) {
+        // Khởi tạo giỏ hàng nếu chưa tồn tại
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+        }
+
+        // Kiểm tra nếu sản phẩm đã tồn tại trong giỏ hàng
+        if (isset($_SESSION['cart'][$product_id])) {
+            $_SESSION['cart'][$product_id]['quantity'] += $quantity;
+        } else {
+            $_SESSION['cart'][$product_id] = [
+                'name' => $product->name,
+                'price' => $product->price,
+                'image' => $product->product_img,
+                'quantity' => $quantity,
+            ];
+        }
+    }
+
+    // Chuyển hướng về giỏ hàng sau khi thêm
+    header('Location: index.php?act=showCart');
+    exit;
+}
+
+public function showCart()
+{
+    session_start();
+
+    // Lấy dữ liệu giỏ hàng từ session
+    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+
+    // Load view hiển thị giỏ hàng
+    require_once "views/fruitables/cart/cart.php";
+}
+public function removeFromCart()
+{
+    session_start();
+
+    $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    if (isset($_SESSION['cart'][$product_id])) {
+        unset($_SESSION['cart'][$product_id]);
+    }
+
+    // Chuyển hướng về giỏ hàng
+    header('Location: index.php?act=showCart');
+    exit;
+}
+    //end
 
     public function listuser()
     {
