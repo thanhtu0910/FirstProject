@@ -7,7 +7,8 @@ class Book
     {
         $this->connect = new ConnectDatabase();
     }
-    public function getDM(){
+    public function getDM()
+    {
         $sql = "SELECT * FROM `categories` ORDER BY category_id ASC";
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
@@ -105,6 +106,14 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$user_id, $username, $password, $email, $phone, $address, $role]);
     }
+    public function isExistingUser($username, $email, $phone)
+    {
+        $sql = "SELECT COUNT(*) as count FROM `users` WHERE `username` = ? OR `email` = ? OR `phone` = ?";
+        $this->connect->setQuery($sql);
+        $result = $this->connect->loadRow([$username, $email, $phone]);
+        return $result['count'] > 0;
+    }
+
     public function login()
     {
         $sql = "SELECT * FROM `users`";
@@ -121,27 +130,31 @@ class Book
         // Lấy product_id vừa được thêm
         return $this->connect->lastInsertId(); // Phương thức này trả về product_id vừa thêm
     }
-    public function addDM($category_id, $name){
+    public function addDM($category_id, $name)
+    {
         $sql = "INSERT INTO `categories`(category_id, name) VALUES (?,?)";
         $this->connect->setQuery($sql);
         return $this->connect->execute([$category_id, $name]);
     }
-    public function getIdDM($category_id){
+    public function getIdDM($category_id)
+    {
         $sql = "SELECT * FROM `categories` WHERE category_id=?";
         $this->connect->setQuery($sql);
-        return $this->connect->loadData([$category_id],false);
+        return $this->connect->loadData([$category_id], false);
     }
-    public function editDM($name, $category_id){
+    public function editDM($name, $category_id)
+    {
         $sql = "UPDATE `categories` SET `name`=? WHERE `category_id`=?";
         $this->connect->setQuery($sql);
         return $this->connect->execute([$name, $category_id], false);
     }
-    public function deleteDM($category_id) {
+    public function deleteDM($category_id)
+    {
         $sql = "DELETE FROM `categories` WHERE `category_id` = ?";
         $this->connect->setQuery($sql);
         return $this->connect->execute([$category_id], false); // Thực thi câu lệnh DELETE
     }
-    
+
 
     // Hàm thêm biến thể với product_id
     public function addvariants($product_id, $variants)
@@ -173,9 +186,9 @@ class Book
         $this->connect->setQuery($sql);
         $result = $this->connect->loadData([$product_id, $price, $stock_quantity, $product_img, $variant_id]);
         if ($result) {
-            return $variant_id; 
+            return $variant_id;
         }
-        return false; 
+        return false;
     }
     public function update($variant_id, $name, $description, $category_id)
     {
@@ -230,7 +243,7 @@ class Book
 
 
     // Hàm thêm biến thể với product_id
-   
+
     // ----------------------------------------------------------------------------------------------------
 
     public function categories()
@@ -246,7 +259,8 @@ class Book
         return $this->connect->loadData();
     }
 
-    public function addReview($product_id, $user_id, $rating, $comment_text) {
+    public function addReview($product_id, $user_id, $rating, $comment_text)
+    {
         $sql = "INSERT INTO `reviews` (product_id, user_id, rating, comment, created_at) VALUES (?, ?, ?, ?, NOW())";
         try {
             $this->connect->setQuery($sql);
