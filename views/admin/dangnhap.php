@@ -68,7 +68,7 @@
       width: 100%;
       max-width: 700px;
       box-sizing: border-box;
-      margin-top: 120px;
+      margin-top: 50px;
     }
 
     h2 {
@@ -181,13 +181,13 @@ if (isset($_POST["btn_submit"])) {
   <div class="container topbar">
     <div class="d-flex justify-content-between">
       <div class="top-info ps-2">
-        <small class="me-3"><i class="fas fa-map-marker-alt me-2"></i><a href="#">Cầu Giấy, Hà Nội</a></small>
-        <small class="me-3"><i class="fas fa-envelope me-2"></i><a href="#">tuttph49773@gmail.com</a></small>
+        <small class="me-3"><i class="fas fa-map-marker-alt me-2" style="margin-left:10px"></i><a href="#" style="margin:10px">Cầu Giấy, Hà Nội</a></small>
+        <small class="me-3"><i class="fas fa-envelope me-2" style="margin-left:10px"></i><a href="#" style="margin:10px">tuttph49773@gmail.com</a></small>
       </div>
       <div class="top-link pe-2">
-        <a href="#"><small class="mx-2">Chính sách bảo mật</small>/</a>
-        <a href="#"><small class="mx-2">Điều khoản sử dụng</small>/</a>
-        <a href="#"><small class="ms-2">Bán hàng và hoàn tiền</small></a>
+        <a href="#"><small class="mx-2" style="margin:10px">Chính sách bảo mật</small>/</a>
+        <a href="#"><small class="mx-2" style="margin:10px">Điều khoản sử dụng</small>/</a>
+        <a href="#"><small class="ms-2" style="margin:10px">Bán hàng và hoàn tiền</small></a>
       </div>
     </div>
   </div>
@@ -208,48 +208,14 @@ if (isset($_POST["btn_submit"])) {
     </form>
 
     <div class="switch">
-      <p>Chưa có tài khoản? <a href="?act=register" id="switch-to-register">Đăng ký</a></p>
+      <p>Chưa có tài khoản? <a href="?act=register">Đăng ký</a></p>
     </div>
   </div>
 
   <!-- Footer -->
 
 
-  <script>
-    const container = document.getElementById('form-container');
-    const switchToRegister = document.getElementById('switch-to-register');
 
-    switchToRegister.addEventListener('click', (e) => {
-      e.preventDefault();
-      container.innerHTML = `
-        <h2>Đăng ký</h2>
-        <form id="register-form">
-          <div class="form-group">
-            <label for="name">Họ và Tên</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Mật khẩu</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-          <button type="submit" name="btn_submit">Đăng ký</button>
-          
-        </form>
-        <div class="switch">
-          <p>Đã có tài khoản? <a href="#" id="switch-to-login">Đăng nhập</a></p>
-        </div>
-      `;
-
-      document.getElementById('switch-to-login').addEventListener('click', (e) => {
-        e.preventDefault();
-        location.reload();
-      });
-    });
-  </script>
 </body>
 
 </html>

@@ -15,25 +15,26 @@ class Bookcc
         $listpro = $mBook->getall();
         require_once "views/fruitables/shop/shop.php";
     }
-    public function productDetail() {
+    public function productDetail()
+    {
         $mBook = new Book();
         $shophtml = $mBook->getDM();
         // Lấy `product_id` từ URL
         $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
-    
+
         // Lấy chi tiết sản phẩm từ Model
         $product = $mBook->getProductById($productId);
-    
+
         // Kiểm tra nếu sản phẩm không tồn tại
         if (!$product) {
             echo "Sản phẩm không tồn tại.";
             exit;
         }
-    
+
         // Gọi view chi tiết sản phẩm
         require_once "views/fruitables/shop/shop-detail.php";
     }
-    
+
     public function listbook()
     {
         $mBook = new Book();
@@ -73,14 +74,18 @@ class Bookcc
             $password = $_POST['password'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
-            $address = $_POST['address'];
-            
-            // echo "<pre>";
-            // print_r($_POST);
-            // print_r($_FILES);
-            // die;
 
             $mBook = new Book();
+
+            // Kiểm tra xem username, email hoặc phone đã tồn tại chưa
+            if ($mBook->isExistingUser($username, $email, $phone)) {
+                $error_message = "Tài khoản, email hoặc sđt đã tồn tại";
+
+                include_once "views/admin/dangli.php";
+                die; // Dừng lại để không thực hiện đăng ký
+            }
+
+            // Thực hiện đăng ký nếu không trùng lặp
             $addBook = $mBook->register(
                 null,
                 $username,
@@ -90,13 +95,19 @@ class Bookcc
                 $address,
                 $role
             );
+
             if (!$addBook) {
-                header('location:?act=login');
+                // Nếu thêm thành công, chuyển hướng tới trang đăng nhập
+                $ddd= "Đăng ký thành công";
+                header('Location: ?act=login');
+                exit;
             }
+            
+        } else {
+            include_once "views/admin/dangli.php";
         }
-        // include_once "views/admin/dangli.php";
-        include_once "views/admin/dangnhap.php";
     }
+
     public function login()
     {
         $mBook = new Book();
