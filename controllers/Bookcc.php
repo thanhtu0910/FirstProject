@@ -8,15 +8,50 @@ class Bookcc
         $danhmuc = $mDm->getDM();
         include_once "views/admin/danhmuc.php";
     }
-    public function shophtml()
-    {
+    public function shophtml() {
         $mBook = new Book();
         $shophtml = $mBook->getDM();
-        $listpro = $mBook->getall();
+    
+        if (isset($_GET['keyword']) && !empty(trim($_GET['keyword']))) {
+            // Kiểm tra từ khóa tìm kiếm
+            $keyword = trim($_GET['keyword']); // Lấy từ khóa tìm kiếm
+            $listpro = $mBook->searchProducts($keyword); // Gọi hàm tìm kiếm sản phẩm
+        } elseif (isset($_GET['category_id'])) {
+            // Lấy sản phẩm theo danh mục
+            $category_id = intval($_GET['category_id']); // Lấy ID danh mục
+            $listpro = $mBook->getProductsByCategory($category_id); // Gọi hàm lấy sản phẩm theo danh mục
+        } else {
+            // Nếu không có tìm kiếm hoặc danh mục, lấy tất cả sản phẩm
+            $listpro = $mBook->getall();
+        }
+    
+        // Load view hiển thị sản phẩm
         require_once "views/fruitables/shop/shop.php";
     }
-    public function productDetail()
-    {
+
+    public function trangchu(){
+        $mBook = new Book();
+        $shophtml = $mBook->getDM();
+        if (isset($_GET['category_id'])) {
+            $category_id = intval($_GET['category_id']); // Lấy ID danh mục
+            $listpro = $mBook->getProductsByCategory($category_id); // Lấy sản phẩm theo danh mục
+        } else {
+            $listpro = $mBook->getall(); // Nếu không có danh mục, lấy tất cả sản phẩm
+        }
+        
+        require_once "views/fruitables/shop/trangchu.php";
+    }
+    public function getProductsByCategoryAjax() {
+        if (isset($_POST['category_id'])) {
+            $category_id = intval($_POST['category_id']);
+            $mBook = new Book();
+            $products = $mBook->getProductsByCategory($category_id); // Lấy sản phẩm theo danh mục
+            echo json_encode($products); // Trả về JSON
+        } else {
+            echo json_encode([]);
+        }
+    }
+    public function productDetail() {
         $mBook = new Book();
         $shophtml = $mBook->getDM();
         // Lấy `product_id` từ URL
@@ -30,7 +65,8 @@ class Bookcc
             echo "Sản phẩm không tồn tại.";
             exit;
         }
-
+        
+    
         // Gọi view chi tiết sản phẩm
         require_once "views/fruitables/shop/shop-detail.php";
     }

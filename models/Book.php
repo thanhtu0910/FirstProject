@@ -31,8 +31,45 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }
-    public function getProductById($productId)
-    {
+    public function getProductsByCategory($category_id) {
+        $sql = "SELECT 
+                    products.product_id,
+                    products.name AS name,
+                    products.description,
+                    categories.name AS category_name,
+                    product_variants.variant_id,
+                    product_variants.price,
+                    product_variants.stock_quantity,
+                    product_variants.product_img
+                FROM products
+                JOIN categories ON products.category_id = categories.category_id
+                JOIN product_variants ON products.product_id = product_variants.product_id
+                WHERE products.category_id = ?";
+                
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$category_id]); // Truyền tham số vào câu truy vấn
+    }
+    public function searchProducts($keyword) {
+        $sql = "SELECT 
+                    products.product_id,
+                    products.name AS name,
+                    products.description,
+                    categories.name AS category_name,
+                    product_variants.variant_id,
+                    product_variants.price,
+                    product_variants.stock_quantity,
+                    product_variants.product_img
+                FROM products
+                JOIN categories ON products.category_id = categories.category_id
+                JOIN product_variants ON products.product_id = product_variants.product_id
+                WHERE products.name LIKE ? OR categories.name LIKE ? OR products.description LIKE ?";
+        
+        $this->connect->setQuery($sql);
+        $searchTerm = '%' . $keyword . '%';
+        return $this->connect->loadData([$searchTerm, $searchTerm, $searchTerm]); // Truyền tham số tìm kiếm
+    }
+    
+    public function getProductById($productId) {
         $sql = "SELECT 
                     products.product_id,
                     products.name AS name,
@@ -49,6 +86,7 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadSingle([$productId]);
     }
+    
 
     public function delete($product_id)
     {

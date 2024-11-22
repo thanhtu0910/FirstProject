@@ -49,10 +49,15 @@ switch ($bb) {
     case 'shophtml':
         $aa->shophtml();
         break;
-        case 'productDetail':
-            $aa->productDetail();
+    case 'trangchu':
+        $aa->trangchu();
+        break;
+    case 'productDetail':
+        $aa->productDetail();
+        break;
+        case 'fetchProducts':  // Thêm trường hợp mới cho AJAX
+            $aa->getProductsByCategoryAjax();  // Gọi phương thức AJAX để trả về sản phẩm theo danh mục
             break;
-        
     
         
     default:

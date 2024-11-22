@@ -188,11 +188,11 @@
       </div>
       <div class="form-group">
         <label for="password">Email</label>
-        <input type="email" name="email" placeholder="Email">
+        <input type="email" name="email">
       </div>
       <div class="form-group">
         <label for="password">Số điện thoại</label>
-        <input type="text" name="phone" placeholder="Phone">
+        <input type="text" name="phone">
       </div>
       <button type="submit" name="btn_submit">Đăng ký</button>
     </form>
