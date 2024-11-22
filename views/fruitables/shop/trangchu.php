@@ -62,8 +62,8 @@
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
                             <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+                            <a href="?act=shophtml" class="nav-item nav-link">Shop</a>
+                           
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -76,7 +76,6 @@
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="d-flex m-3 me-0">
-                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
                             <a href="#" class="position-relative me-4 my-auto">
                                 <i class="fa fa-shopping-bag fa-2x"></i>
                                 <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
@@ -120,8 +119,12 @@
                         <h4 class="mb-3 text-secondary">Thời trang không chỉ để mặc, mà để thể hiện cá tính!</h4>
                         <h1 class="mb-5 display-3 text-primary">Phong cách & thoải mái mỗi ngày!</h1>
                         <div class="position-relative mx-auto">
-                            <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Search">
-                            <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
+                         <!--   timkiem -->
+                            <form action="index.php" method="GET" class="w-100 mx-auto d-flex">
+                                <input type="hidden" name="act" value="shophtml">
+                                <input type="search" name="keyword" class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" placeholder="Search">
+                                <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
+                            </form>                         
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-5">
@@ -221,12 +224,66 @@
                             </ul>
                         </div>
                     </div>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).on('click', '.category-link', function(e) {
+        e.preventDefault(); // Ngăn tải lại trang
+        var categoryId = $(this).data('category-id'); // Lấy ID danh mục
+
+        $.ajax({
+            url: 'index.php?act=fetchProducts', // Đường dẫn đến API
+            method: 'POST',
+            data: { category_id: categoryId },
+            dataType: 'json',
+            success: function(response) {
+                // Làm trống danh sách sản phẩm hiện tại
+                $('#product-list').empty();
+
+                // Duyệt qua các sản phẩm và thêm vào danh sách
+                if (response.length > 0) {
+                    response.forEach(function(product) {
+                        var productHTML = `
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <img src="${product.product_img}" class="img-fluid w-100 rounded-top" alt="">
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
+                                        <a href="index.php?act=productDetail&id=${product.product_id}">
+                                            ${product.category_name}
+                                        </a>
+                                    </div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <a href="index.php?act=productDetail&id=${product.product_id}">
+                                            <h4>${product.name}</h4>
+                                        </a>
+                                        <div class="d-flex justify-content-between flex-lg-wrap">
+                                            <p class="text-dark fs-5 fw-bold mb-0">${product.price.toLocaleString()} VND</p>
+                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                                <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                        $('#product-list').append(productHTML);
+                    });
+                } else {
+                    $('#product-list').html('<p>Không có sản phẩm nào!</p>');
+                }
+            },
+            error: function() {
+                alert('Lỗi khi tải sản phẩm!');
+            }
+        });
+    });
+</script>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        <?php include_once "product-hah.php";?>
+                                        <?php include_once "product.php";?>
                                     </div>
                                 </div>
                             </div>

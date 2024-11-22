@@ -8,12 +8,7 @@ class Bookcc
         $danhmuc = $mDm->getDM();
         include_once "views/admin/danhmuc.php";
     }
-<<<<<<< HEAD
     public function shophtml() {
-=======
-    public function shophtml()
-    {
->>>>>>> 9b9a20afc3ab3688f10026308572a18371508878
         $mBook = new Book();
         $shophtml = $mBook->getDM();
     
@@ -39,12 +34,12 @@ class Bookcc
         $shophtml = $mBook->getDM();
         if (isset($_GET['category_id'])) {
             $category_id = intval($_GET['category_id']); // Lấy ID danh mục
-            $trangchu = $mBook->getProductsByCategory($category_id); // Lấy sản phẩm theo danh mục
+            $listpro = $mBook->getProductsByCategory($category_id); // Lấy sản phẩm theo danh mục
         } else {
-            $trangchu = $mBook->getall(); // Nếu không có danh mục, lấy tất cả sản phẩm
+            $listpro = $mBook->getall(); // Nếu không có danh mục, lấy tất cả sản phẩm
         }
         
-        require_once "views/fruitables/shop/hah.php";
+        require_once "views/fruitables/shop/trangchu.php";
     }
     public function getProductsByCategoryAjax() {
         if (isset($_POST['category_id'])) {
