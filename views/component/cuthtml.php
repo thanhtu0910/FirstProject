@@ -26,10 +26,12 @@
         </aside>
 
         <!-- /#left-panel -->
-
-
-
-
+        <?php
+        session_start();
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];  // Lấy thông tin người dùng từ session
+        }
+        ?>
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
             <!-- Header-->
@@ -44,32 +46,22 @@
                 <div class="top-right">
                     <div class="header-menu">
                         <div class="header-left">
-                            <button class="search-trigger"><i class="fa fa-search"></i></button>
-                            <div class="form-inline">
-                                <form class="search-form">
-                                    <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                    <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                                </form>
-                            </div>
-
-
-
-
-
-                            <div class="user-area dropdown float-right">
-                                <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="user-avatar rounded-circle" src="image/admin.jpg" alt="User Avatar">
-                                </a>
-
-                                <div class="user-menu dropdown-menu">
-                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-                                    <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
-
-                                    <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                                    <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                                </div>
+                            <div class="top-link pe-2">
+                                <?php
+                                if (isset($_SESSION['username'])) {
+                                ?>
+                                    <!-- Hiển thị khi đã đăng nhập -->
+                                    <a class="text-white mx-2">
+                                        Xin chào, <?php echo $username ?>
+                                    </a>
+                                    <a class="text-white mx-2">|</a>
+                                    <a href="?act=dangxuat"><small>Đăng Xuất</small></a>
+                                <?php
+                                } else {
+                                ?>
+                                    <a href="?act=register"><small>Đăng Ký</small></a> /
+                                    <a href="?act=login"><small>Đăng Nhập</small></a>
+                                <?php } ?>
                             </div>
 
                         </div>

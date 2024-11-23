@@ -149,6 +149,7 @@
 <?php
 session_start();
 
+
 if (isset($_POST["btn_submit"])) {
   $username = $_POST["username"];
   $password = $_POST["password"];
@@ -156,16 +157,23 @@ if (isset($_POST["btn_submit"])) {
   $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
 
   foreach ($login as $value) {
-    if ($username == $value->username && $password == $value->password) {
+    if($username == $value->username && $password == $value->password && $value->role == "admin") {
+
+        header('location:?act=listbook');
+        $_SESSION['username'] = $username;
+        exit();
+
+    } else if ($username == $value->username && $password == $value->password) {
       $isLoginSuccessful = true;
-      break; // Thoát khỏi vòng lặp khi đăng nhập thành công
+      break;
     }
+   
   }
 
   // Kiểm tra biến cờ sau vòng lặp
   if ($isLoginSuccessful) {
-    header('location:index.php');
-    $_SESSION["username"] = $username;
+    header('location:?act=shophtml');
+    $_SESSION['username'] = $username;
     // include_once "views/da.php";
   } else {
     echo "<script>alert('Tài khoản hoặc mật khẩu của bạn sai!')</script>";
@@ -173,7 +181,6 @@ if (isset($_POST["btn_submit"])) {
 }
 
 ?>
-
 
 
 <body>
