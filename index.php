@@ -1,6 +1,8 @@
 <?php
+
 require_once "controllers/Bookcc.php";
 require_once "models/Book.php";
+
 
 $aa = new Bookcc();
 $bb = isset($_GET['act']) ? $_GET['act'] : "/";
@@ -55,20 +57,19 @@ switch ($bb) {
     case 'productDetail':
         $aa->productDetail();
         break;
-        case 'fetchProducts':  // Thêm trường hợp mới cho AJAX
-            $aa->getProductsByCategoryAjax();  // Gọi phương thức AJAX để trả về sản phẩm theo danh mục
-            break;
-            case 'addToCart':
-                $aa->addToCart();
-                break;
-            
-            case 'showCart':
-                $aa->showCart();
-                break;
-            
-            case 'removeFromCart':
-                $aa->removeFromCart();
-                break;
+               
+    case 'addToCart':
+        $aa->addToCart();
+        break;
+    case 'cart':
+        $aa->cart();
+        break;
+    case 'clearCart':
+        $aa->clearCart();
+        break;
+    case 'removeFromCart':
+        $aa->removeFromCart();
+        break;
     
         
     default:

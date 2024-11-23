@@ -49,6 +49,8 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$category_id]); // Truyền tham số vào câu truy vấn
     }
+    ///st
+    
     public function searchProducts($keyword) {
         $sql = "SELECT 
                     products.product_id,
@@ -86,6 +88,55 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadSingle([$productId]);
     }
+    //Giỏ hangg
+    public function addToCart($userId, $productId, $quantity, $variantId) {
+        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+        $checkSql = "SELECT * FROM cart_items WHERE user_id = ? AND product_id = ? AND variant_id = ?";
+        $this->connect->setQuery($checkSql);
+        $existingItem = $this->connect->loadSingle([$userId, $productId, $variantId]);
+    
+        if ($existingItem) {
+            // Cập nhật số lượng nếu sản phẩm đã tồn tại
+            $newQuantity = $existingItem['quantity'] + $quantity;
+            $updateSql = "UPDATE cart_items SET quantity = ? WHERE cart_item_id = ?";
+            $this->connect->setQuery($updateSql);
+            $this->connect->execute([$newQuantity, $existingItem['cart_item_id']]);
+        } else {
+            // Thêm sản phẩm mới vào giỏ hàng
+            $insertSql = "INSERT INTO cart_items (user_id, product_id, variant_id, quantity, added_at) VALUES (?, ?, ?, ?, NOW())";
+            $this->connect->setQuery($insertSql);
+            $this->connect->execute([$userId, $productId, $variantId, $quantity]);
+        }
+    }
+    
+    public function getCartItems($userId) {
+        $sql = "SELECT 
+                    cart_items.cart_item_id,
+                    cart_items.quantity,
+                    products.name AS product_name,
+                    products.description,
+                    product_variants.price,
+                    product_variants.product_img,
+                    (cart_items.quantity * product_variants.price) AS total_price
+                FROM cart_items
+                JOIN product_variants ON cart_items.variant_id = product_variants.variant_id
+                JOIN products ON product_variants.product_id = products.product_id
+                WHERE cart_items.user_id = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$userId]); // Load toàn bộ dữ liệu
+    }
+    
+    public function clearCart($userId) {
+        $sql = "DELETE FROM cart_items WHERE user_id = ?";
+        $this->connect->setQuery($sql);
+        $this->connect->execute([$userId]);
+    }
+    public function removeCartItem($cartItemId) {
+        $sql = "DELETE FROM cart_items WHERE cart_item_id = ?";
+        $this->connect->setQuery($sql);
+        $this->connect->execute([$cartItemId]);
+    }
+    //end
     
 
     public function delete($product_id)

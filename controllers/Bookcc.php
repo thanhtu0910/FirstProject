@@ -2,6 +2,7 @@
 
 class Bookcc
 {
+    
     public function danhmuc()
     {
         $mDm = new Book();
@@ -24,6 +25,16 @@ class Bookcc
             // Nếu không có tìm kiếm hoặc danh mục, lấy tất cả sản phẩm
             $listpro = $mBook->getall();
         }
+        // Loại bỏ các sản phẩm trùng product_id
+    $uniqueProducts = [];
+    foreach ($listpro as $product) {
+        if (!isset($uniqueProducts[$product->product_id])) {
+            $uniqueProducts[$product->product_id] = $product;
+        }
+    }
+
+    // Truyền danh sách sản phẩm không trùng lặp sang view
+    $listpro = array_values($uniqueProducts);
     
         // Load view hiển thị sản phẩm
         require_once "views/fruitables/shop/shop.php";
@@ -78,66 +89,52 @@ class Bookcc
         include_once "views/admin/list.php";
     }
     //Phần giỏ hàng
-    public function addToCart()
-{
-    session_start();
-
-    // Lấy thông tin sản phẩm từ form
-    $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
-    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 1;
-
-    // Gọi model để lấy thông tin sản phẩm
-    $mBook = new Book();
-    $product = $mBook->getProductById($product_id);
-
-    if ($product) {
-        // Khởi tạo giỏ hàng nếu chưa tồn tại
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
-
-        // Kiểm tra nếu sản phẩm đã tồn tại trong giỏ hàng
-        if (isset($_SESSION['cart'][$product_id])) {
-            $_SESSION['cart'][$product_id]['quantity'] += $quantity;
+    public function addToCart() {
+        $userId = 1; // Thay bằng user_id thực tế (nếu có hệ thống đăng nhập)
+        $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+        $variantId = isset($_GET['variant_id']) ? intval($_GET['variant_id']) : 0; // Lấy variant_id từ URL (nếu cần)
+        $quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 1;
+    
+        $mBook = new Book();
+    
+        $mBook->addToCart($userId, $productId, $quantity, $variantId);
+        if (isset($_GET['redirect']) && $_GET['redirect'] === 'cart') {
+            header("Location: index.php?act=cart");
+            exit;
         } else {
-            $_SESSION['cart'][$product_id] = [
-                'name' => $product->name,
-                'price' => $product->price,
-                'image' => $product->product_img,
-                'quantity' => $quantity,
-            ];
+            header("Location: index.php?act=shophtml");
+            exit;
         }
+        exit;
     }
-
-    // Chuyển hướng về giỏ hàng sau khi thêm
-    header('Location: index.php?act=showCart');
+    
+    public function cart() {
+        $userId = 1; // Thay bằng user_id thực tế
+        $mBook = new Book();
+        $cartItems = $mBook->getCartItems($userId);
+       
+   
+    
+        include_once __DIR__ . "/../views/fruitables/shop/cart.php";
+    }
+    
+    public function clearCart() {
+        $userId = 1; // Thay bằng user_id thực tế
+        $mBook = new Book();
+        $mBook->clearCart($userId);
+        header("Location: index.php?act=cart");
+        exit;
+    }
+    public function removeFromCart() {
+    $cartItemId = isset($_GET['cart_item_id']) ? intval($_GET['cart_item_id']) : 0;
+    if ($cartItemId > 0) {
+        $mBook = new Book();
+        $mBook->removeCartItem($cartItemId);
+    }
+    header("Location: index.php?act=cart");
     exit;
 }
-
-public function showCart()
-{
-    session_start();
-
-    // Lấy dữ liệu giỏ hàng từ session
-    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
-
-    // Load view hiển thị giỏ hàng
-    require_once "views/fruitables/cart/cart.php";
-}
-public function removeFromCart()
-{
-    session_start();
-
-    $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-
-    if (isset($_SESSION['cart'][$product_id])) {
-        unset($_SESSION['cart'][$product_id]);
-    }
-
-    // Chuyển hướng về giỏ hàng
-    header('Location: index.php?act=showCart');
-    exit;
-}
+    
     //end
 
     public function listuser()
@@ -273,6 +270,7 @@ public function removeFromCart()
                 header('Location: index.php');
                 exit;
             }
+            
         }
 
         // Lấy danh mục sản phẩm

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,46 +82,49 @@
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <div class="table-responsive">
-                <?php if (!empty($cart)) { ?>
-    <h3>Your Cart</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-            $total = 0;
-            foreach ($cart as $id => $item) {
-                $price = isset($item['price']) ? $item['price'] : 0;
-                $quantity = isset($item['quantity']) ? $item['quantity'] : 0;
-                $subtotal = $price * $quantity;
-                $total += $subtotal;
-            ?>
+                <?php if (!empty($cartItems)) { ?>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td><img src="<?php echo $item['image'] ?? ''; ?>" width="50"></td>
-                    <td><?php echo $item['name'] ?? 'Unknown Product'; ?></td>
-                    <td><?php echo number_format($price); ?> VND</td>
-                    <td><?php echo $quantity; ?></td>
-                    <td><?php echo number_format($subtotal); ?> VND</td>
+                    <th>Hình ảnh</th>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Tổng cộng</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($cartItems as $item) { ?>
+                    
+                    <tr>
+                    <td><img src="<?php echo htmlspecialchars($item->product_img); ?>" alt="Product" style="width: 100px;"></td>
+                    <td><?php echo htmlspecialchars($item->product_name); ?></td>
+                    <td><?php echo htmlspecialchars($item->quantity); ?></td>
+                    <td><?php echo number_format((float)$item->price); ?> VND</td>
+                    <td><?php echo number_format((float)$item->total_price); ?> VND</td>
                     <td>
-                        <a href="index.php?act=removeFromCart&id=<?php echo $id; ?>" class="btn btn-danger">Remove</a>
+                        <a href="index.php?act=removeFromCart&cart_item_id=<?php echo htmlspecialchars($item->cart_item_id); ?>" 
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
+                            Xóa
+                        </a>                    
                     </td>
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    <p>Total: <?php echo number_format($total); ?> VND</p>
-    <a href="checkout.php" class="btn btn-primary">Proceed to Checkout</a>
-<?php } else { ?>
-    <p>Your cart is empty.</p>
-<?php } ?>
+                <?php } ?>
+            </tbody>
+        </table>
+        <div class="cart-actions">
+            <a href="?act=shophtml" class="btn btn-primary">Tiếp tục mua hàng</a>
+            <a href="index.php?act=clearCart" onclick="return confirm('Bạn có chắc là muốn xóa hết không?');" class="btn btn-danger">Xóa toàn bộ giỏ hàng</a>
+        </div>
+        <div class="mt-3">
+            
+        </div>
+    <?php } else { ?>
+        <p>Giỏ hàng của bạn đang trống.</p>
+        <a href="?act=shophtml" class="btn btn-primary">Tiếp tục mua hàng</a>
+    <?php } ?>
                 </div>
                 <div class="mt-5">
                     <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
