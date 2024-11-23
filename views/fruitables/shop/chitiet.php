@@ -34,13 +34,13 @@
                                     </div>
                                 </div>
                                 <a href="index.php?act=addToCart&id=<?php echo $product['product_id']; ?>&quantity=1&variant_id=<?php echo $product['variant_id']; ?>" 
-   class="btn border border-secondary rounded-pill px-3 text-primary">
-    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
-</a>
-<a href="index.php?act=addToCart&id=<?php echo $product['product_id']; ?>&quantity=1&variant_id=<?php echo $product['variant_id']; ?>&redirect=cart" 
-   class="btn btn-primary rounded-pill px-3 text-white">
-    Buy Now
-</a>
+                                    class="btn border border-secondary rounded-pill px-3 text-primary">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </a>
+                                <a href="index.php?act=addToCart&id=<?php echo $product['product_id']; ?>&quantity=1&variant_id=<?php echo $product['variant_id']; ?>&redirect=cart" 
+                                    class="btn btn-primary rounded-pill px-3 text-white">
+                                    Buy Now
+                                </a>
                             </div>
                             <div class="col-lg-12">
                                 <nav>
