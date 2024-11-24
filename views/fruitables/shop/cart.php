@@ -98,7 +98,7 @@
                 <?php foreach ($cartItems as $item) { ?>
                     
                     <tr>
-                    <td><img src="<?php echo htmlspecialchars($item->product_img); ?>" alt="Product" style="width: 100px;"></td>
+                    <td><img src="<?php echo htmlspecialchars($item->product_img); ?>" alt="Product" style="width: 100px;"> </td> 
                     <td><?php echo htmlspecialchars($item->product_name); ?></td>
                     <td><?php echo htmlspecialchars($item->quantity); ?></td>
                     <td><?php echo number_format((float)$item->price); ?> VND</td>
@@ -108,15 +108,18 @@
                             class="btn btn-danger btn-sm"
                             onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
                             Xóa
-                        </a>                    
+                        </a>                
+                        <a href="">mua</a>    
                     </td>
                 </tr>
+                
                 <?php } ?>
             </tbody>
         </table>
         <div class="cart-actions">
             <a href="?act=shophtml" class="btn btn-primary">Tiếp tục mua hàng</a>
             <a href="index.php?act=clearCart" onclick="return confirm('Bạn có chắc là muốn xóa hết không?');" class="btn btn-danger">Xóa toàn bộ giỏ hàng</a>
+            <button>mua het</button>
         </div>
         <div class="mt-3">
             

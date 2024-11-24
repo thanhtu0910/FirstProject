@@ -94,8 +94,21 @@
                         <div class="row g-4">
                             <div class="col-lg-3">
                                 <div class="row g-4">
-                                <a href="index.php?act=shophtml">Tất cả sản phẩm</a>
-                                    <?php include_once "dm.php"; ?>
+                                   <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <h4>Danh Mục</h4>
+                                            <ul class="list-unstyled fruite-categorie">
+                                                <li>
+                                                    <div class="d-flex justify-content-between fruite-name">
+                                                        <a href="index.php?act=shophtml"><i class="fas fa-apple-alt me-2"></i>Tất cả</a>
+                                                    </div>
+                                                </li>
+                                               <?php
+                                                include_once "dm.php"; 
+                                                ?>
+                                            </ul>
+                                        </div>
+                                    </div>
                                     
                                    
                                     <div class="col-lg-12">

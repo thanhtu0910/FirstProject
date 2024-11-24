@@ -45,12 +45,22 @@ class Bookcc
     {
         $mBook = new Book();
         $shophtml = $mBook->getDM();
+        $latestProducts = $mBook->getRandomProducts(6);
+        
         if (isset($_GET['category_id'])) {
             $category_id = intval($_GET['category_id']); // Lấy ID danh mục
             $listpro = $mBook->getProductsByCategory($category_id); // Lấy sản phẩm theo danh mục
         } else {
             $listpro = $mBook->getall(); // Nếu không có danh mục, lấy tất cả sản phẩm
         }
+        // Loại bỏ các sản phẩm trùng product_id
+        $uniqueProducts = [];
+        foreach ($listpro as $product) {
+            if (!isset($uniqueProducts[$product->product_id])) {
+                $uniqueProducts[$product->product_id] = $product;
+            }
+        }
+        $latestProducts = array_values($uniqueProducts);
 
         require_once "views/fruitables/shop/trangchu.php";
     }
