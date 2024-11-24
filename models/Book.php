@@ -49,7 +49,28 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$category_id]); // Truyền tham số vào câu truy vấn
     }
-    ///st
+    ///sp gợi ý
+    public function getRandomProducts()
+{
+    $sql = "SELECT 
+                products.product_id,
+                products.name AS name,
+                products.description,
+                categories.name AS category_name,
+                product_variants.variant_id,
+                product_variants.price,
+                product_variants.stock_quantity,
+                product_variants.product_img
+            FROM products
+            JOIN categories ON products.category_id = categories.category_id
+            JOIN product_variants ON products.product_id = product_variants.product_id
+            ORDER BY RAND()
+            LIMIT 6";
+    
+    $this->connect->setQuery($sql);
+    return $this->connect->loadData();
+}
+    //endsp
     
     public function searchProducts($keyword) {
         $sql = "SELECT 
