@@ -1,4 +1,4 @@
-<?php 
+<?php
 $displayedProducts = []; // Mảng lưu trữ các product_id đã hiển thị
 
 foreach ($listpro as $value) {
@@ -12,11 +12,11 @@ foreach ($listpro as $value) {
         <div class="rounded position-relative fruite-item">
             <div class="fruite-img">
                 <a href="index.php?act=productDetail&id=<?php echo $value->product_id; ?>">
-                  <img src="<?php echo $value->product_img; ?>" class="img-fluid w-100 rounded-top" alt=""> 
-                </a>  
+                    <img src="<?php echo $value->product_img; ?>" class="img-fluid w-100 rounded-top" alt="">
+                </a>
             </div>
             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">
-                    <?php echo $value->category_name; ?>
+                <?php echo $value->category_name; ?>
             </div>
             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                 <a href="index.php?act=productDetail&id=<?php echo $value->product_id; ?>">
@@ -24,9 +24,9 @@ foreach ($listpro as $value) {
                 </a>
                 <div class="d-flex justify-content-between flex-lg-wrap">
                     <p class="text-dark fs-5 fw-bold mb-0"><?php echo number_format($value->price); ?> VND</p>
-                        <a href="index.php?act=productDetail&id=<?php echo $value->product_id; ?>" 
-                        class="btn btn-primary rounded-pill px-3 text-white">
-                            Xem chi tiết
+                    <a href="index.php?act=productDetail&id=<?php echo $value->product_id; ?>"
+                        class="btn border border-secondary rounded-pill px-3 text-primary">
+                        Xem chi tiết
                     </a>
                 </div>
             </div>
