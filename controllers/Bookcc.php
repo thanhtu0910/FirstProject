@@ -125,6 +125,14 @@ class Bookcc
 
     public function cart()
     {
+        session_start(); // Bắt đầu session để kiểm tra thông tin đăng nhập
+
+    if (!isset($_SESSION['username'])) {
+        // Nếu người dùng chưa đăng nhập, hiển thị thông báo và chuyển hướng
+        $_SESSION['error_message'] = "Bạn cần đăng nhập để xem giỏ hàng.";
+        header("Location: ?act=login"); // Chuyển hướng đến trang đăng nhập
+        exit;
+    }
         $userId = 1; // Thay bằng user_id thực tế
         $mBook = new Book();
         $cartItems = $mBook->getCartItems($userId);

@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <div class="row g-4">
                             <div class="col-lg-6">
                                 <div class="border rounded">
@@ -34,11 +39,13 @@
                                     </div>
                                 </div>
                                 <a href="index.php?act=addToCart&id=<?php echo $product['product_id']; ?>&quantity=1&variant_id=<?php echo $product['variant_id']; ?>" 
-                                    class="btn border border-secondary rounded-pill px-3 text-primary">
+                                    class="btn border border-secondary rounded-pill px-3 text-primary"
+                                    onclick="<?php if (!isset($_SESSION['username'])) { echo "alert('Bạn cần đăng nhập để mua sản phẩm này.'); location.href='index.php?act=login'; return false;"; } ?>">
                                     <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                 </a>
                                 <a href="index.php?act=addToCart&id=<?php echo $product['product_id']; ?>&quantity=1&variant_id=<?php echo $product['variant_id']; ?>&redirect=cart" 
-                                    class="btn btn-primary rounded-pill px-3 text-white">
+                                    class="btn btn-primary rounded-pill px-3 text-white"
+                                    onclick="<?php if (!isset($_SESSION['username'])) { echo "alert('Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.'); location.href='index.php?act=login'; return false;"; } ?>">
                                     Buy Now
                                 </a>
                             </div>
