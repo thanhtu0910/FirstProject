@@ -147,39 +147,41 @@
   </style>
 </head>
 <?php
-session_start();
-
-
-if (isset($_POST["btn_submit"])) {
-  $username = $_POST["username"];
-  $password = $_POST["password"];
-
-  $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
-
-  foreach ($login as $value) {
-    if($username == $value->username && $password == $value->password && $value->role == "admin") {
-
-        header('location:?act=listbook');
-        $_SESSION['username'] = $username;
-        exit();
-
-    } else if ($username == $value->username && $password == $value->password) {
-      $isLoginSuccessful = true;
-      break;
-    }
-   
-  }
-
-  // Kiểm tra biến cờ sau vòng lặp
-  if ($isLoginSuccessful) {
-    header('location:?act=shophtml');
-    $_SESSION['username'] = $username;
-    // include_once "views/da.php";
-  } else {
-    echo "<script>alert('Tài khoản hoặc mật khẩu của bạn sai!')</script>";
-  }
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
 }
 
+if (isset($_POST["btn_submit"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
+    $userId = null; // Biến để lưu user_id khi đăng nhập thành công
+
+    foreach ($login as $value) {
+        if ($username == $value->username && $password == $value->password) {
+            $isLoginSuccessful = true;
+            $userId = $value->user_id; // Lưu user_id từ database
+            if ($value->role == "admin") {
+                $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $userId; // Lưu user_id vào session
+                header('location:?act=listbook');
+                exit;
+            }
+            break;
+        }
+    }
+
+    // Kiểm tra biến cờ sau vòng lặp
+    if ($isLoginSuccessful) {
+        $_SESSION['username'] = $username;
+        $_SESSION['user_id'] = $userId; // Lưu user_id vào session
+        header('location:?act=shophtml');
+        exit;
+    } else {
+        echo "<script>alert('Tài khoản hoặc mật khẩu của bạn sai!')</script>";
+    }
+}
 ?>
 
 

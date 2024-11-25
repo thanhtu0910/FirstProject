@@ -105,7 +105,13 @@ class Bookcc
     //Phần giỏ hàng
     public function addToCart()
     {
-        $userId = 1; // Thay bằng user_id thực tế (nếu có hệ thống đăng nhập)
+        session_start();
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: ?act=login"); // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
+        exit;
+    }
+
+    $userId = $_SESSION['user_id']; // Lấy user_id từ session
         $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
         $variantId = isset($_GET['variant_id']) ? intval($_GET['variant_id']) : 0; // Lấy variant_id từ URL (nếu cần)
         $quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 1;
@@ -133,7 +139,7 @@ class Bookcc
         header("Location: ?act=login"); // Chuyển hướng đến trang đăng nhập
         exit;
     }
-        $userId = 1; // Thay bằng user_id thực tế
+    $userId = $_SESSION['user_id']; // Lấy user_id từ session
         $mBook = new Book();
         $cartItems = $mBook->getCartItems($userId);
 
@@ -230,6 +236,10 @@ class Bookcc
 
     public function login()
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
         $mBook = new Book();
         $login = $mBook->login();
 
