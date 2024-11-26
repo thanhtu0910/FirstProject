@@ -51,25 +51,25 @@ class Book
     }
     ///sp gợi ý
     public function getRandomProducts()
-{
-    $sql = "SELECT 
-                products.product_id,
-                products.name AS name,
-                products.description,
-                categories.name AS category_name,
-                product_variants.variant_id,
-                product_variants.price,
-                product_variants.stock_quantity,
-                product_variants.product_img
-            FROM products
-            JOIN categories ON products.category_id = categories.category_id
-            JOIN product_variants ON products.product_id = product_variants.product_id
-            ORDER BY RAND()
-            LIMIT 6";
-    
-    $this->connect->setQuery($sql);
-    return $this->connect->loadData();
-}
+    {
+        $sql = "SELECT 
+                    products.product_id,
+                    products.name AS name,
+                    products.description,
+                    categories.name AS category_name,
+                    product_variants.variant_id,
+                    product_variants.price,
+                    product_variants.stock_quantity,
+                    product_variants.product_img
+                FROM products
+                JOIN categories ON products.category_id = categories.category_id
+                JOIN product_variants ON products.product_id = product_variants.product_id
+                ORDER BY RAND()
+                LIMIT 6";
+        
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData();
+    }
     //endsp
     
     public function searchProducts($keyword) {
@@ -107,7 +107,33 @@ class Book
                 JOIN product_variants ON products.product_id = product_variants.product_id
                 WHERE products.product_id = ?";
         $this->connect->setQuery($sql);
-        return $this->connect->loadSingle([$productId]);
+        $result = $this->connect->loadData([$productId]);
+        $result = json_decode(json_encode($result), true); // Chuyển đổi object sang array nếu cần
+
+        // Nếu không có sản phẩm, trả về false
+        if (!$result) {
+            return false;
+        }
+
+        // Xử lý dữ liệu: gom các variant thành danh sách
+        $product = [
+            'product_id' => $result[0]['product_id'],
+            'name' => $result[0]['name'],
+            'description' => $result[0]['description'],
+            'category_name' => $result[0]['category_name'],
+            'variants' => []
+        ];
+
+        foreach ($result as $row) {
+            $product['variants'][] = [
+                'variant_id' => $row['variant_id'],
+                'price' => $row['price'],
+                'stock_quantity' => $row['stock_quantity'],
+                'product_img' => $row['product_img']
+            ];
+        }
+
+        return $product;
     }
     //Giỏ hangg
     public function addToCart($userId, $productId, $quantity, $variantId) {
@@ -158,16 +184,16 @@ class Book
         $this->connect->execute([$cartItemId]);
     }
     public function updateCartItemQuantity($cartItemId, $quantity)
-{
-    // Kiểm tra nếu số lượng nhỏ hơn 1 thì không thực hiện
-    if ($quantity < 1) {
-        return false;
+    {
+        // Kiểm tra nếu số lượng nhỏ hơn 1 thì không thực hiện
+        if ($quantity < 1) {
+            return false;
+        }
+        
+        $sql = "UPDATE cart_items SET quantity = ? WHERE cart_item_id = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->execute([$quantity, $cartItemId]);
     }
-    
-    $sql = "UPDATE cart_items SET quantity = ? WHERE cart_item_id = ?";
-    $this->connect->setQuery($sql);
-    return $this->connect->execute([$quantity, $cartItemId]);
-}
     //end
     
 
@@ -213,6 +239,8 @@ class Book
         // Lấy product_id vừa được thêm
         return $this->connect->lastInsertId(); // Phương thức này trả về product_id vừa thêm
     }
+
+    //Them-Sua-Xoa danhmuc
     public function addDM($category_id, $name)
     {
         $sql = "INSERT INTO `categories`(category_id, name) VALUES (?,?)";
@@ -235,8 +263,9 @@ class Book
     {
         $sql = "DELETE FROM `categories` WHERE `category_id` = ?";
         $this->connect->setQuery($sql);
-        return $this->connect->execute([$category_id], false); // Thực thi câu lệnh DELETE
+        return $this->connect->execute([$category_id], false);
     }
+    //end Them-Sua-Xoa danhmuc
 
 
     // Hàm thêm biến thể với product_id
