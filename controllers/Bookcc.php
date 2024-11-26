@@ -139,7 +139,7 @@ class Bookcc
         header("Location: ?act=login"); // Chuyển hướng đến trang đăng nhập
         exit;
     }
-    $userId = $_SESSION['user_id']; // Lấy user_id từ session
+        $userId = $_SESSION['user_id']; // Lấy user_id từ session
         $mBook = new Book();
         $cartItems = $mBook->getCartItems($userId);
 
@@ -150,7 +150,9 @@ class Bookcc
 
     public function clearCart()
     {
-        $userId = 1; // Thay bằng user_id thực tế
+        session_start(); // Bắt đầu session để kiểm tra thông tin đăng nhập
+
+        $userId = $_SESSION['user_id']; // Lấy user_id từ session
         $mBook = new Book();
         $mBook->clearCart($userId);
         header("Location: index.php?act=cart");
@@ -166,6 +168,19 @@ class Bookcc
         header("Location: index.php?act=cart");
         exit;
     }
+    public function updateCartQuantity()
+{
+    $cartItemId = isset($_GET['cart_item_id']) ? intval($_GET['cart_item_id']) : 0;
+    $quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 0;
+
+    if ($cartItemId > 0 && $quantity > 0) {
+        $mBook = new Book();
+        $mBook->updateCartItemQuantity($cartItemId, $quantity);
+    }
+
+    header("Location: index.php?act=cart");
+    exit;
+}
 
     //end
 

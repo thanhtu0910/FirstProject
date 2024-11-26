@@ -157,6 +157,17 @@ class Book
         $this->connect->setQuery($sql);
         $this->connect->execute([$cartItemId]);
     }
+    public function updateCartItemQuantity($cartItemId, $quantity)
+{
+    // Kiểm tra nếu số lượng nhỏ hơn 1 thì không thực hiện
+    if ($quantity < 1) {
+        return false;
+    }
+    
+    $sql = "UPDATE cart_items SET quantity = ? WHERE cart_item_id = ?";
+    $this->connect->setQuery($sql);
+    return $this->connect->execute([$quantity, $cartItemId]);
+}
     //end
     
 
