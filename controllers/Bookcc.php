@@ -9,6 +9,8 @@ class Bookcc
         $danhmuc = $mDm->getDM();
         include_once "views/admin/danhmuc.php";
     }
+
+    //Phần giao diện
     public function shophtml()
     {
         $mBook = new Book();
@@ -64,23 +66,13 @@ class Bookcc
 
         require_once "views/fruitables/shop/trangchu.php";
     }
-    public function getProductsByCategoryAjax()
-    {
-        if (isset($_POST['category_id'])) {
-            $category_id = intval($_POST['category_id']);
-            $mBook = new Book();
-            $products = $mBook->getProductsByCategory($category_id); // Lấy sản phẩm theo danh mục
-            echo json_encode($products); // Trả về JSON
-        } else {
-            echo json_encode([]);
-        }
-    }
     public function productDetail()
     {
         $mBook = new Book();
         $shophtml = $mBook->getDM();
         // Lấy `product_id` từ URL
         $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+        $variantId = isset($_GET['variant_id']) ? intval($_GET['variant_id']) : 0;
 
         // Lấy chi tiết sản phẩm từ Model
         $product = $mBook->getProductById($productId);
@@ -90,11 +82,23 @@ class Bookcc
             echo "Sản phẩm không tồn tại.";
             exit;
         }
-
+        // Nếu variant_id được truyền, lấy thông tin variant tương ứng
+    if ($variantId > 0) {
+        foreach ($product['variants'] as $variant) {
+            if ($variant['variant_id'] == $variantId) {
+                $product['selected_variant'] = $variant;
+                break;
+            }
+        }
+    } else {
+        // Nếu không có variant_id, chọn mặc định variant đầu tiên
+        $product['selected_variant'] = $product['variants'][0];
+    }
 
         // Gọi view chi tiết sản phẩm
         require_once "views/fruitables/shop/shop-detail.php";
     }
+    //end giao diện
 
     public function listbook()
     {
@@ -111,7 +115,7 @@ class Bookcc
         exit;
     }
 
-    $userId = $_SESSION['user_id']; // Lấy user_id từ session
+        $userId = $_SESSION['user_id']; // Lấy user_id từ session
         $productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
         $variantId = isset($_GET['variant_id']) ? intval($_GET['variant_id']) : 0; // Lấy variant_id từ URL (nếu cần)
         $quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 1;
@@ -169,20 +173,19 @@ class Bookcc
         exit;
     }
     public function updateCartQuantity()
-{
-    $cartItemId = isset($_GET['cart_item_id']) ? intval($_GET['cart_item_id']) : 0;
-    $quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 0;
+    {
+        $cartItemId = isset($_GET['cart_item_id']) ? intval($_GET['cart_item_id']) : 0;
+        $quantity = isset($_GET['quantity']) ? intval($_GET['quantity']) : 0;
 
-    if ($cartItemId > 0 && $quantity > 0) {
-        $mBook = new Book();
-        $mBook->updateCartItemQuantity($cartItemId, $quantity);
+        if ($cartItemId > 0 && $quantity > 0) {
+            $mBook = new Book();
+            $mBook->updateCartItemQuantity($cartItemId, $quantity);
+        }
+
+        header("Location: index.php?act=cart");
+        exit;
     }
-
-    header("Location: index.php?act=cart");
-    exit;
-}
-
-    //end
+    //end giỏ hàng
 
     public function listuser()
     {
