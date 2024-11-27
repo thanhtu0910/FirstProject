@@ -130,8 +130,11 @@ class Book
         }
     }
     
-    public function getCartItems($userId) {
+
+    public function getCartItemss($userId) {
         $sql = "SELECT 
+        cart_items.variant_id,
+        cart_items.product_id,
                     cart_items.cart_item_id,
                     cart_items.quantity,
                     products.name AS product_name,
@@ -146,7 +149,26 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData([$userId]); // Load toàn bộ dữ liệu
     }
-    
+
+    public function getCartItems($userId) {
+        $sql = "SELECT 
+            cart_items.variant_id,
+        cart_items.product_id,
+                    cart_items.cart_item_id,
+                    cart_items.quantity,
+                    products.name AS product_name,
+                    products.description,
+                    product_variants.price,
+                    product_variants.product_img,
+                    (cart_items.quantity * product_variants.price) AS total_price
+                FROM cart_items
+                JOIN product_variants ON cart_items.variant_id = product_variants.variant_id
+                JOIN products ON product_variants.product_id = products.product_id
+                WHERE cart_items.user_id = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$userId]); // Load toàn bộ dữ liệu
+    }
+
     public function clearCart($userId) {
         $sql = "DELETE FROM cart_items WHERE user_id = ?";
         $this->connect->setQuery($sql);
@@ -323,6 +345,19 @@ class Book
 
         return $result;
     }
+    public function getcid($cart_item_id)
+    {
+        $sql = "SELECT * FROM cart_items WHERE cart_item_id = ?";
+        $this->connect->setQuery($sql);
+        $result = $this->connect->loadSingle([$cart_item_id]);
+
+        // Kiểm tra xem kết quả có hợp lệ không
+        if (!$result) {
+            echo "Không tìm thấy biến thể với ID: $cart_item_id";
+        }
+
+        return $result;
+    }
 
 
     // Hàm thêm biến thể với product_id
@@ -353,4 +388,50 @@ class Book
             return false;
         }
     }
+
+    public function checkout($order_id, $user_id, $product_id, $quantity, $added_at,$discount_id){
+        $sql = "INSERT INTO `orders`(`order_id`, `user_id`, `product_id`, `quantity`, `added_at`, `discount_id`) VALUES (?,?,?,?,?,?)";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$order_id, $user_id, $product_id, $quantity, $added_at,$discount_id]);
+    }
+
+    public function getIdBook($cart_items_id){
+        $sql = "SELECT * FROM `cart_items` WHERE cart_items_id = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$cart_items_id],false);
+    }
+
+    public function addOrder(){
+            $sql = "INSERT INTO `order_items`(`order_item_id`, `order_id`, `product_id`, `quantity`, `price`) VALUES (?,?,?,?,?)";
+                $this->connect->setQuery($sql);
+                $this->connect->loadData();
+        
+    }
+// //------------------------------------------------------------------
+//     public function add($name, $description, $category_id)
+//     {
+//         $sql = "INSERT INTO `products` (name, description, category_id) VALUES (?,?,?)";
+//         $this->connect->setQuery($sql);
+//         $this->connect->loadData([$name, $description, $category_id]);
+
+//         // Lấy product_id vừa được thêm
+//         return $this->connect->lastInsertId(); // Phương thức này trả về product_id vừa thêm
+//     }
+//     public function addvariants($product_id, $variants)
+//     {
+//         $sql = "INSERT INTO `product_variants` (product_id, price, stock_quantity, product_img) VALUES (?, ?, ?, ?)";
+
+//         foreach ($variants as $variant) {
+//             // Lấy giá trị từ mảng biến thể
+//             $price = $variant['price'];
+//             $stock_quantity = $variant['stock_quantity'];
+//             $product_img = $variant['product_img'];
+
+//             // Thêm từng biến thể vào bảng `product_variants`
+//             $this->connect->setQuery($sql);
+//             $this->connect->loadData([$product_id, $price, $stock_quantity, $product_img]);
+//         }
+//         return true; // Trả về true nếu thêm tất cả biến thể thành công
+//     }
+
 }

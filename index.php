@@ -57,7 +57,9 @@ switch ($bb) {
     case 'productDetail':
         $aa->productDetail();
         break;
-               
+        case 'checkout':
+            $aa->checkout();
+            break;           
     case 'addToCart':
         $aa->addToCart();
         break;

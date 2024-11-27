@@ -526,4 +526,22 @@ class Bookcc
         }
         include_once "views/admin/binhluan.php";
     }
+
+
+
+    public function checkout(){
+        $product_id=$_GET['id'];
+        $variant_id=$_GET['vid'];
+        $cart_item_id=$_GET['cid'];
+        
+
+        $mBook = new Book();
+        $aa = $mBook->getid($product_id);
+        $bb = $mBook->getvid($variant_id);
+
+        $cc = $mBook->getcid($cart_item_id);
+        include_once "views/fruitables/shop/checkout.php";
+    }
+    
+    
 }

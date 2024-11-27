@@ -117,7 +117,7 @@
                                             onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
                                             Xóa
                                         </a>
-                                        <a href="">mua</a>
+                                        <a href="?act=checkout&id=<?php echo $item->product_id?>&vid=<?php echo $item->	variant_id?>&cid=<?php echo $item->	cart_item_id?>">mua</a>
                                     </td>
                                 </tr>
 
