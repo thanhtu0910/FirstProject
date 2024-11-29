@@ -152,35 +152,42 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (isset($_POST["btn_submit"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+  $username = $_POST["username"];
+  $password = $_POST["password"];
 
-    $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
-    $userId = null; // Biến để lưu user_id khi đăng nhập thành công
+  $isLoginSuccessful = false; // Biến cờ để kiểm tra đăng nhập thành công
+  $user_id = null; // Biến để lưu user_id khi đăng nhập thành công
+  $phone = null; // Biến để lưu user_id khi đăng nhập thành công
+  $address = null; // Biến để lưu user_id khi đăng nhập thành công
 
-    foreach ($login as $value) {
-        if ($username == $value->username && $password == $value->password) {
-            $isLoginSuccessful = true;
-            $userId = $value->user_id; // Lưu user_id từ database
-            if ($value->role == "admin") {
-                $_SESSION['username'] = $username;
-                $_SESSION['user_id'] = $userId; // Lưu user_id vào session
-                header('location:?act=listbook');
-                exit;
-            }
-            break;
-        }
-    }
-
-    // Kiểm tra biến cờ sau vòng lặp
-    if ($isLoginSuccessful) {
-        $_SESSION['username'] = $username;
-        $_SESSION['user_id'] = $userId; // Lưu user_id vào session
-        header('location:?act=shophtml');
+  foreach ($login as $value) {
+    if ($username == $value->username && $password == $value->password) {
+      $isLoginSuccessful = true;
+      $userId = $value->user_id; // Lưu user_id từ database
+      $phone = $value->phone; // Lưu user_id từ database
+      $address = $value->address; // Lưu user_id từ database
+      if ($value->role == "admin") {
+        $_SESSION['username'] = $username;  // Lưu tên người dùng
+        $_SESSION['user_id'] = $user_id;     // Lưu user_id vào session
+        header('location:?act=listbook');
         exit;
-    } else {
-        echo "<script>alert('Tài khoản hoặc mật khẩu của bạn sai!')</script>";
+      }
+
+      break;
     }
+  }
+
+  // Kiểm tra biến cờ sau vòng lặp
+  if ($isLoginSuccessful) {
+    $_SESSION['username'] = $username;
+    $_SESSION['user_id'] = $userId; // Lưu user_id vào session
+    $_SESSION['phone'] = $phone; // Lưu user_id vào session
+    $_SESSION['address'] = $address; // Lưu user_id vào session
+    header('location:?act=shophtml');
+    exit;
+  } else {
+    echo "<script>alert('Tài khoản hoặc mật khẩu của bạn sai!')</script>";
+  }
 }
 ?>
 

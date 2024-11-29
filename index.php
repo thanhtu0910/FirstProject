@@ -72,9 +72,21 @@ switch ($bb) {
     case 'removeFromCart':
         $aa->removeFromCart();
         break;
-        case 'updateCartQuantity':
-            $aa->updateCartQuantity();
-            break;
+    case 'updateCartQuantity':
+        $aa->updateCartQuantity();
+        break;
+    case 'orders':
+        $aa->orders();
+        break;
+    case 'ordersall':
+        $aa->ordersall();
+        break;
+    case 'quanlyorder':
+        $aa->quanlyorder();
+        break;
+    case 'user':
+        $aa->user();
+        break;
     
         
     default:

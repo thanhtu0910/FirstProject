@@ -1,7 +1,10 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];  // Lấy thông tin người dùng từ session
+    $username = $_SESSION['username'];
+    $phone = $_SESSION['phone'];  // Lấy thông tin người dùng từ session
+    $address = $_SESSION['address']; 
+    // $ngaymua= $_SESSION['ngaymua']; // Lấy thông tin người dùng từ session
 }
 ?>
 <div class="container-fluid fixed-top">
@@ -53,13 +56,13 @@ if (isset($_SESSION['username'])) {
                     <a href="contact.php" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="d-flex m-3 me-0">
-                           <!-- Tìm kiếm -->
-                           <form action="index.php" method="GET" class="w-100 mx-auto d-flex">
-                                <input type="hidden" name="act" value="shophtml">
-                                <input type="search" name="keyword" placeholder="Tìm kiếm sản phẩm...">
-                                <button type="submit" class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                            </form>
-                            <!-- end tìm kiếm -->
+                    <!-- Tìm kiếm -->
+                    <form action="index.php" method="GET" class="w-100 mx-auto d-flex">
+                        <input type="hidden" name="act" value="shophtml">
+                        <input type="search" name="keyword" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="submit" class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                    </form>
+                    <!-- end tìm kiếm -->
                     <?php
 
                     $cartCount = isset($_SESSION['cart']) ? array_sum(array_column($_SESSION['cart'], 'quantity')) : 0;
