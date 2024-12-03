@@ -49,7 +49,7 @@ if (isset($_SESSION['username'])) {
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
                             <a href="?act=cart" class="dropdown-item" style="color:#c18a75 !important">Cart</a>
-                            <a href="checkout.php" class="dropdown-item" style="color:#c18a75 !important">Checkout</a>
+                            <!-- <a href="#" class="dropdown-item" style="color:#c18a75 !important">Checkout</a> -->
                             <a href="testimonial.php" class="dropdown-item" style="color:#c18a75 !important">Testimonial</a>
                         </div>
                     </div>

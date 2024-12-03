@@ -497,4 +497,41 @@ class Book
         $this->connect->setQuery($sql);
         return $this->connect->loadData();
     }
+
+    public function bannerShow(){
+        $sql = "SELECT * FROM `product_variants`";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData();
+    }
+
+    public function banner_manager(){
+        $sql = "SELECT * FROM `banners`";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData();
+    }
+
+    public function add_banner($banner_id,$name, $link, $Show_is, $image) {
+        $sql = "INSERT INTO `banners` VALUES (?,?, ?, ?, ?)";
+        $this->connect->setQuery($sql); // Chuẩn bị câu lệnh SQL
+        return $this->connect->loadData([$banner_id,$name, $link,  $Show_is, $image]); // Thực thi với tham số
+    }
+
+    public function update_banner($banner_id)
+    {
+        $sql = "UPDATE `categories` SET `link`=?,`name`=?,`Show_Is`=?,`image`=? WHERE `banner_id`=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->execute([$name, $category_id], false);
+    }
+    
+    public function getIdBanner($banner_id){
+        $sql = "SELECT * FROM `banners` WHERE banner_id = ?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$banner_id], false);
+    }
+    
+    public function delete_banner($banner_id){
+        $sql = "DELETE FROM `banners` WHERE banner_id=?";
+        $this->connect->setQuery($sql);
+        return $this->connect->loadData([$banner_id], false);
+    }
 }
