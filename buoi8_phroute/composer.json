@@ -1,0 +1,18 @@
+{
+    "name": "hello/buoi8_phroute",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thanhtu0910",
+            "email": "tuantu091005@gmail.com"
+        }
+    ],
+    "require": {
+        "phroute/phroute": "^2.2"
+    }
+}

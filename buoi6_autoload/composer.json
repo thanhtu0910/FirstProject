@@ -1,0 +1,17 @@
+{
+    "name": "hello/buoi6_autoload",
+    "description": "hehe",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files":["common/function.php"]
+    },
+    "authors": [
+        {
+            "name": "ThreeT"
+        }
+    ],
+    "require": {}
+}
